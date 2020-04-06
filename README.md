@@ -12,17 +12,18 @@
 
 ### Overview
 
-> _Description of the project you'll be building with the objective described in non-technical language_
 
-_**The +Side** is a positivity blog that alternates between a personalized gratitute post/daily positive journal and a good news article._
+_**The +Side** is a positivity blog that alternates between a personalized gratitude post/daily positive journal and a good news article. Users can sign up for an account, sign in, post a blog article/gratitude piece, and add postive news article links. They can also edit these posts and delete them. Beyond this, users can comment on blog posts and news articles. The +Side is built using React front-end and Ruby on Rails back-end. Look at the + side of life!_
 
 <br>
 
-
 ### MVP
 
-> The Minimum Viable Product should be a well-planned and easily-communicated product, ensuring that the client's deliverable will be achievable and meet specifications within the time frame estimated.
-
+- _Sign up_<br>
+- _Sign in_<br>
+- _+ blog post_<br>
+- _+ news article_<br>
+- _Editing and deletion of posts_<br>
 - _Comments section_<br>
 - _Rails Backend (API)_<br>
 - _React Frontend_<br>
@@ -75,10 +76,6 @@ Marvel: (https://marvelapp.com/aced9gb/screen/67892523) <br>
 
 #### Component Hierarchy
 
->_break wireframe components down and describe in a component heirarchy_
-
-> Use this section to define your React components and the data architecture of your app.
-
 ```
 App.js      
 |__ Container/
@@ -110,8 +107,6 @@ App.js
 
 #### Component Estimates
 
-> Use this section to estimate the time necessary to build out each of the components you've described above.
-
 | Task                | Priority | Estimated Time | Actual Time |
 | ------------------- | :------: | :------------: | :---------: |
 | Wireframe           |    H     |     2 hrs      |    2 hrs    |
@@ -134,8 +129,6 @@ App.js
 
 #### Libraries and API Endpoint Documentation
 
-> _Link to API Endpoint documentation (and any other 3rd party libraries you plan on incorporating)_
-
 |     Library                          | Description                                                  |
 | :----------------------------------: | :----------------------------------------------------------- |
 | Rails Documentation                  | _Ruby on Rails Library._                                     |
@@ -153,11 +146,9 @@ App.js
 
 ### Technologies used
 -_Giphy_<br>
--_Giphy_<br>
--_Giphy_<br>
--_Giphy_<br>
--_Giphy_<br>
--_Giphy_<br>
+-_Unsplash_<br>
+-_Marvel App_<br>
+-_draw.io_<br>
 
 <br>
 
