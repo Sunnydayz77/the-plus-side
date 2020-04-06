@@ -4,7 +4,9 @@
 
 ## Project Planning
 
-![Baby Yoda gif](https://media.giphy.com/media/Wn74RUT0vjnoU98Hnt/giphy.gif)<br>
+<br>
+
+![Baby Yoda gif](https://media.giphy.com/media/KziKCpvrGngHbYjaUF/giphy.gif)<br>
 
 <br>
 
