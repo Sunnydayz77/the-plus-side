@@ -154,11 +154,11 @@ App.js
 
 ### List of server-side routes
 
+(fill in)
+
 <br>
 
 ### SWOT Analysis
-
-> _An explanation of the major challenges you expect to face while building this app_
 
 _Strengths going into the project include my design skills and thoroughness in completion of projects. I pride myself on being very detail-oriented. Weaknesses and opportunities include re-learning how functions and classes are written in react. Threats include breaking of auth and back-end code, which I can anticipate for with my task time estimates and reach out to my resources during the project._<br>
 
