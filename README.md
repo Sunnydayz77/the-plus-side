@@ -43,6 +43,7 @@ _**The +Side** is a positivity blog that alternates between a personalized grati
 
 #### Post-MVP Goals
 
+- _Search Bar_<br>
 - _Inspirational Quotes API_<br>
 - _404 Page_<br>
 - _Likes/Dislikes_<br>
@@ -156,19 +157,23 @@ App.js
 
 ```
 blog_show:
-    path:     /blog/{slug}
+    path:     /the-plus-side/:id
     methods:  [GET]
 
 blog_create:
-    path:     /blog/{slug}
+    path:     /the-plus-side
     methods:  [POST]
 
+blog_edit:
+    path:     /the-plus-side/:id/edit
+    methods:  [GET]
+
 blog_update:
-    path:     /blog/{slug}
+    path:     /the-plus-side/:id
     methods:  [PUT]
 
 blog_delete:
-    path:     /blog/{slug}
+    path:     /the-plus-side/:id
     methods:  [DELETE]
 ```
 
