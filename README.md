@@ -187,7 +187,7 @@ _Strengths going into the project include my design skills and thoroughness in c
 
 ## Project Delivery
 
-> The Delivery section should be expanded and revised as you work on your project.
+![Happy Bouncing Parrot](https://media.giphy.com/media/LZElUsjl1Bu6c/giphy.gif)<br>
 
 ### Link to deployed site: 
 
