@@ -155,6 +155,10 @@ App.js
 ### List of server-side routes
 
 ```
+blog_index:
+    path:     /the-plus-side
+    methods:  [GET]
+
 blog_show:
     path:     /the-plus-side/:id
     methods:  [GET]
