@@ -14,7 +14,7 @@
 
 > _Description of the project you'll be building with the objective described in non-technical language_
 
-_**Project Title** is lorem ipsum dolor sit amet. Phasellus dapibus fermentum risus vitae bibendum. Integer vel ipsum mollis odio sollicitudin ornare eu vel ex. In quis fringilla velit, ac maximus quam. Etiam eget placerat neque. Aenean faucibus sem non nisi lobortis ullamcorper._
+_**The +Side** is a positivity blog that alternates between a personalized gratitute post/daily positive journal and a good news article._
 
 <br>
 
@@ -23,8 +23,7 @@ _**Project Title** is lorem ipsum dolor sit amet. Phasellus dapibus fermentum ri
 
 > The Minimum Viable Product should be a well-planned and easily-communicated product, ensuring that the client's deliverable will be achievable and meet specifications within the time frame estimated.
 
-_The **Project Title** MVP lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus dapibus fermentum risus vitae bibendum. Integer vel ipsum mollis odio sollicitudin ornare eu vel ex. In quis fringilla velit, ac maximus quam. Etiam eget placerat neque. Aenean faucibus sem non nisi lobortis ullamcorper._
-
+-_Comments section_<br>
 -_Rails Backend (API)_<br>
 -_React Frontend_<br>
 -_Authentication_<br>
@@ -43,11 +42,9 @@ _The **Project Title** MVP lorem ipsum dolor sit amet, consectetur adipiscing el
 
 #### Post-MVP Goals
 
-- _Lorem ipsum, dolor sit amet,_
-- _consectetur adipiscing elit._
-- _Phasellus dapibus fermentum risus vitae bibendum._
-- _Integer vel ipsum mollis odio sollicitudin ornare eu vel ex._
-- _etc._
+- _Inspirational Quotes API_<br>
+- _404 Page_<br>
+- _Likes/Dislikes_<br>
 
 <br>
 
@@ -56,30 +53,23 @@ _The **Project Title** MVP lorem ipsum dolor sit amet, consectetur adipiscing el
 > _must be hifi (use Adobe XD or another professional mock-up service)_
 _demonstrate the user experience - how will the user interact with the UI of your app?_
 
-
+#### Homepage
 ![Dummy Link](url)
 
-- Desktop Landing
-
+#### Sign Up
 ![Dummy Link](url)
 
-- Desktop Body
-
+#### Sign In
 ![Dummy Link](url)
 
-- Desktop Resource Index
-
+#### User View
 ![Dummy Link](url)
 
-- Desktop Resource Show
-
+#### Create Blog Post & News Articles
 ![Dummy Link](url)
 
-- Tablet Resource Index
-
+#### Edit/Delete Blog Post & News Articles
 ![Dummy Link](url)
-
-- Mobile Resource Index
 
 <br>
 
@@ -91,20 +81,24 @@ _demonstrate the user experience - how will the user interact with the UI of you
 > Use this section to define your React components and the data architecture of your app.
 
 ```
-src
-|__ assets/
-      |__ data-tests
-      |__ fonts
-      |__ graphics
-      |__ images
-      |__ mockups
-|__ components/
+App.js      
+|__ Container/
+      |__ Hompage.jsx
       |__ Header.jsx
-      |__ Hero.jsx
-      |__ Ipsum.jsx
-      |__ Lorem.jsx
-      |__ CTA.jsx
+      |__ Navigation.jsx
       |__ Footer.jsx
+      |__ Sign_Up.jsx
+      |__ Sign_In.jsx
+      |__ User_Feed.jsx
+            |__ Create_Blog_Post.jsx
+            |__ Edit_Blog_Post.jsx          
+            |__ Delete_Blog_Post.jsx
+            |__ Add_News_Article.jsx
+            |__ Edit_News_Article.jsx
+            |__ Delete_News_Article.jsx
+            |__Create_Comment.jsx
+            |__Edit_Comment.jsx
+            |__Delete_Comment.jsx    
 ```
 
 <br>
@@ -145,15 +139,22 @@ Comments:
 
 > Use this section to estimate the time necessary to build out each of the components you've described above.
 
-| Task                | Priority | Estimated Time | Time Invested | Actual Time |
-| ------------------- | :------: | :------------: | :-----------: | :---------: |
-| Add Contact Form    |    L     |     3 hrs      |     2 hrs     |    3 hrs    |
-| Create CRUD Actions |    H     |     3 hrs      |     1 hrs     |     TBD     |
-| TOTAL               |          |     6 hrs      |     3 hrs     |     TBD     |
-
-<br>
-
-> _Why is this necessary? Time frames are key to the development cycle. You have limited time to code your app, and your estimates can then be used to evalute possibilities of your MVP and post-MVP based on time needed. It's best you assume an additional hour for each component, as well as a few hours added to the total time, to play it safe._
+| Task                | Priority | Estimated Time | Actual Time |
+| ------------------- | :------: | :------------: | :---------: |
+| Wireframe           |    H     |     2 hrs      |    2 hrs    |
+| Initial Readme file |    H     |     5 hrs      |    10 hrs   |
+| Authentication      |    H     |     12 hrs     |    TBD      |
+| Header              |    H     |     3 hrs      |    TBD      |
+| Footer              |    H     |     2 hrs      |    TBD      |
+| Main container      |    H     |     5 hrs      |    TBD      |
+| Sign Up             |    H     |     3 hrs      |    TBD      |
+| Sign In             |    H     |     3 hrs      |    TBD      |
+| User Feed Container |    H     |     5 hrs      |    TBD      |
+| CRUD                |    H     |     12 hrs     |    TBD      |
+| Styling             |    H     |     12 hrs     |    TBD      |
+| 404 Page            |    L     |     1 hr       |     TBD     |
+| Final Readme file   |    H     |     2 hrs      |     TBD     |
+| TOTAL               |          |     45 hrs     |     TBD     |   
 
 <br>
 
@@ -162,11 +163,18 @@ Comments:
 
 > _Link to API Endpoint documentation (and any other 3rd party libraries you plan on incorporating)_
 
-|     Library      | Description                                |
-| :--------------: | :----------------------------------------- |
-|   React Router   | _Lorem ipsum dolor sit amet, consectetur._ |
-| React SemanticUI | _Lorem ipsum dolor sit amet, consectetur._ |
-|   React Spring   | _Lorem ipsum dolor sit amet, consectetur._ |
+|     Library                          | Description                                                  |
+| :----------------------------------: | :----------------------------------------------------------- |
+| Rails Documentation                  | _Ruby on Rails Library._                                     |
+| React Router                         | _React Router Library._                                      |
+| CSS Tricks                           | _For help while styling web app._                            |
+| Universal Inspirational Quotes API   | _Third party API used to render quotes into homepage on app._|
+| StackOverflow                        | _For help while writing functional and class components._    |
+| Unsplash                             | _Main header photo._                                         |
+| GIPHY                                | _For videos used on main page, loading spinner, and 404 page._|
+| Surge                                | _For deployment of front-end of web app._                    |
+| Heroku                               | _For deployment of back-end of web app._                     |
+
 
 <br>
 
