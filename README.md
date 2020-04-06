@@ -50,26 +50,25 @@ _**The +Side** is a positivity blog that alternates between a personalized grati
 
 ### Wireframes
 
-> _must be hifi (use Adobe XD or another professional mock-up service)_
-_demonstrate the user experience - how will the user interact with the UI of your app?_
+Marvel: (https://marvelapp.com/aced9gb/screen/67892523) <br>
 
 #### Homepage
-![Dummy Link](url)
+![Homepage](assets/Homepage.png)
 
 #### Sign Up
-![Dummy Link](url)
+![Sign Up Screen](assets/SignUp.png)
 
 #### Sign In
-![Dummy Link](url)
+![Sign In Screen](assets/SignIn.png)
 
 #### User View
-![Dummy Link](url)
+![User View](assets/UserFeed.png)
 
-#### Create Blog Post & News Articles
-![Dummy Link](url)
+#### Create Blog Post & Add News Articles
+![Create Posts](assets/CreatePost.png)
 
 #### Edit/Delete Blog Post & News Articles
-![Dummy Link](url)
+![Edit and Delete Blog Posts and News Articles](assets/Edit&DeletePost.png)
 
 <br>
 
