@@ -154,7 +154,23 @@ App.js
 
 ### List of server-side routes
 
-(fill in)
+```
+blog_show:
+    path:     /blog/{slug}
+    methods:  [GET]
+
+blog_create:
+    path:     /blog/{slug}
+    methods:  [POST]
+
+blog_update:
+    path:     /blog/{slug}
+    methods:  [PUT]
+
+blog_delete:
+    path:     /blog/{slug}
+    methods:  [DELETE]
+```
 
 <br>
 
@@ -175,7 +191,9 @@ _Strengths going into the project include my design skills and thoroughness in c
 
 ### Link to deployed site: 
 
-(Link)<br>
+Surge(front-end): (link) <br>
+
+Heroku(Back-end): (link) <br>
 
 ### Installation Instructions
 
@@ -212,6 +230,9 @@ function reverse(string) {
 
 ### Link to deployed site: 
 
-(Link)<br>
+Surge(front-end): (link) <br>
+
+Heroku(Back-end): (link) <br>
+
 
 ***
