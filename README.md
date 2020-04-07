@@ -101,7 +101,7 @@ App.js
 
 ### ERD (Entity Relationship Diagram)
 
-![Entity Relationship Diagram](assets/Plus_Side_Diagram_One_Post.png)
+![Entity Relationship Diagram](assets/Plus_Side_Diagram_Two_Posts.png)
 
 <br>
 
