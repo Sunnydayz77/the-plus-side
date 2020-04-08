@@ -136,7 +136,7 @@ App.js
 | CSS Tricks                           | _For help while styling web app._                            |
 | Universal Inspirational Quotes API   | _Third party API used to render quotes into homepage on app._|
 | StackOverflow                        | _For help while writing functional and class components._    |
-| Unsplash                             | _Used for wireframing and main header photo._                |
+| Unsplash                             | _For wireframing and main header photo._                     |
 | GIPHY                                | _For videos used on Readme, loading spinner, and 404 page._  |
 | Surge                                | _For deployment of front-end of web app._                    |
 | Heroku                               | _For deployment of back-end of web app._                     |
