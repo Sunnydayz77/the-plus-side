@@ -180,6 +180,18 @@ blog_delete:
     methods:  [DELETE]
 ```
 
+
+|      Prefix     |        Verb        |      URI Pattern     |     Controller#Action      |
+| :-------------: | :----------------: | :------------------: | :------------------------- |
+| auth_login      | POST               | /auth/login(.:format)|   authentication#login     |
+| auth_verify     | GET                |/auth/verify(.:format)|   authentication#verify    |
+| users           | GET                | /users(.:format)     |   users#index              |
+|                 | POST               | /users(.:format)     |   users#create             |
+| user            | GET                | /users/:id(.:format) |   users#show               |
+|                 | PATCH              | /users/:id(.:format) |   users#update             |
+|                 | PUT                | /users/:id(.:format) |   users#update             |
+|                 | DELETE             | /users/:id(.:format) |   users#destroy            |
+
 <br>
 
 ### SWOT Analysis
