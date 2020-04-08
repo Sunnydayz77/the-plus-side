@@ -136,15 +136,15 @@ App.js
 | CSS Tricks                           | _For help while styling web app._                            |
 | Universal Inspirational Quotes API   | _Third party API used to render quotes into homepage on app._|
 | StackOverflow                        | _For help while writing functional and class components._    |
-| Unsplash                             | _Main header photo._                                         |
-| GIPHY                                | _For videos used on main page, loading spinner, and 404 page._|
+| Unsplash                             | _For wireframing and main header photo._                     |
+| GIPHY                                | _For videos used on Readme, loading spinner, and 404 page._  |
 | Surge                                | _For deployment of front-end of web app._                    |
 | Heroku                               | _For deployment of back-end of web app._                     |
 
 
 <br>
 
-### Technologies used
+### Technologies Used
 -_Giphy_<br>
 -_Unsplash_<br>
 -_Marvel App_<br>
@@ -152,33 +152,18 @@ App.js
 
 <br>
 
-### List of server-side routes
+### List of Server-Side Routes
 
-```
-blog_index:
-    path:     /the-plus-side
-    methods:  [GET]
-
-blog_show:
-    path:     /the-plus-side/:id
-    methods:  [GET]
-
-blog_create:
-    path:     /the-plus-side
-    methods:  [POST]
-
-blog_edit:
-    path:     /the-plus-side/:id/edit
-    methods:  [GET]
-
-blog_update:
-    path:     /the-plus-side/:id
-    methods:  [PUT]
-
-blog_delete:
-    path:     /the-plus-side/:id
-    methods:  [DELETE]
-```
+|      Prefix     |        Verb        |      URI Pattern     |     Controller#Action      |
+| :-------------: | :----------------: | :------------------: | :------------------------- |
+| auth_login      | POST               | /auth/login(.:format)|   authentication#login     |
+| auth_verify     | GET                |/auth/verify(.:format)|   authentication#verify    |
+| users           | GET                | /users(.:format)     |   users#index              |
+|                 | POST               | /users(.:format)     |   users#create             |
+| user            | GET                | /users/:id(.:format) |   users#show               |
+|                 | PATCH              | /users/:id(.:format) |   users#update             |
+|                 | PUT                | /users/:id(.:format) |   users#update             |
+|                 | DELETE             | /users/:id(.:format) |   users#destroy            |
 
 <br>
 
