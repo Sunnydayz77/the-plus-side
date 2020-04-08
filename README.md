@@ -111,7 +111,8 @@ App.js
 | ------------------- | :------: | :------------: | :---------: |
 | Wireframe           |    H     |     2 hrs      |    2 hrs    |
 | Initial Readme file |    H     |     5 hrs      |    10 hrs   |
-| Authentication      |    H     |     8 hrs      |    TBD      |
+| Authentication      |    H     |     8 hrs      |    7 hrs    |
+| Backend Models      |    H     |     8 hrs      |    7 hrs    |
 | Header              |    H     |     3 hrs      |    TBD      |
 | Footer              |    H     |     2 hrs      |    TBD      |
 | Main container      |    H     |     5 hrs      |    TBD      |
