@@ -144,7 +144,7 @@ App.js
 
 <br>
 
-### Technologies used
+### Technologies Used
 -_Giphy_<br>
 -_Unsplash_<br>
 -_Marvel App_<br>
@@ -152,34 +152,7 @@ App.js
 
 <br>
 
-### List of server-side routes
-
-```
-blog_index:
-    path:     /the-plus-side
-    methods:  [GET]
-
-blog_show:
-    path:     /the-plus-side/:id
-    methods:  [GET]
-
-blog_create:
-    path:     /the-plus-side
-    methods:  [POST]
-
-blog_edit:
-    path:     /the-plus-side/:id/edit
-    methods:  [GET]
-
-blog_update:
-    path:     /the-plus-side/:id
-    methods:  [PUT]
-
-blog_delete:
-    path:     /the-plus-side/:id
-    methods:  [DELETE]
-```
-
+### List of Server-Side Routes
 
 |      Prefix     |        Verb        |      URI Pattern     |     Controller#Action      |
 | :-------------: | :----------------: | :------------------: | :------------------------- |
