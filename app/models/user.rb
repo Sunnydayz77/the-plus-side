@@ -1,5 +1,9 @@
 class User < ApplicationRecord
   has_secure_password
+  has_many :blog_posts
+  has_many :blog_post_comments, through: :blog_posts
+  has_many :news_articles
+  has_many :news_article_comments, through: :news_articles
 
   validates :username, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true
@@ -11,6 +15,9 @@ class User < ApplicationRecord
       id: id,
       username: username,
       email: email,
+      image_url: image_url,
+      location: location,
+      description: description,
       created_at: created_at,
       updated_at: updated_at
     }

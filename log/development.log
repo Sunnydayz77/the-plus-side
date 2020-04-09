@@ -23861,3 +23861,217 @@ Processing by AuthenticationController#verify as */*
 Completed 200 OK in 26ms (Views: 0.3ms | ActiveRecord: 7.6ms | Allocations: 5550)
 
 
+  [1m[35m (3.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8421727294576812825)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddImageUrlToUsers (20200408163735)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (31.5ms)[0m  [1m[35mALTER TABLE "users" ADD "image_url" character varying[0m
+  [1m[36mprimary::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200408163735"]]
+  [1m[35m (2.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddLocationToUsers (20200408164130)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "location" character varying[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200408164130"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddDescriptionToUsers (20200408164159)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "users" ADD "description" character varying[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200408164159"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(8421727294576812825)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8421727294576812825)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateBlogPosts (20200408185659)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (56.3ms)[0m  [1m[35mCREATE TABLE "blog_posts" ("id" bigserial primary key, "image_url" character varying, "title" character varying, "content" character varying, "user_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_829fc99162"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE  INDEX  "index_blog_posts_on_user_id" ON "blog_posts"  ("user_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200408185659"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateBlogPostComments (20200408190119)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.5ms)[0m  [1m[35mCREATE TABLE "blog_post_comments" ("id" bigserial primary key, "content" character varying, "user_id" bigint NOT NULL, "blog_post_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_506d1f9f0d"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_36823fef8e"
+FOREIGN KEY ("blog_post_id")
+  REFERENCES "blog_posts" ("id")
+)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX  "index_blog_post_comments_on_user_id" ON "blog_post_comments"  ("user_id")[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX  "index_blog_post_comments_on_blog_post_id" ON "blog_post_comments"  ("blog_post_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200408190119"]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateNewsArticles (20200408191010)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.2ms)[0m  [1m[35mCREATE TABLE "news_articles" ("id" bigserial primary key, "image_url" character varying, "title" character varying, "article_url" character varying, "content" character varying, "user_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_6d1d284294"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX  "index_news_articles_on_user_id" ON "news_articles"  ("user_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200408191010"]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateNewsArticleComments (20200408191055)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE TABLE "news_article_comments" ("id" bigserial primary key, "content" character varying, "user_id" bigint NOT NULL, "news_article_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_0a83c0a3df"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_cf7649ec45"
+FOREIGN KEY ("news_article_id")
+  REFERENCES "news_articles" ("id")
+)[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX  "index_news_article_comments_on_user_id" ON "news_article_comments"  ("user_id")[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX  "index_news_article_comments_on_news_article_id" ON "news_article_comments"  ("news_article_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200408191055"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(8421727294576812825)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "JennyP"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jap@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "JennyP"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jap@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (6.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at", "image_url", "location") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "JennyP"], ["email", "jap@gmail.com"], ["password_digest", "$2a$12$uNv3EvX38S2ydprq95eZ1.WH.dzLDue2TXf7eoto8Xl9Vabt6P/2S"], ["created_at", "2020-04-09 02:47:43.401428"], ["updated_at", "2020-04-09 02:47:43.401428"], ["image_url", "https://a57.foxnews.com/media2.foxnews.com/BrightCove/694940094001/2019/10/09/931/524/694940094001_6093411731001_6093412317001-vs.jpg?ve=1&tl=1"], ["location", "Brooklyn, NY"]]
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBlogPost Load (2.3ms)[0m  [1m[34mSELECT "blog_posts".* FROM "blog_posts" WHERE "blog_posts"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mNewsArticle Load (1.4ms)[0m  [1m[34mSELECT "news_articles".* FROM "news_articles" WHERE "news_articles"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mUser Destroy (8.7ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBlogPost Load (0.2ms)[0m  [1m[34mSELECT "blog_posts".* FROM "blog_posts" WHERE "blog_posts"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mNewsArticle Load (0.2ms)[0m  [1m[34mSELECT "news_articles".* FROM "news_articles" WHERE "news_articles"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mUser Destroy (0.5ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 2]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBlogPost Load (0.3ms)[0m  [1m[34mSELECT "blog_posts".* FROM "blog_posts" WHERE "blog_posts"."user_id" = $1[0m  [["user_id", 3]]
+  [1m[36mNewsArticle Load (0.2ms)[0m  [1m[34mSELECT "news_articles".* FROM "news_articles" WHERE "news_articles"."user_id" = $1[0m  [["user_id", 3]]
+  [1m[36mUser Destroy (0.6ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 3]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mBlogPost Load (0.2ms)[0m  [1m[34mSELECT "blog_posts".* FROM "blog_posts"[0m
+  [1m[36mNewsArticle Load (0.2ms)[0m  [1m[34mSELECT "news_articles".* FROM "news_articles"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "JennyP"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jap@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at", "image_url", "location") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "JennyP"], ["email", "jap@gmail.com"], ["password_digest", "$2a$12$DGfULmxaducafP6HrDH7bOori3JRqF3USJ9bGoqd15yyODBr28Jx2"], ["created_at", "2020-04-09 03:14:23.537993"], ["updated_at", "2020-04-09 03:14:23.537993"], ["image_url", "https://a57.foxnews.com/media2.foxnews.com/BrightCove/694940094001/2019/10/09/931/524/694940094001_6093411731001_6093412317001-vs.jpg?ve=1&tl=1"], ["location", "Brooklyn, NY"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBlogPost Load (0.4ms)[0m  [1m[34mSELECT "blog_posts".* FROM "blog_posts" WHERE "blog_posts"."user_id" = $1[0m  [["user_id", 4]]
+  [1m[36mNewsArticle Load (0.4ms)[0m  [1m[34mSELECT "news_articles".* FROM "news_articles" WHERE "news_articles"."user_id" = $1[0m  [["user_id", 4]]
+  [1m[36mUser Destroy (1.5ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 4]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mBlogPost Load (0.3ms)[0m  [1m[34mSELECT "blog_posts".* FROM "blog_posts"[0m
+  [1m[36mNewsArticle Load (0.2ms)[0m  [1m[34mSELECT "news_articles".* FROM "news_articles"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "JennyP"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jap@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at", "image_url", "location") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "JennyP"], ["email", "jap@gmail.com"], ["password_digest", "$2a$12$CiqEnx4iN/cwEVFzCJYpV.2AnNVIVvkTOpXl7qZ0qU6UY/jXYABXa"], ["created_at", "2020-04-09 03:14:55.495805"], ["updated_at", "2020-04-09 03:14:55.495805"], ["image_url", "https://a57.foxnews.com/media2.foxnews.com/BrightCove/694940094001/2019/10/09/931/524/694940094001_6093411731001_6093412317001-vs.jpg?ve=1&tl=1"], ["location", "Brooklyn, NY"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Destroy (3.0ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 5]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mBlogPost Load (0.2ms)[0m  [1m[34mSELECT "blog_posts".* FROM "blog_posts"[0m
+  [1m[36mNewsArticle Load (0.2ms)[0m  [1m[34mSELECT "news_articles".* FROM "news_articles"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "JennyP"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jap@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (2.0ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at", "image_url", "location") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "JennyP"], ["email", "jap@gmail.com"], ["password_digest", "$2a$12$6TjAWf02YJ6ButhCEcwUb.MItRIqPfGiq3927A955NbN6n2ybpAqu"], ["created_at", "2020-04-09 03:18:18.481036"], ["updated_at", "2020-04-09 03:18:18.481036"], ["image_url", "https://a57.foxnews.com/media2.foxnews.com/BrightCove/694940094001/2019/10/09/931/524/694940094001_6093411731001_6093412317001-vs.jpg?ve=1&tl=1"], ["location", "Brooklyn, NY"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Destroy (1.8ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 6]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mBlogPost Load (0.3ms)[0m  [1m[34mSELECT "blog_posts".* FROM "blog_posts"[0m
+  [1m[36mNewsArticle Load (0.3ms)[0m  [1m[34mSELECT "news_articles".* FROM "news_articles"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "JennyP"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jap@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.9ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at", "image_url", "location") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "JennyP"], ["email", "jap@gmail.com"], ["password_digest", "$2a$12$qQ2eG.kdeEB68kcscvHi.uiKbaymMFGNw2LpqYUuAEZ2obFHsP5cK"], ["created_at", "2020-04-09 03:19:11.352696"], ["updated_at", "2020-04-09 03:19:11.352696"], ["image_url", "https://a57.foxnews.com/media2.foxnews.com/BrightCove/694940094001/2019/10/09/931/524/694940094001_6093411731001_6093412317001-vs.jpg?ve=1&tl=1"], ["location", "Brooklyn, NY"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Destroy (1.9ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 7]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mBlogPost Load (0.2ms)[0m  [1m[34mSELECT "blog_posts".* FROM "blog_posts"[0m
+  [1m[36mNewsArticle Load (0.2ms)[0m  [1m[34mSELECT "news_articles".* FROM "news_articles"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "JennyP"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jap@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at", "image_url", "location") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "JennyP"], ["email", "jap@gmail.com"], ["password_digest", "$2a$12$R/ek55.jEKldVc7Bap9sPuRL9w/DvIsAq2iN5RonHWUtF1iwyuowq"], ["created_at", "2020-04-09 03:44:05.554320"], ["updated_at", "2020-04-09 03:44:05.554320"], ["image_url", "https://a57.foxnews.com/media2.foxnews.com/BrightCove/694940094001/2019/10/09/931/524/694940094001_6093411731001_6093412317001-vs.jpg?ve=1&tl=1"], ["location", "Brooklyn, NY"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Destroy (2.1ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 8]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mBlogPost Load (0.4ms)[0m  [1m[34mSELECT "blog_posts".* FROM "blog_posts"[0m
+  [1m[36mNewsArticle Load (0.3ms)[0m  [1m[34mSELECT "news_articles".* FROM "news_articles"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "JennyP"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jap@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at", "image_url", "location") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "JennyP"], ["email", "jap@gmail.com"], ["password_digest", "$2a$12$RknAOmnM43D5AiUujlVzBOS8i3BRb1CN.Je.s5O//1MrZXnpqJeKu"], ["created_at", "2020-04-09 03:44:38.806303"], ["updated_at", "2020-04-09 03:44:38.806303"], ["image_url", "https://a57.foxnews.com/media2.foxnews.com/BrightCove/694940094001/2019/10/09/931/524/694940094001_6093411731001_6093412317001-vs.jpg?ve=1&tl=1"], ["location", "Brooklyn, NY"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Destroy (2.1ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 9]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mBlogPost Load (0.3ms)[0m  [1m[34mSELECT "blog_posts".* FROM "blog_posts"[0m
+  [1m[36mNewsArticle Load (0.2ms)[0m  [1m[34mSELECT "news_articles".* FROM "news_articles"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "JennyP"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jap@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at", "image_url", "location") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "JennyP"], ["email", "jap@gmail.com"], ["password_digest", "$2a$12$cOEFPcbo9CxDLlcXMqAinu.O9d9pJ7pqDdV6ZEWzJDlJIzE8TTdPW"], ["created_at", "2020-04-09 03:45:31.263295"], ["updated_at", "2020-04-09 03:45:31.263295"], ["image_url", "https://a57.foxnews.com/media2.foxnews.com/BrightCove/694940094001/2019/10/09/931/524/694940094001_6093411731001_6093412317001-vs.jpg?ve=1&tl=1"], ["location", "Brooklyn, NY"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Destroy (1.7ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 10]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mBlogPost Load (0.3ms)[0m  [1m[34mSELECT "blog_posts".* FROM "blog_posts"[0m
+  [1m[36mNewsArticle Load (0.2ms)[0m  [1m[34mSELECT "news_articles".* FROM "news_articles"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "JennyP"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jap@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at", "image_url", "location") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "JennyP"], ["email", "jap@gmail.com"], ["password_digest", "$2a$12$xMIov1T/jiF97.G5wl1R5.mUNAcxpQv4bfHvclDnI/21gkMeRZU8y"], ["created_at", "2020-04-09 03:48:00.008250"], ["updated_at", "2020-04-09 03:48:00.008250"], ["image_url", "https://a57.foxnews.com/media2.foxnews.com/BrightCove/694940094001/2019/10/09/931/524/694940094001_6093411731001_6093412317001-vs.jpg?ve=1&tl=1"], ["location", "Brooklyn, NY"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Destroy (3.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 11]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mBlogPost Load (0.3ms)[0m  [1m[34mSELECT "blog_posts".* FROM "blog_posts"[0m
+  [1m[36mNewsArticle Load (0.2ms)[0m  [1m[34mSELECT "news_articles".* FROM "news_articles"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (1.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "JennyP"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jap@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at", "image_url", "location") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "JennyP"], ["email", "jap@gmail.com"], ["password_digest", "$2a$12$q.t4ChZa3axz6Z4YvXKrquFvMeGay1qeWGHJvy2wWiru3CEBQG9Qe"], ["created_at", "2020-04-09 03:52:42.258487"], ["updated_at", "2020-04-09 03:52:42.258487"], ["image_url", "https://a57.foxnews.com/media2.foxnews.com/BrightCove/694940094001/2019/10/09/931/524/694940094001_6093411731001_6093412317001-vs.jpg?ve=1&tl=1"], ["location", "Brooklyn, NY"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
