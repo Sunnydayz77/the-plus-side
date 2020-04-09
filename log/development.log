@@ -24121,3 +24121,82 @@ Completed 201 Created in 304ms (Views: 1.1ms | ActiveRecord: 8.9ms | Allocations
   [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at", "image_url", "location") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "JennyP"], ["email", "jap@gmail.com"], ["password_digest", "$2a$12$VvXyMuwuU9lLIFscoK252u4VD6FPyxWlrRIlTSrrJ2Py7r6zhQyzK"], ["created_at", "2020-04-09 19:30:16.348005"], ["updated_at", "2020-04-09 19:30:16.348005"], ["image_url", "https://hips.hearstapps.com/cosmouk.cdnds.net/16/41/1476291160-jennifer-aniston-friends.jpg"], ["location", "Brooklyn, NY"]]
   [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mBlogPost Load (1.5ms)[0m  [1m[34mSELECT "blog_posts".* FROM "blog_posts"[0m
+  [1m[36mNewsArticle Load (1.3ms)[0m  [1m[34mSELECT "news_articles".* FROM "news_articles"[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Destroy (2.6ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 15]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "JennyP"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jap@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at", "image_url", "location") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "JennyP"], ["email", "jap@gmail.com"], ["password_digest", "$2a$12$/9bog1VoPglxhnsWAelfkOagANPmndtEQR/7gRvN0wweI64ismyyC"], ["created_at", "2020-04-09 21:25:06.140292"], ["updated_at", "2020-04-09 21:25:06.140292"], ["image_url", "https://hips.hearstapps.com/cosmouk.cdnds.net/16/41/1476291160-jennifer-aniston-friends.jpg"], ["location", "Brooklyn, NY"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBlogPost Create (2.2ms)[0m  [1m[32mINSERT INTO "blog_posts" ("image_url", "title", "content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["image_url", "https://images.unsplash.com/photo-1545945774-73922eb27813?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1567&q=80"], ["title", "Things I'm Grateful For Today"], ["content", " 'Cultivate the habit of being grateful for every good thing that comes to you, and to give thanks continuously. And because all things have contributed to your advancement, you should include all things in your gratitude.'\n  ~Ralph Waldo Emerson "], ["user_id", 16], ["created_at", "2020-04-09 21:25:06.173914"], ["updated_at", "2020-04-09 21:25:06.173914"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "blog_posts"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mNewsArticle Create (3.3ms)[0m  [1m[32mINSERT INTO "news_articles" ("image_url", "title", "article_url", "content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["image_url", "https://images.unsplash.com/photo-1484755560615-a4c64e778a6c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1580&q=80"], ["title", "Music Takes 13 Minutes to ‘Release Sadness’ and 9 to Make You Happy, Says New Study"], ["article_url", "https://www.goodnewsnetwork.org/13-minute-musical-prescription-for-anxiety-and-depression/"], ["content", "13 minutes was found to be the optimum listening time in the case of music to relax. This kind of music was characterized with a slow tempo, simple melodies and no lyrics, like Weightless, by Marconi Union.\n\n  That song from this Manchester-based music trio was found to reduce symptoms of anxiety by up to 65%.\n  \n  'Our test subjects reported positive benefits including decreased muscle tension, negative thoughts disappearing, feeling peaceful and contented and being able to sleep better,' exclaimed the study.\n  \n  That’s because 79% had reduced muscle tension, 84% had less negative thoughts, and 82% had a better nights sleep or felt restful & contented."], ["user_id", 16], ["created_at", "2020-04-09 21:25:06.209254"], ["updated_at", "2020-04-09 21:25:06.209254"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "news_articles"[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mBlogPost Load (0.5ms)[0m  [1m[34mSELECT "blog_posts".* FROM "blog_posts"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBlogPostComment Load (0.5ms)[0m  [1m[34mSELECT "blog_post_comments".* FROM "blog_post_comments" WHERE "blog_post_comments"."blog_post_id" = $1[0m  [["blog_post_id", 1]]
+  [1m[36mBlogPost Destroy (2.0ms)[0m  [1m[31mDELETE FROM "blog_posts" WHERE "blog_posts"."id" = $1[0m  [["id", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mNewsArticle Load (0.4ms)[0m  [1m[34mSELECT "news_articles".* FROM "news_articles"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mNewsArticleComment Load (0.4ms)[0m  [1m[34mSELECT "news_article_comments".* FROM "news_article_comments" WHERE "news_article_comments"."news_article_id" = $1[0m  [["news_article_id", 1]]
+  [1m[36mNewsArticle Destroy (1.8ms)[0m  [1m[31mDELETE FROM "news_articles" WHERE "news_articles"."id" = $1[0m  [["id", 1]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Destroy (0.9ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 16]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "JennyP"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jap@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at", "image_url", "location") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "JennyP"], ["email", "jap@gmail.com"], ["password_digest", "$2a$12$fW2bjljYYCnUYbJ/hhJyOOJ.Qp3/r1tRyxFSt3pdXbj7b2nJ4xO6C"], ["created_at", "2020-04-09 21:34:20.768591"], ["updated_at", "2020-04-09 21:34:20.768591"], ["image_url", "https://hips.hearstapps.com/cosmouk.cdnds.net/16/41/1476291160-jennifer-aniston-friends.jpg"], ["location", "Brooklyn, NY"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBlogPost Create (0.8ms)[0m  [1m[32mINSERT INTO "blog_posts" ("image_url", "title", "content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["image_url", "https://images.unsplash.com/photo-1545945774-73922eb27813?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1567&q=80"], ["title", "Things I'm Grateful For Today"], ["content", " 'Cultivate the habit of being grateful for every good thing that comes to you, and to give thanks continuously. And because all things have contributed to your advancement, you should include all things in your gratitude.'\n  ~Ralph Waldo Emerson "], ["user_id", 17], ["created_at", "2020-04-09 21:34:20.777413"], ["updated_at", "2020-04-09 21:34:20.777413"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "blog_posts"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mNewsArticle Create (0.5ms)[0m  [1m[32mINSERT INTO "news_articles" ("image_url", "title", "article_url", "content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["image_url", "https://images.unsplash.com/photo-1484755560615-a4c64e778a6c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1580&q=80"], ["title", "Music Takes 13 Minutes to ‘Release Sadness’ and 9 to Make You Happy, Says New Study"], ["article_url", "https://www.goodnewsnetwork.org/13-minute-musical-prescription-for-anxiety-and-depression/"], ["content", "13 minutes was found to be the optimum listening time in the case of music to relax. This kind of music was characterized with a slow tempo, simple melodies and no lyrics, like Weightless, by Marconi Union.\n\n  That song from this Manchester-based music trio was found to reduce symptoms of anxiety by up to 65%.\n  \n  'Our test subjects reported positive benefits including decreased muscle tension, negative thoughts disappearing, feeling peaceful and contented and being able to sleep better,' exclaimed the study.\n  \n  That’s because 79% had reduced muscle tension, 84% had less negative thoughts, and 82% had a better nights sleep or felt restful & contented."], ["user_id", 17], ["created_at", "2020-04-09 21:34:20.784631"], ["updated_at", "2020-04-09 21:34:20.784631"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "news_articles"[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mBlogPost Load (0.7ms)[0m  [1m[34mSELECT "blog_posts".* FROM "blog_posts"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBlogPostComment Load (0.6ms)[0m  [1m[34mSELECT "blog_post_comments".* FROM "blog_post_comments" WHERE "blog_post_comments"."blog_post_id" = $1[0m  [["blog_post_id", 2]]
+  [1m[36mBlogPost Destroy (0.6ms)[0m  [1m[31mDELETE FROM "blog_posts" WHERE "blog_posts"."id" = $1[0m  [["id", 2]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mNewsArticle Load (0.5ms)[0m  [1m[34mSELECT "news_articles".* FROM "news_articles"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mNewsArticleComment Load (0.4ms)[0m  [1m[34mSELECT "news_article_comments".* FROM "news_article_comments" WHERE "news_article_comments"."news_article_id" = $1[0m  [["news_article_id", 2]]
+  [1m[36mNewsArticle Destroy (0.4ms)[0m  [1m[31mDELETE FROM "news_articles" WHERE "news_articles"."id" = $1[0m  [["id", 2]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Destroy (0.9ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 17]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "JennyP"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jap@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at", "image_url", "location") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "JennyP"], ["email", "jap@gmail.com"], ["password_digest", "$2a$12$gc6x4Ka.r4aMQPj298HXcuxad2XqvqMckIfLT.sRDwIJMSKthFLMa"], ["created_at", "2020-04-09 21:34:44.707830"], ["updated_at", "2020-04-09 21:34:44.707830"], ["image_url", "https://hips.hearstapps.com/cosmouk.cdnds.net/16/41/1476291160-jennifer-aniston-friends.jpg"], ["location", "Brooklyn, NY"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBlogPost Create (1.7ms)[0m  [1m[32mINSERT INTO "blog_posts" ("image_url", "title", "content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["image_url", "https://images.unsplash.com/photo-1545945774-73922eb27813?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1567&q=80"], ["title", "Things I'm Grateful For Today"], ["content", " 'Cultivate the habit of being grateful for every good thing that comes to you, and to give thanks continuously. And because all things have contributed to your advancement, you should include all things in your gratitude.'\n  ~Ralph Waldo Emerson "], ["user_id", 18], ["created_at", "2020-04-09 21:34:44.713696"], ["updated_at", "2020-04-09 21:34:44.713696"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "blog_posts"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mNewsArticle Create (0.4ms)[0m  [1m[32mINSERT INTO "news_articles" ("image_url", "title", "article_url", "content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["image_url", "https://images.unsplash.com/photo-1484755560615-a4c64e778a6c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1580&q=80"], ["title", "Music Takes 13 Minutes to ‘Release Sadness’ and 9 to Make You Happy, Says New Study"], ["article_url", "https://www.goodnewsnetwork.org/13-minute-musical-prescription-for-anxiety-and-depression/"], ["content", "13 minutes was found to be the optimum listening time in the case of music to relax. This kind of music was characterized with a slow tempo, simple melodies and no lyrics, like Weightless, by Marconi Union.\n\n  That song from this Manchester-based music trio was found to reduce symptoms of anxiety by up to 65%.\n  \n  'Our test subjects reported positive benefits including decreased muscle tension, negative thoughts disappearing, feeling peaceful and contented and being able to sleep better,' exclaimed the study.\n  \n  That’s because 79% had reduced muscle tension, 84% had less negative thoughts, and 82% had a better nights sleep or felt restful & contented."], ["user_id", 18], ["created_at", "2020-04-09 21:34:44.720866"], ["updated_at", "2020-04-09 21:34:44.720866"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "news_articles"[0m
