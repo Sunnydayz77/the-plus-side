@@ -1,5 +1,6 @@
 class NewsArticlesController < ApplicationController
-  before_action :set_news_article, only: [:show, :update, :destroy]
+  before_action :set_news_article, only: [:show, :update, :destroy, :add_news_article_comment]
+  before_action :authorize_request, only: [:create, :update, :destroy, :add_news_article_comment]
 
   # GET /news_articles
   def index
@@ -36,6 +37,13 @@ class NewsArticlesController < ApplicationController
   # DELETE /news_articles/1
   def destroy
     @news_article.destroy
+  end
+
+  # POST / news_article_comments
+  def add_news_article_comment
+    @news_article_comment = NewsArticleComment.find(params[:news_article_comment_id])
+    @news_article.news_article_commments << @news_article_comment
+    render json: @news_article, include: :news_article_comments
   end
 
   private

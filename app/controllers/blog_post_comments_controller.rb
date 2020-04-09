@@ -1,5 +1,6 @@
 class BlogPostCommentsController < ApplicationController
   before_action :set_blog_post_comment, only: [:show, :update, :destroy]
+  before_action :authorize_request, only: [:create, :update, :destroy]
 
   # GET /blog_post_comments
   def index
