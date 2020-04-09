@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get '/auth/verify', to: 'authentication#verify'
 
   resources :users
-  
+
   resources :news_articles do
     resources :news_article_comments
     end

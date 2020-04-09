@@ -10,15 +10,19 @@ User.destroy_all
 BlogPost.destroy_all
 NewsArticle.destroy_all
  
+
+
 User.create!(
   username: "JennyP",
   email: "jap@gmail.com",
   password: "123456",
-  image_url: "https://a57.foxnews.com/media2.foxnews.com/BrightCove/694940094001/2019/10/09/931/524/694940094001_6093411731001_6093412317001-vs.jpg?ve=1&tl=1",
+  image_url: "https://hips.hearstapps.com/cosmouk.cdnds.net/16/41/1476291160-jennifer-aniston-friends.jpg",
   location: "Brooklyn, NY",
 )
 
 p "#{User.count} user(s) was/were created."
+
+
 
 BlogPost.create!(
   image_url: "https://images.unsplash.com/photo-1545945774-73922eb27813?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1567&q=80",
@@ -28,6 +32,8 @@ BlogPost.create!(
 )
 
 p "#{BlogPost.count} blog post(s) was/were created."
+
+
 
 NewsArticle.create!(
   image_url: "https://images.unsplash.com/photo-1484755560615-a4c64e778a6c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1580&q=80",

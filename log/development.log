@@ -24088,3 +24088,36 @@ FOREIGN KEY ("news_article_id")
   [1m[36mUser Create (1.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at", "image_url", "location") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "JennyP"], ["email", "jap@gmail.com"], ["password_digest", "$2a$12$OH2dFiMfbqVzGmZx.cKnmOWvc1QPrL4.wJMGG1BSEpMXn9fDpQdqW"], ["created_at", "2020-04-09 19:02:17.471364"], ["updated_at", "2020-04-09 19:02:17.471364"], ["image_url", "https://a57.foxnews.com/media2.foxnews.com/BrightCove/694940094001/2019/10/09/931/524/694940094001_6093411731001_6093412317001-vs.jpg?ve=1&tl=1"], ["location", "Brooklyn, NY"]]
   [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+Started POST "/users" for ::1 at 2020-04-09 15:27:48 -0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"username"=>"mango2", "email"=>"mango2@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "mango2"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mango2@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[36mUser Create (2.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "mango2"], ["email", "mango2@gmail.com"], ["password_digest", "$2a$12$5F65OCmGsMOHOTjjCRjT2u7d2R860mTCFMo3QrWR3cmeF.pu8AbQS"], ["created_at", "2020-04-09 19:27:49.318404"], ["updated_at", "2020-04-09 19:27:49.318404"]]
+  ↳ app/controllers/users_controller.rb:20:in `create'
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:20:in `create'
+Completed 201 Created in 304ms (Views: 1.1ms | ActiveRecord: 8.9ms | Allocations: 11773)
+
+
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Destroy (1.8ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 13]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Destroy (0.5ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 14]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mBlogPost Load (0.3ms)[0m  [1m[34mSELECT "blog_posts".* FROM "blog_posts"[0m
+  [1m[36mNewsArticle Load (1.4ms)[0m  [1m[34mSELECT "news_articles".* FROM "news_articles"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "JennyP"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jap@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at", "image_url", "location") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "JennyP"], ["email", "jap@gmail.com"], ["password_digest", "$2a$12$VvXyMuwuU9lLIFscoK252u4VD6FPyxWlrRIlTSrrJ2Py7r6zhQyzK"], ["created_at", "2020-04-09 19:30:16.348005"], ["updated_at", "2020-04-09 19:30:16.348005"], ["image_url", "https://hips.hearstapps.com/cosmouk.cdnds.net/16/41/1476291160-jennifer-aniston-friends.jpg"], ["location", "Brooklyn, NY"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
