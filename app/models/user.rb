@@ -1,5 +1,7 @@
 class User < ApplicationRecord
   has_secure_password
+  has_many :blog_posts, dependent: :destroy
+  has_many :news_articles, dependent: :destroy
 
   validates :username, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true

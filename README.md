@@ -123,7 +123,7 @@ App.js
 | Styling             |    H     |     12 hrs     |    TBD      |
 | 404 Page            |    L     |     1 hr       |     TBD     |
 | Final Readme file   |    H     |     2 hrs      |     TBD     |
-| TOTAL               |          |     60 hrs     |     TBD     |   
+| TOTAL               |          |     68 hrs     |     TBD     |   
 
 <br>
 
