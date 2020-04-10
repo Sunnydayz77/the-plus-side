@@ -4,11 +4,14 @@ export default function NewsArticleIndex(props) {
   return (
     <div>
       <h2> News Article List:</h2>
-      {/* {props.news_article.map((article) => (
+      {props.news_articles.map((article) => (
         <div key={article.id}>
-         <h3>{article.tite}</h3>
+          <img src={article.image_url}/>
+          <h3>{article.title}</h3>
+          <h4>{article.article_url}</h4>
+          <p>{article.content}</p>
         </div>
-      ))} */}
+      ))}
     </div>
   )
 }

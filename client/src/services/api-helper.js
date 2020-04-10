@@ -51,7 +51,9 @@ export const removeToken = () => {
 // ============= News Articles =================
 
 export const readAllArticles = async () => {
+  console.log("response")
   const resp = await api.get('/news_articles');
+  console.log(resp)
   return resp.data;
 }
 
