@@ -24200,3 +24200,18 @@ Completed 201 Created in 304ms (Views: 1.1ms | ActiveRecord: 8.9ms | Allocations
   [1m[36mNewsArticle Create (0.4ms)[0m  [1m[32mINSERT INTO "news_articles" ("image_url", "title", "article_url", "content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["image_url", "https://images.unsplash.com/photo-1484755560615-a4c64e778a6c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1580&q=80"], ["title", "Music Takes 13 Minutes to ‘Release Sadness’ and 9 to Make You Happy, Says New Study"], ["article_url", "https://www.goodnewsnetwork.org/13-minute-musical-prescription-for-anxiety-and-depression/"], ["content", "13 minutes was found to be the optimum listening time in the case of music to relax. This kind of music was characterized with a slow tempo, simple melodies and no lyrics, like Weightless, by Marconi Union.\n\n  That song from this Manchester-based music trio was found to reduce symptoms of anxiety by up to 65%.\n  \n  'Our test subjects reported positive benefits including decreased muscle tension, negative thoughts disappearing, feeling peaceful and contented and being able to sleep better,' exclaimed the study.\n  \n  That’s because 79% had reduced muscle tension, 84% had less negative thoughts, and 82% had a better nights sleep or felt restful & contented."], ["user_id", 18], ["created_at", "2020-04-09 21:34:44.720866"], ["updated_at", "2020-04-09 21:34:44.720866"]]
   [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "news_articles"[0m
+Started GET "/news_articles" for ::1 at 2020-04-10 10:21:45 -0400
+  [1m[35m (4.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by NewsArticlesController#index as HTML
+  [1m[36mNewsArticle Load (11.5ms)[0m  [1m[34mSELECT "news_articles".* FROM "news_articles"[0m
+  ↳ app/controllers/news_articles_controller.rb:9:in `index'
+Completed 200 OK in 44ms (Views: 9.0ms | ActiveRecord: 21.2ms | Allocations: 8174)
+
+
+Started GET "/blog_posts" for ::1 at 2020-04-10 10:21:45 -0400
+Processing by BlogPostsController#index as HTML
+  [1m[36mBlogPost Load (1.7ms)[0m  [1m[34mSELECT "blog_posts".* FROM "blog_posts"[0m
+  ↳ app/controllers/blog_posts_controller.rb:9:in `index'
+Completed 200 OK in 14ms (Views: 7.6ms | ActiveRecord: 3.9ms | Allocations: 6243)
+
+

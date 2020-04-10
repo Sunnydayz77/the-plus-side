@@ -208,6 +208,7 @@ Strengths going into the project include my design skills and thoroughness in co
 ## Project Delivery
 
 ![Happy Bouncing Parrot](https://media.giphy.com/media/LZElUsjl1Bu6c/giphy.gif)<br>
+<h2>Wooo! Project is complete and graduation is around the corner!!</h2>
 
 ### Link to deployed site: 
 
