@@ -222,7 +222,16 @@ Heroku(Back-end): (link) <br>
 
 ### Installation Instructions
 
-_Installation instructions_<br>
+1. Clone repository down with 'git clone https://github.com/Sunnydayz77/the-plus-side.git'
+2. CD into repository
+3. Run 'bundle install'
+4. Run 'rails db:create'
+5. Run 'rails db:seed'
+6. Run 'rails server' on 'http://localhost:3000/'
+7. Create new terminal tab with 'command' + 't' on mac
+8. CD in to client repository
+9. Run 'npm install'
+10. Run 'npm start' on 'http://localhost:3001/'
 
 
 #### Helper Functions
@@ -236,8 +245,6 @@ _Installation instructions_<br>
 
 ### Code Showcase
 
-> Use this section to include a brief code snippet of functionality that you are proud of an a brief description  
-
 ```
 function reverse(string) {
 	// here is the code to reverse a string of text
@@ -245,8 +252,6 @@ function reverse(string) {
 ```
 
 ### Code Issues & Resolutions
-
-> Use this section to list of all major issues encountered and their resolution.
 
 | Error                                                                          | Resolution                                                                     |
 | :----------------------------------------------------------------------------: | :----------------------------------------------------------------------------: |
