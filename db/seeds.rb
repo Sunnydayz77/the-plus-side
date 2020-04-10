@@ -6,28 +6,35 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.destroy_all
+
 BlogPost.destroy_all
 NewsArticle.destroy_all
- 
-User.create!(
+User.destroy_all
+
+
+user1 = User.create!(
   username: "JennyP",
   email: "jap@gmail.com",
   password: "123456",
-  image_url: "https://a57.foxnews.com/media2.foxnews.com/BrightCove/694940094001/2019/10/09/931/524/694940094001_6093411731001_6093412317001-vs.jpg?ve=1&tl=1",
+  image_url: "https://hips.hearstapps.com/cosmouk.cdnds.net/16/41/1476291160-jennifer-aniston-friends.jpg",
   location: "Brooklyn, NY",
 )
 
-p "#{User.count} user(s) was/were created."
+p "#{User.count} user was created!"
+
+
 
 BlogPost.create!(
   image_url: "https://images.unsplash.com/photo-1545945774-73922eb27813?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1567&q=80",
   title: "Things I'm Grateful For Today",
   content: " 'Cultivate the habit of being grateful for every good thing that comes to you, and to give thanks continuously. And because all things have contributed to your advancement, you should include all things in your gratitude.'
-  ~Ralph Waldo Emerson "
+  ~Ralph Waldo Emerson ",
+  user: user1
 )
 
-p "#{BlogPost.count} blog post(s) was/were created."
+p "#{BlogPost.count} blog post was created!"
+
+
 
 NewsArticle.create!(
   image_url: "https://images.unsplash.com/photo-1484755560615-a4c64e778a6c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1580&q=80",
@@ -39,7 +46,9 @@ NewsArticle.create!(
   
   'Our test subjects reported positive benefits including decreased muscle tension, negative thoughts disappearing, feeling peaceful and contented and being able to sleep better,' exclaimed the study.
   
-  That’s because 79% had reduced muscle tension, 84% had less negative thoughts, and 82% had a better nights sleep or felt restful & contented."
+  That’s because 79% had reduced muscle tension, 84% had less negative thoughts, and 82% had a better nights sleep or felt restful & contented.",
+
+  user: user1
 )
 
-p "#{NewsArticle.count} news article(s) was/were created."
+p "#{NewsArticle.count} news article was created!"

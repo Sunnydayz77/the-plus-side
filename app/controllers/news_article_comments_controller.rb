@@ -1,5 +1,6 @@
 class NewsArticleCommentsController < ApplicationController
   before_action :set_news_article_comment, only: [:show, :update, :destroy]
+  before_action :authorize_request, only: [:create, :update, :destroy]
 
   # GET /news_article_comments
   def index

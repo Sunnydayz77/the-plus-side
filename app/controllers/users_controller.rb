@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :update, :destroy]
+  before_action :set_user, only: [:show, :update, :destroy, :add_blog_post, :add_news_article]
 
   # GET /users
   def index
@@ -37,6 +37,20 @@ class UsersController < ApplicationController
   # DELETE /users/1
   def destroy
     @user.destroy
+  end
+
+  # POST / blog_posts
+  def add_blog_post
+    @blog_post = BlogPost.find(params[:blog_post_id])
+    @user.blog_posts << @blog_post
+    render json: @user, include: :blog_posts
+  end
+
+  # POST / news_articles
+  def add_news_article
+    @news_article = NewsArticle.find(params[:news_article_id])
+    @user.news_articles << @news_article
+    render json: @user, include: :news_articles
   end
 
   private

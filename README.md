@@ -112,7 +112,8 @@ App.js
 | Wireframe           |    H     |     2 hrs      |    2 hrs    |
 | Initial Readme file |    H     |     5 hrs      |    10 hrs   |
 | Authentication      |    H     |     8 hrs      |    7 hrs    |
-| Backend Models      |    H     |     8 hrs      |    TBD      |
+| Backend Models      |    H     |     8 hrs      |    8 hrs    |
+| API routes          |    H     |     5 hrs      |    4 hrs    |
 | Header              |    H     |     3 hrs      |    TBD      |
 | Footer              |    H     |     2 hrs      |    TBD      |
 | Main container      |    H     |     5 hrs      |    TBD      |
@@ -123,7 +124,7 @@ App.js
 | Styling             |    H     |     12 hrs     |    TBD      |
 | 404 Page            |    L     |     1 hr       |     TBD     |
 | Final Readme file   |    H     |     2 hrs      |     TBD     |
-| TOTAL               |          |     68 hrs     |     TBD     |   
+| TOTAL               |          |     73 hrs     |     TBD     |   
 
 <br>
 
@@ -155,16 +156,41 @@ App.js
 
 ### List of Server-Side Routes
 
-|      Prefix     |        Verb        |      URI Pattern     |     Controller#Action      |
-| :-------------: | :----------------: | :------------------: | :------------------------- |
-| auth_login      | POST               | /auth/login(.:format)|   authentication#login     |
-| auth_verify     | GET                |/auth/verify(.:format)|   authentication#verify    |
-| users           | GET                | /users(.:format)     |   users#index              |
-|                 | POST               | /users(.:format)     |   users#create             |
-| user            | GET                | /users/:id(.:format) |   users#show               |
-|                 | PATCH              | /users/:id(.:format) |   users#update             |
-|                 | PUT                | /users/:id(.:format) |   users#update             |
-|                 | DELETE             | /users/:id(.:format) |   users#destroy            |
+|         Prefix       |   Verb   |                           URI Pattern                              |     Controller#Action         |
+| :-------------------:| :------: | :----------------------------------------------------------------: | :---------------------------: |
+| auth_login           | POST     | /auth/login(.:format)                                              |  authentication#login         |
+| auth_verify          | GET      | /auth/verify(.:format)                                             |  authentication#verify        |
+| users                | GET      | /users(.:format)                                                   |  users#index                  |
+|                      | POST     | /users(.:format)                                                   |  users#create                 |
+| user                 | GET      | /users/:id(.:format)                                               |  users#show                   |
+|                      | PATCH    | /users/:id(.:format)                                               |  users#update                 |
+|                      | PUT      | /users/:id(.:format)                                               |  users#update                 |
+|                      | DELETE   | /users/:id(.:format)                                               |  users#destroy                |
+| news_article_comments| GET      | /news_articles/:news_article_id/news_article_comments(.:format)    |  news_article_comments#index  |
+|                      | POST     | /news_articles/:news_article_id/news_article_comments(.:format)    |  news_article_comments#create |
+| news_article_comment | GET      | /news_articles/:news_article_id/news_article_comments/:id(.:format)|  news_article_comments#show   |
+|                      | PATCH    | /news_articles/:news_article_id/news_article_comments/:id(.:format)|  news_article_comments#update |
+|                      | PUT      | /news_articles/:news_article_id/news_article_comments/:id(.:format)|  news_article_comments#update |
+|                      | DELETE   | /news_articles/:news_article_id/news_article_comments/:id(.:format)|  news_article_comments#destroy|
+| news_articles        | GET      | /news_articles(.:format)                                           |  news_articles#index          |
+|                      | POST     | /news_articles(.:format)                                           |  news_articles#create         |
+| news_article         | GET      | /news_articles/:id(.:format)                                       |  news_articles#show           |
+|                      | PATCH    | /news_articles/:id(.:format)                                       |  news_articles#update         |
+|                      | PUT      | /news_articles/:id(.:format)                                       |  news_articles#update         |
+|                      | DELETE   | /news_articles/:id(.:format)                                       |  news_articles#destroy        |
+| blog_post_comments   | GET      | /blog_posts/:blog_post_id/blog_post_comments(.:format)             |  blog_post_comments#index     |
+|                      | POST     | /blog_posts/:blog_post_id/blog_post_comments(.:format)             |  blog_post_comments#create    |
+| blog_post_comment    | GET      | /blog_posts/:blog_post_id/blog_post_comments/:id(.:format)         |  blog_post_comments#show      |
+|                      | PATCH    | /blog_posts/:blog_post_id/blog_post_comments/:id(.:format)         |  blog_post_comments#update    |
+|                      | PUT      | /blog_posts/:blog_post_id/blog_post_comments/:id(.:format)         |  blog_post_comments#update    |
+|                      | DELETE   | /blog_posts/:blog_post_id/blog_post_comments/:id(.:format)         |  blog_post_comments#destroy   |
+| blog_posts           | GET      | /blog_posts(.:format)                                              |  blog_posts#index             |
+|                      | POST     | /blog_posts(.:format)                                              |  blog_posts#create            |
+| blog_post            | GET      | /blog_posts/:id(.:format)                                          |  blog_posts#show              |
+|                      | PATCH    | /blog_posts/:id(.:format)                                          |  blog_posts#update            |
+|                      | PUT      | /blog_posts/:id(.:format)                                          |  blog_posts#update            |
+|                      | DELETE   | /blog_posts/:id(.:format)                                          |  blog_posts#destroy           |
+
 
 <br>
 
@@ -217,9 +243,9 @@ function reverse(string) {
 
 > Use this section to list of all major issues encountered and their resolution.
 
-| Error                                                   | Resolution                                             |
-| :------------------------------------------------------ | :----------------------------------------------------- |
-| `app.js:34 Uncaught SyntaxError: Unexpected identifier` | Missing comma after first object in sources {} object. |
+| Error                                                                         | Resolution                                                     |
+| :---------------------------------------------------------------------------- | :------------------------------------------------------------- |
+| `seeds.rb:27:ActiveRecord::RecordInvalid: Validation failed: User must exist` | Needed to create a user association in seed file (user: user1) |
 
 
 ### Link to deployed site: 

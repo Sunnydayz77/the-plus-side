@@ -1,5 +1,6 @@
 class BlogPostsController < ApplicationController
-  before_action :set_blog_post, only: [:show, :update, :destroy]
+  before_action :set_blog_post, only: [:show, :update, :destroy, :add_blog_post_comment]
+  before_action :authorize_request, only: [:create, :update, :destroy, :add_blog_post_comment]
 
   # GET /blog_posts
   def index
@@ -36,6 +37,13 @@ class BlogPostsController < ApplicationController
   # DELETE /blog_posts/1
   def destroy
     @blog_post.destroy
+  end
+
+  # POST / blog_post_comments
+  def add_blog_post_comment
+    @blog_post_comment = BlogPostComment.find(params[:blog_post_comment_id])
+    @blog_post.blog_post_commments << @blog_post_comment
+    render json: @blog_post, include: :blog_post_comments
   end
 
   private
