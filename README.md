@@ -229,7 +229,7 @@ Heroku(Back-end): (link) <br>
 5. Run 'rails db:seed'
 6. Run 'rails server' on 'http://localhost:3000/'
 7. Create new terminal tab with 'command' + 't' on mac
-8. CD in to client repository
+8. CD in to client folder
 9. Run 'npm install'
 10. Run 'npm start' on 'http://localhost:3001/'
 
