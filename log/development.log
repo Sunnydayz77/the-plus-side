@@ -24243,3 +24243,186 @@ Processing by BlogPostsController#index as HTML
 Completed 200 OK in 8ms (Views: 7.5ms | ActiveRecord: 0.3ms | Allocations: 963)
 
 
+Started GET "/news_articles" for ::1 at 2020-04-10 13:10:24 -0400
+Processing by NewsArticlesController#index as HTML
+  [1m[36mNewsArticle Load (6.7ms)[0m  [1m[34mSELECT "news_articles".* FROM "news_articles"[0m
+  ↳ app/controllers/news_articles_controller.rb:9:in `index'
+Completed 200 OK in 54ms (Views: 37.4ms | ActiveRecord: 6.7ms | Allocations: 1058)
+
+
+Started GET "/blog_posts" for ::1 at 2020-04-10 13:10:25 -0400
+Processing by BlogPostsController#index as HTML
+  [1m[36mBlogPost Load (0.8ms)[0m  [1m[34mSELECT "blog_posts".* FROM "blog_posts"[0m
+  ↳ app/controllers/blog_posts_controller.rb:9:in `index'
+Completed 200 OK in 8ms (Views: 5.9ms | ActiveRecord: 0.8ms | Allocations: 963)
+
+
+Started GET "/news_articles" for ::1 at 2020-04-10 13:10:35 -0400
+Processing by NewsArticlesController#index as HTML
+  [1m[36mNewsArticle Load (0.3ms)[0m  [1m[34mSELECT "news_articles".* FROM "news_articles"[0m
+  ↳ app/controllers/news_articles_controller.rb:9:in `index'
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.3ms | Allocations: 1005)
+
+
+Started GET "/blog_posts" for ::1 at 2020-04-10 13:10:36 -0400
+Processing by BlogPostsController#index as HTML
+  [1m[36mBlogPost Load (0.3ms)[0m  [1m[34mSELECT "blog_posts".* FROM "blog_posts"[0m
+  ↳ app/controllers/blog_posts_controller.rb:9:in `index'
+Completed 200 OK in 8ms (Views: 7.8ms | ActiveRecord: 0.3ms | Allocations: 963)
+
+
+Started GET "/news_articles" for ::1 at 2020-04-10 13:12:46 -0400
+Processing by NewsArticlesController#index as HTML
+  [1m[36mNewsArticle Load (0.4ms)[0m  [1m[34mSELECT "news_articles".* FROM "news_articles"[0m
+  ↳ app/controllers/news_articles_controller.rb:9:in `index'
+Completed 200 OK in 17ms (Views: 12.0ms | ActiveRecord: 0.4ms | Allocations: 986)
+
+
+Started GET "/blog_posts" for ::1 at 2020-04-10 13:12:47 -0400
+Processing by BlogPostsController#index as HTML
+  [1m[36mBlogPost Load (0.6ms)[0m  [1m[34mSELECT "blog_posts".* FROM "blog_posts"[0m
+  ↳ app/controllers/blog_posts_controller.rb:9:in `index'
+Completed 200 OK in 8ms (Views: 7.4ms | ActiveRecord: 0.6ms | Allocations: 963)
+
+
+Started GET "/news_articles" for ::1 at 2020-04-10 13:12:52 -0400
+Processing by NewsArticlesController#index as HTML
+  [1m[36mNewsArticle Load (0.3ms)[0m  [1m[34mSELECT "news_articles".* FROM "news_articles"[0m
+  ↳ app/controllers/news_articles_controller.rb:9:in `index'
+Completed 200 OK in 4ms (Views: 2.5ms | ActiveRecord: 0.3ms | Allocations: 986)
+
+
+Started GET "/blog_posts" for ::1 at 2020-04-10 13:12:52 -0400
+Processing by BlogPostsController#index as HTML
+  [1m[36mBlogPost Load (0.3ms)[0m  [1m[34mSELECT "blog_posts".* FROM "blog_posts"[0m
+  ↳ app/controllers/blog_posts_controller.rb:9:in `index'
+Completed 200 OK in 9ms (Views: 7.1ms | ActiveRecord: 0.3ms | Allocations: 963)
+
+
+Started GET "/news_articles" for ::1 at 2020-04-10 13:16:39 -0400
+Processing by NewsArticlesController#index as HTML
+  [1m[36mNewsArticle Load (1.2ms)[0m  [1m[34mSELECT "news_articles".* FROM "news_articles"[0m
+  ↳ app/controllers/news_articles_controller.rb:9:in `index'
+Completed 200 OK in 12ms (Views: 10.2ms | ActiveRecord: 1.2ms | Allocations: 986)
+
+
+Started GET "/blog_posts" for ::1 at 2020-04-10 13:16:39 -0400
+Processing by BlogPostsController#index as HTML
+  [1m[36mBlogPost Load (0.4ms)[0m  [1m[34mSELECT "blog_posts".* FROM "blog_posts"[0m
+  ↳ app/controllers/blog_posts_controller.rb:9:in `index'
+Completed 200 OK in 12ms (Views: 8.7ms | ActiveRecord: 0.4ms | Allocations: 963)
+
+
+Started GET "/news_articles" for ::1 at 2020-04-10 13:16:44 -0400
+Processing by NewsArticlesController#index as HTML
+  [1m[36mNewsArticle Load (0.2ms)[0m  [1m[34mSELECT "news_articles".* FROM "news_articles"[0m
+  ↳ app/controllers/news_articles_controller.rb:9:in `index'
+Completed 200 OK in 5ms (Views: 4.9ms | ActiveRecord: 0.2ms | Allocations: 986)
+
+
+Started GET "/blog_posts" for ::1 at 2020-04-10 13:16:44 -0400
+Processing by BlogPostsController#index as HTML
+  [1m[36mBlogPost Load (0.3ms)[0m  [1m[34mSELECT "blog_posts".* FROM "blog_posts"[0m
+  ↳ app/controllers/blog_posts_controller.rb:9:in `index'
+Completed 200 OK in 10ms (Views: 9.9ms | ActiveRecord: 0.3ms | Allocations: 963)
+
+
+Started GET "/news_articles" for ::1 at 2020-04-10 13:33:47 -0400
+  [1m[35m (3.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by NewsArticlesController#index as HTML
+  [1m[36mNewsArticle Load (1.1ms)[0m  [1m[34mSELECT "news_articles".* FROM "news_articles"[0m
+  ↳ app/controllers/news_articles_controller.rb:9:in `index'
+Completed 200 OK in 55ms (Views: 28.6ms | ActiveRecord: 13.6ms | Allocations: 8204)
+
+
+Started GET "/blog_posts" for ::1 at 2020-04-10 13:33:47 -0400
+Processing by BlogPostsController#index as HTML
+  [1m[36mBlogPost Load (0.5ms)[0m  [1m[34mSELECT "blog_posts".* FROM "blog_posts"[0m
+  ↳ app/controllers/blog_posts_controller.rb:9:in `index'
+Completed 200 OK in 14ms (Views: 8.1ms | ActiveRecord: 3.5ms | Allocations: 6246)
+
+
+Started GET "/news_articles" for ::1 at 2020-04-10 13:36:36 -0400
+Processing by NewsArticlesController#index as HTML
+  [1m[36mNewsArticle Load (0.3ms)[0m  [1m[34mSELECT "news_articles".* FROM "news_articles"[0m
+  ↳ app/controllers/news_articles_controller.rb:9:in `index'
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.3ms | Allocations: 1005)
+
+
+Started GET "/blog_posts" for ::1 at 2020-04-10 13:36:37 -0400
+Processing by BlogPostsController#index as HTML
+  [1m[36mBlogPost Load (0.3ms)[0m  [1m[34mSELECT "blog_posts".* FROM "blog_posts"[0m
+  ↳ app/controllers/blog_posts_controller.rb:9:in `index'
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.3ms | Allocations: 963)
+
+
+Started GET "/news_articles" for ::1 at 2020-04-10 13:36:45 -0400
+Processing by NewsArticlesController#index as HTML
+  [1m[36mNewsArticle Load (0.3ms)[0m  [1m[34mSELECT "news_articles".* FROM "news_articles"[0m
+  ↳ app/controllers/news_articles_controller.rb:9:in `index'
+Completed 200 OK in 7ms (Views: 6.5ms | ActiveRecord: 0.3ms | Allocations: 1005)
+
+
+Started GET "/blog_posts" for ::1 at 2020-04-10 13:36:45 -0400
+Processing by BlogPostsController#index as HTML
+  [1m[36mBlogPost Load (0.3ms)[0m  [1m[34mSELECT "blog_posts".* FROM "blog_posts"[0m
+  ↳ app/controllers/blog_posts_controller.rb:9:in `index'
+Completed 200 OK in 5ms (Views: 4.3ms | ActiveRecord: 0.3ms | Allocations: 963)
+
+
+Started GET "/news_articles" for ::1 at 2020-04-10 13:43:11 -0400
+Processing by NewsArticlesController#index as HTML
+  [1m[36mNewsArticle Load (0.6ms)[0m  [1m[34mSELECT "news_articles".* FROM "news_articles"[0m
+  ↳ app/controllers/news_articles_controller.rb:9:in `index'
+Completed 200 OK in 5ms (Views: 4.4ms | ActiveRecord: 0.6ms | Allocations: 1057)
+
+
+Started GET "/blog_posts" for ::1 at 2020-04-10 13:43:11 -0400
+Processing by BlogPostsController#index as HTML
+  [1m[36mBlogPost Load (1.0ms)[0m  [1m[34mSELECT "blog_posts".* FROM "blog_posts"[0m
+  ↳ app/controllers/blog_posts_controller.rb:9:in `index'
+Completed 200 OK in 10ms (Views: 6.8ms | ActiveRecord: 1.0ms | Allocations: 963)
+
+
+Started GET "/news_articles" for ::1 at 2020-04-10 13:44:29 -0400
+Processing by NewsArticlesController#index as HTML
+  [1m[36mNewsArticle Load (0.3ms)[0m  [1m[34mSELECT "news_articles".* FROM "news_articles"[0m
+  ↳ app/controllers/news_articles_controller.rb:9:in `index'
+Completed 200 OK in 7ms (Views: 6.4ms | ActiveRecord: 0.3ms | Allocations: 1005)
+
+
+Started GET "/blog_posts" for ::1 at 2020-04-10 13:44:29 -0400
+Processing by BlogPostsController#index as HTML
+  [1m[36mBlogPost Load (0.3ms)[0m  [1m[34mSELECT "blog_posts".* FROM "blog_posts"[0m
+  ↳ app/controllers/blog_posts_controller.rb:9:in `index'
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.3ms | Allocations: 963)
+
+
+Started GET "/news_articles" for ::1 at 2020-04-10 13:44:35 -0400
+Processing by NewsArticlesController#index as HTML
+  [1m[36mNewsArticle Load (0.2ms)[0m  [1m[34mSELECT "news_articles".* FROM "news_articles"[0m
+  ↳ app/controllers/news_articles_controller.rb:9:in `index'
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.2ms | Allocations: 986)
+
+
+Started GET "/blog_posts" for ::1 at 2020-04-10 13:44:35 -0400
+Processing by BlogPostsController#index as HTML
+  [1m[36mBlogPost Load (0.2ms)[0m  [1m[34mSELECT "blog_posts".* FROM "blog_posts"[0m
+  ↳ app/controllers/blog_posts_controller.rb:9:in `index'
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.2ms | Allocations: 963)
+
+
+Started GET "/news_articles" for ::1 at 2020-04-10 13:44:46 -0400
+Processing by NewsArticlesController#index as HTML
+  [1m[36mNewsArticle Load (0.2ms)[0m  [1m[34mSELECT "news_articles".* FROM "news_articles"[0m
+  ↳ app/controllers/news_articles_controller.rb:9:in `index'
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.2ms | Allocations: 986)
+
+
+Started GET "/blog_posts" for ::1 at 2020-04-10 13:44:46 -0400
+Processing by BlogPostsController#index as HTML
+  [1m[36mBlogPost Load (0.4ms)[0m  [1m[34mSELECT "blog_posts".* FROM "blog_posts"[0m
+  ↳ app/controllers/blog_posts_controller.rb:9:in `index'
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.4ms | Allocations: 963)
+
+

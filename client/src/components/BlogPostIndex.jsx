@@ -5,7 +5,7 @@ export default function BlogPostIndex(props) {
     <div>
       <h2> Blog Post List:</h2>
       {props.blog_posts.map((post) => (
-      <p>{post.tite}</p>
+      <h3>{post.tite}</h3>
       ))}
     </div>
   )
