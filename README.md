@@ -207,8 +207,12 @@ Strengths going into the project include my design skills and thoroughness in co
 
 ## Project Delivery
 
+<br>
+
 ![Happy Bouncing Parrot](https://media.giphy.com/media/LZElUsjl1Bu6c/giphy.gif)<br>
 <h4>Wooo! Project is complete and graduation is around the corner!!</h4>
+
+<br>
 
 ### Link to deployed site: 
 
@@ -244,12 +248,13 @@ function reverse(string) {
 
 > Use this section to list of all major issues encountered and their resolution.
 
-| Error                                                                         | Resolution                                                     |
-| :---------------------------------------------------------------------------- | :------------------------------------------------------------- |
-| `seeds.rb:27:ActiveRecord::RecordInvalid: Validation failed: User must exist` | Needed to create a user association in seed file (user: user1) |
+| Error                                                                          | Resolution                                                                     |
+| :----------------------------------------------------------------------------: | :----------------------------------------------------------------------------: |
+| `seeds.rb:27: ActiveRecord::RecordInvalid: Validation failed: User must exist` | Needed to create a user association in seed file (user: user1)                 |
+| `App.js:8: TypeError: Cannot set property 'props' of undefined`                | Had extra parentheses in "class App extends Component () {" in top app.js file |
 
 
-### Link to deployed site: 
+### Link to deployed site (for quick reference while scrolling through readme file): 
 
 Surge(front-end): (link) <br>
 
