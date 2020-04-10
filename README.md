@@ -207,7 +207,12 @@ Strengths going into the project include my design skills and thoroughness in co
 
 ## Project Delivery
 
+<br>
+
 ![Happy Bouncing Parrot](https://media.giphy.com/media/LZElUsjl1Bu6c/giphy.gif)<br>
+<h4>Wooo! Project is complete and graduation is around the corner!!</h4>
+
+<br>
 
 ### Link to deployed site: 
 
@@ -217,7 +222,17 @@ Heroku(Back-end): (link) <br>
 
 ### Installation Instructions
 
-_Installation instructions_<br>
+1. Clone repository down with 'git clone https://github.com/Sunnydayz77/the-plus-side.git'
+2. CD into repository
+3. Run 'bundle install'
+4. Run 'rails db:create'
+5. Run 'rails db:migrate'
+6. Run 'rails db:seed'
+7. Run 'rails server' on 'http://localhost:3000/'
+8. Create new terminal tab with 'command' + 't' on mac
+9. CD in to client folder
+10. Run 'npm install'
+11. Run 'npm start' on 'http://localhost:3001/'
 
 
 #### Helper Functions
@@ -231,8 +246,6 @@ _Installation instructions_<br>
 
 ### Code Showcase
 
-> Use this section to include a brief code snippet of functionality that you are proud of an a brief description  
-
 ```
 function reverse(string) {
 	// here is the code to reverse a string of text
@@ -241,14 +254,13 @@ function reverse(string) {
 
 ### Code Issues & Resolutions
 
-> Use this section to list of all major issues encountered and their resolution.
+| Error                                                                          | Resolution                                                                     |
+| :----------------------------------------------------------------------------: | :----------------------------------------------------------------------------: |
+| `seeds.rb:27: ActiveRecord::RecordInvalid: Validation failed: User must exist` | Needed to create a user association in seed file (user: user1)                 |
+| `App.js:8: TypeError: Cannot set property 'props' of undefined`                | Had extra parentheses in "class App extends Component () {" in top app.js file |
 
-| Error                                                                         | Resolution                                                     |
-| :---------------------------------------------------------------------------- | :------------------------------------------------------------- |
-| `seeds.rb:27:ActiveRecord::RecordInvalid: Validation failed: User must exist` | Needed to create a user association in seed file (user: user1) |
 
-
-### Link to deployed site: 
+### Link to deployed site (for quick reference while scrolling through readme file): 
 
 Surge(front-end): (link) <br>
 

@@ -11,7 +11,7 @@ class NewsArticlesController < ApplicationController
 
   # GET /news_articles/1
   def show
-    render json: @news_article
+    render json: @news_article, include: :news_article_comments
   end
 
   # POST /news_articles

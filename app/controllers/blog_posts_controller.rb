@@ -11,7 +11,7 @@ class BlogPostsController < ApplicationController
 
   # GET /blog_posts/1
   def show
-    render json: @blog_post
+    render json: @blog_post, include: :blog_post_comments
   end
 
   # POST /blog_posts
