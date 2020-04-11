@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-const baseUrl = process.env.NODE_ENV === 'production' ? 'https://the-plus-side.herokuapp.com/' : 'http//localhost:3000'
+const baseUrl = process.env.NODE_ENV === 'production' ? 'https://the-plus-side.herokuapp.com/' : 'http://localhost:3000'
 
 const api = axios.create({
   baseURL: baseUrl 
@@ -51,8 +51,8 @@ export const removeToken = () => {
 // ============= News Articles =================
 
 export const readAllArticles = async () => {
-  console.log("response")
-  const resp = await api.get('/news_articles');
+  console.log("all articles")
+  const resp = await api.get(`/news_articles`);
   console.log(resp)
   return resp.data;
 }
@@ -63,7 +63,7 @@ export const readOneArticle = async (id) => {
 }
 
 export const createArticle = async (articleData) => {
-  const resp = await api.post('/news_articles', { news_article: articleData });
+  const resp = await api.post(`/news_articles`, { news_article: articleData });
   return resp.data;
 }
 
@@ -85,7 +85,7 @@ export const destroyArticle = async (id) => {
 // ============= News Article Comments =================
 
 export const readAllArticleComments = async () => {
-  const resp = await api.get('/news_article_comments');
+  const resp = await api.get(`/news_article_comments`);
   return resp.data;
 }
 
@@ -95,7 +95,7 @@ export const readOneArticleComment = async (id) => {
 }
 
 export const createArticleComment = async (articleCommentData) => {
-  const resp = await api.post('/news_article_comments', { news_article_comment: articleCommentData });
+  const resp = await api.post(`/news_article_comments`, { news_article_comment: articleCommentData });
   return resp.data;
 }
 
@@ -114,7 +114,7 @@ export const destroyArticleComment = async (id) => {
 
 
 export const readAllPosts = async () => {
-  const resp = await api.get('/blog_posts');
+  const resp = await api.get(`/blog_posts`);
   return resp.data;
 }
 
@@ -124,7 +124,7 @@ export const readOnePost = async (id) => {
 }
 
 export const createPost = async (postData) => {
-  const resp = await api.post('/blog_posts', { blog_post: postData });
+  const resp = await api.post(`/blog_posts`, { blog_post: postData });
   return resp.data;
 }
 
@@ -146,7 +146,7 @@ export const destroyPost = async (id) => {
 // ============= Blog Post Comments =================
 
 export const readAllPostComments = async () => {
-  const resp = await api.get('/blog_post_comments');
+  const resp = await api.get(`/blog_post_comments`);
   return resp.data;
 }
 
@@ -156,7 +156,7 @@ export const readOnePostComment = async (id) => {
 }
 
 export const createPostComment = async (PostCommentData) => {
-  const resp = await api.post('/blog_post_comments', { blog_post_comment: PostCommentData });
+  const resp = await api.post(`/blog_post_comments`, { blog_post_comment: PostCommentData });
   return resp.data;
 }
 

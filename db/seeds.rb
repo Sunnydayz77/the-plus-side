@@ -41,13 +41,9 @@ NewsArticle.create!(
   title: "Music Takes 13 Minutes to ‘Release Sadness’ and 9 to Make You Happy, Says New Study",
   article_url: "https://www.goodnewsnetwork.org/13-minute-musical-prescription-for-anxiety-and-depression/",
   content: "13 minutes was found to be the optimum listening time in the case of music to relax. This kind of music was characterized with a slow tempo, simple melodies and no lyrics, like Weightless, by Marconi Union.
-
   That song from this Manchester-based music trio was found to reduce symptoms of anxiety by up to 65%.
-  
   'Our test subjects reported positive benefits including decreased muscle tension, negative thoughts disappearing, feeling peaceful and contented and being able to sleep better,' exclaimed the study.
-  
   That’s because 79% had reduced muscle tension, 84% had less negative thoughts, and 82% had a better nights sleep or felt restful & contented.",
-
   user: user1
 )
 
