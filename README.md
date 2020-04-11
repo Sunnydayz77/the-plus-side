@@ -216,9 +216,9 @@ Strengths going into the project include my design skills and thoroughness in co
 
 ### Link to deployed site: 
 
-Surge(front-end): (link) <br>
+Surge(front-end): (http://the-plus-side.surge.sh/) <br>
 
-Heroku(Back-end): (link) <br>
+Heroku(Back-end): (https://the-plus-side.herokuapp.com/) <br>
 
 ### Installation Instructions
 
@@ -262,9 +262,9 @@ function reverse(string) {
 
 ### Link to deployed site (for quick reference while scrolling through readme file): 
 
-Surge(front-end): (link) <br>
+Surge(front-end): (http://the-plus-side.surge.sh/) <br>
 
-Heroku(Back-end): (link) <br>
+Heroku(Back-end): (https://the-plus-side.herokuapp.com/) <br>
 
 
 ***
