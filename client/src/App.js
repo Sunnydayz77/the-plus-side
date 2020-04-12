@@ -8,8 +8,8 @@ import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
 import Footer from './components/Footer';
 import {
-  readAllArticles,
-  readAllPosts,
+  // readAllArticles,
+  // readAllPosts,
   signInUser,
   signUpUser,
   verifyUser,
@@ -51,18 +51,33 @@ class App extends Component {
     this.props.history.push('/sign_in')
   }
 
-  // handleSignUpButton = () => {
-  //   this.props.history.push("/sign_up")
-  // }
-  
-  componentDidMount = async () => {
-    const news_articles = await readAllArticles();
-    const blog_posts = await readAllPosts();
-    this.setState ({
-      news_articles,
-      blog_posts
-    })
+  handleSignUpButton = () => {
+    this.props.history.push("/sign_up")
   }
+  
+  componentDidMount = () => {
+    this.getArticles();
+    this.getPosts();
+    this.handleVerify();
+  }
+
+ // ============= News Articles ================
+
+  //Function to get all articles from API
+
+  getArticles = async () => {
+
+  }
+
+  getPosts = async () => {
+
+  }
+  // const news_articles = await readAllArticles();
+  //   const blog_posts = await readAllPosts();
+  //   this.setState ({
+  //     news_articles,
+  //     blog_posts
+  //   })
 
 
   // =================== Auth ====================
@@ -121,12 +136,15 @@ class App extends Component {
             <div>
               <h3>Hi {this.state.currentUser && this.state.currentUser.email}
                 <button onClick={this.handleSignOut}>Sign Out</button></h3>
-              <Link to="/news_articles">View All +Articles!</Link>
+              <Link to="/news_articles">View All +Articles!</Link> <br/>
               <Link to="/blog_posts">View All +Blogs!</Link>
               <hr />
             </div>
             :
-            <button onClick={this.handleSignInButton}> Sign In / Sign Up </button>
+            <>
+              <button onClick={this.handleSignInButton}> Sign In </button>
+              <button onClick={this.handleSignUpButton}> Sign Up </button>
+            </>
           }
         </header>
 
@@ -159,7 +177,7 @@ class App extends Component {
         }} />
 
         <Footer>
-          // Footer component placeholder
+          {/* Footer component placeholder */}
         </Footer>
       </div>
     );
