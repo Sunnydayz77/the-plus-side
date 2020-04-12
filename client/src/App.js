@@ -40,6 +40,10 @@ class App extends Component {
   handleSignInButton = () => {
     this.props.history.push("/sign_in")
   }
+
+  handleSignUpButton = () => {
+    this.props.history.push("/sign_up")
+  }
   
   componentDidMount = async () => {
     const news_articles = await readAllArticles();
@@ -72,6 +76,12 @@ class App extends Component {
         <Route exact path="/sign_in" render={(props) => (
           <SignIn
             handleSignIn={this.handleSignIn}
+            handleChange={this.authHandleChange}
+            formData={this.state.authFormData} />)} />
+        
+        <Route exact path="/sign_up" render={(props) => (
+          <SignIn
+            handleSignUp={this.handleSignUp}
             handleChange={this.authHandleChange}
             formData={this.state.authFormData} />)} />
         
