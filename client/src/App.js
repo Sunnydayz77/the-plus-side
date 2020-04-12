@@ -6,6 +6,7 @@ import { readAllArticles, readAllPosts } from './services/api-helper';
 import NewsArticleIndex from './components/NewsArticleIndex';
 import BlogPostIndex from './components/BlogPostIndex';
 import SignIn from './components/SignIn';
+import Footer from './components/Footer';
 
 class App extends Component {
   constructor(props) {
@@ -96,7 +97,10 @@ class App extends Component {
             blog_posts={this.state.blog_posts}
           />
         }} />
-        
+
+        <Footer>
+
+        </Footer>
       </div>
     );
   }
