@@ -12,3 +12,64 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+
+
+
+
+
+/*--------- iPad Responsiveness -------------*/
+
+@media all and (max-width: 770px) {
+  .app {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  a:link {
+    margin: 2%;
+  }
+
+  .links {
+    flex-direction: column;
+  }
+
+  h1 {
+    font-size: 30px;
+  }
+
+  h1, h2 {
+    flex-wrap: wrap;
+  }
+
+}
+
+/*--------- iPhone Responsiveness -------------*/
+
+@media all and (max-width: 400px) {
+  .app {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  a:link {
+    margin: 2%;
+    font-size: 12px;
+  }
+
+  .links {
+    flex-direction: column;
+  }
+
+  h1 {
+    font-size: 30px;
+  }
+
+  h1, h2 {
+    word-wrap: break-word;
+  }
+
+  main {
+    padding: 0px;
+  }
+
+}
