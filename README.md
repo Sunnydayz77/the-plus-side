@@ -258,6 +258,7 @@ function reverse(string) {
 | :----------------------------------------------------------------------------: | :----------------------------------------------------------------------------: |
 | `seeds.rb:27: ActiveRecord::RecordInvalid: Validation failed: User must exist` | Needed to create a user association in seed file (user: user1)                 |
 | `App.js:8: TypeError: Cannot set property 'props' of undefined`                | Had extra parentheses in "class App extends Component () {" in top app.js file |
+| `App.js:51: TypeError: Cannot read property 'push' of undefined                | Needed to have { withRouter } imported for this.props.history.push to work     |
 
 
 ### Link to deployed site (for quick reference while scrolling through readme file): 
