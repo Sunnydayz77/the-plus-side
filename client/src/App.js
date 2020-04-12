@@ -1,12 +1,20 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router';
-import { Link } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
+import { withRouter } from 'react-router';
 import './App.css';
-import { readAllArticles, readAllPosts } from './services/api-helper';
 import NewsArticleIndex from './components/NewsArticleIndex';
 import BlogPostIndex from './components/BlogPostIndex';
 import SignIn from './components/SignIn';
+import SignUp from './components/SignUp';
 import Footer from './components/Footer';
+import {
+  readAllArticles,
+  readAllPosts,
+  signInUser,
+  signUpUser,
+  verifyUser,
+  removeToken
+} from './services/api-helper';
 
 class App extends Component {
   constructor(props) {
@@ -20,31 +28,32 @@ class App extends Component {
       articleItem: null, //value for a selected article
       postItem: null,  //value for a selected blog post
       formData: { //to add a news article or blog post
-        title: '',
-        image_url: '',
-        article_url: '',
-        content: ''
+        name: "",
+        title: "",
+        image_url: "",
+        article_url: "",
+        content: ""
       },
-      addComment: '', //form data to add a comment to an article or post
+      addComment: "", //form data to add a comment to an article or post
       authFormData: {
-        image_url: '',
-        username: '',
-        email: '',
-        password: '',
-        location: '',
-        description: ''
+        image_url: "",
+        username: "",
+        email: "",
+        password: "",
+        location: "",
+        description: ""
       }
     }
   }
 
   // onClick function to redirect to the sign in form
   handleSignInButton = () => {
-    this.props.history.push("/sign_in")
+    this.props.history.push('/sign_in')
   }
 
-  handleSignUpButton = () => {
-    this.props.history.push("/sign_up")
-  }
+  // handleSignUpButton = () => {
+  //   this.props.history.push("/sign_up")
+  // }
   
   componentDidMount = async () => {
     const news_articles = await readAllArticles();
@@ -55,6 +64,53 @@ class App extends Component {
     })
   }
 
+
+  // =================== Auth ====================
+
+  // Function to login a user
+  handleSignIn = async () => {
+    const currentUser = await signInUser(this.state.authFormData);
+    this.setState({ currentUser })
+  }
+
+  // Function to register a user
+  handleSignUp = async (e) => {
+    e.preventDefault();
+    const currentUser = await signUpUser(this.state.authFormData);
+    this.setState({ currentUser })
+  }
+
+  handleVerify = async () => {
+    const currentUser = await verifyUser();
+    if (currentUser) {
+      this.setState({ currentUser })
+    }
+  }
+
+  // Function to logout user
+  handleSignOut = () => {
+    localStorage.removeItem("jwt");
+    this.setState({
+      currentUser: null
+    })
+    removeToken();
+  }
+
+  // Handle change function for the auth forms
+  authHandleChange = (e) => {
+    const { name, value } = e.target;
+    this.setState(prevState => ({
+      authFormData: {
+        ...prevState.authFormData,
+        [name]: value
+      }
+    }));
+  }
+
+
+
+  // =================== Render ===================
+
   render() {
     return (
       <div className="App">
@@ -63,47 +119,51 @@ class App extends Component {
           {this.state.currentUser
             ?
             <div>
-              <h3>Hi {this.state.currentUser && this.state.currentUser.username} <button onClick={this.handleLogout}>Sign Out</button></h3>
+              <h3>Hi {this.state.currentUser && this.state.currentUser.email}
+                <button onClick={this.handleSignOut}>Sign Out</button></h3>
               <Link to="/news_articles">View All +Articles!</Link>
-              &nbsp;
               <Link to="/blog_posts">View All +Blogs!</Link>
               <hr />
             </div>
             :
-            <button onClick={this.handleSignInButton}>Sign In / Sign Up</button>
+            <button onClick={this.handleSignInButton}> Sign In / Sign Up </button>
           }
         </header>
 
-        <Route exact path="/sign_in" render={(props) => (
-          <SignIn
+        <Route path="/sign_in" render={(props) => {
+          return <SignIn
             handleSignIn={this.handleSignIn}
             handleChange={this.authHandleChange}
-            formData={this.state.authFormData} />)} />
+            formData={this.state.authFormData}
+          />
+        }} />
         
-        <Route exact path="/sign_up" render={(props) => (
-          <SignIn
+        <Route path="/sign_up" render={(props) => {
+          return <SignUp
             handleSignUp={this.handleSignUp}
             handleChange={this.authHandleChange}
-            formData={this.state.authFormData} />)} />
+            formData={this.state.authFormData}
+          />
+        }} />
         
-        <Route exact path='/news_articles' render={(props) => {
+        <Route path='/news_articles' render={(props) => {
           return <NewsArticleIndex
             news_articles={this.state.news_articles}
           />
         }} />
 
-        <Route exact path='/blog_posts' render={(props) => {
+        <Route path='/blog_posts' render={(props) => {
           return <BlogPostIndex
             blog_posts={this.state.blog_posts}
           />
         }} />
 
         <Footer>
-
+          // Footer component placeholder
         </Footer>
       </div>
     );
   }
 }
 
-export default App;
+export default withRouter(App);
