@@ -155,7 +155,7 @@ App.js
 
 ### List of Server-Side Routes
 
-|         Prefix       |   Verb   |          <div style="width:290px">URI Pattern</div>                | <div style="width:290px">Controller#Action</div>|
+|         Prefix       |   Verb   |          URI Pattern &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;     |&nbsp; Controller#Action &nbsp;|
 | :-------------------:| :------: | :----------------------------------------------------------------: | :---------------------------: |
 | auth_login           | POST     | /auth/login(.:format)                                              |  authentication#login         |
 | auth_verify          | GET      | /auth/verify(.:format)                                             |  authentication#verify        |
@@ -189,7 +189,6 @@ App.js
 |                      | PATCH    | /blog_posts/:id(.:format)                                          |  blog_posts#update            |
 |                      | PUT      | /blog_posts/:id(.:format)                                          |  blog_posts#update            |
 |                      | DELETE   | /blog_posts/:id(.:format)                                          |  blog_posts#destroy           |
-|<img width=500/>      |          |                                                                    |  <img width=500/>             |
 
 <br>
 
