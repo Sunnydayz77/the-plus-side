@@ -189,7 +189,7 @@ App.js
 |                      | PATCH    | /blog_posts/:id(.:format)                                          |  blog_posts#update            |
 |                      | PUT      | /blog_posts/:id(.:format)                                          |  blog_posts#update            |
 |                      | DELETE   | /blog_posts/:id(.:format)                                          |  blog_posts#destroy           |
-
+|<img width=500/>      |          |                                                                    |  <img width=500/>             |
 
 <br>
 
