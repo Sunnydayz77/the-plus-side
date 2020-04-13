@@ -107,24 +107,23 @@ App.js
 
 #### Component Estimates
 
-| Task                | Priority | Estimated Time | Actual Time |
-| ------------------- | :------: | :------------: | :---------: |
-| Wireframe           |    H     |     2 hrs      |    2 hrs    |
-| Initial Readme file |    H     |     5 hrs      |    10 hrs   |
-| Authentication      |    H     |     8 hrs      |    7 hrs    |
-| Backend Models      |    H     |     8 hrs      |    8 hrs    |
-| API routes          |    H     |     5 hrs      |    4 hrs    |
-| Header              |    H     |     3 hrs      |    TBD      |
-| Footer              |    H     |     2 hrs      |    TBD      |
-| Main container      |    H     |     5 hrs      |    TBD      |
-| Sign Up             |    H     |     3 hrs      |    TBD      |
-| Sign In             |    H     |     3 hrs      |    TBD      |
-| User Feed Container |    H     |     5 hrs      |    TBD      |
-| CRUD                |    H     |     9 hrs      |    TBD      |
-| Styling             |    H     |     12 hrs     |    TBD      |
-| 404 Page            |    L     |     1 hr       |     TBD     |
-| Final Readme file   |    H     |     2 hrs      |     TBD     |
-| TOTAL               |          |     73 hrs     |     TBD     |   
+| Task                  | Priority | Estimated Time | Actual Time |
+| :-------------------: | :------: | :------------: | :---------: |
+| Wireframe             |    H     |     2 hrs      |    2 hrs    |
+| Initial Readme file   |    H     |     5 hrs      |    10 hrs   |
+| Backend Authentication|    H     |     8 hrs      |    7 hrs    |
+| Backend Models        |    H     |     8 hrs      |    8 hrs    |
+| API routes            |    H     |     5 hrs      |    4 hrs    |
+| Frontend Auth & Links |    H     |     3 hrs      |    6 hrs    |
+| CRUD                  |    H     |     9 hrs      |    TBD      |
+| Header(styling)       |    M     |     3 hrs      |    TBD      |
+| Footer                |    L     |     2 hrs      |    1 hr     |
+| Main Container        |    H     |     5 hrs      |    TBD      |
+| User Feed Container   |    H     |     5 hrs      |    TBD      |
+| Styling               |    H     |     12 hrs     |    TBD      |
+| 404 Page              |    L     |     1 hr       |    TBD      |
+| Final Readme file     |    H     |     2 hrs      |    TBD      |
+| TOTAL                 |          |     73 hrs     |    TBD      |   
 
 <br>
 
@@ -132,7 +131,7 @@ App.js
 #### Libraries and API Endpoint Documentation
 
 |     Library                          | Description                                                  |
-| :----------------------------------: | :----------------------------------------------------------- |
+| :----------------------------------: | :-----------------------------------------------------------:|
 | Rails Documentation                  | _Ruby on Rails Library._                                     |
 | React Router                         | _React Router Library._                                      |
 | CSS Tricks                           | _For help while styling web app._                            |
@@ -156,7 +155,7 @@ App.js
 
 ### List of Server-Side Routes
 
-|         Prefix       |   Verb   |                           URI Pattern                              |     Controller#Action         |
+|         Prefix       |   Verb   |          <div style="width:290px">URI Pattern</div>                |     Controller#Action         |
 | :-------------------:| :------: | :----------------------------------------------------------------: | :---------------------------: |
 | auth_login           | POST     | /auth/login(.:format)                                              |  authentication#login         |
 | auth_verify          | GET      | /auth/verify(.:format)                                             |  authentication#verify        |
@@ -238,11 +237,9 @@ Heroku(Back-end): (https://the-plus-side.herokuapp.com/) <br>
 #### Helper Functions
 
 |  Function  | Description                                |
-| :--------: | :----------------------------------------- |
+| :--------: | :-----------------------------------------:|
 | Footer     | _Footer function with links._              |
 | 404 Page   | _No match page function._                  |
-| Search Bar | _Search bar with input and submit button_  |
-
 
 ### Code Showcase
 
@@ -258,7 +255,7 @@ function reverse(string) {
 | :----------------------------------------------------------------------------: | :----------------------------------------------------------------------------: |
 | `seeds.rb:27: ActiveRecord::RecordInvalid: Validation failed: User must exist` | Needed to create a user association in seed file (user: user1)                 |
 | `App.js:8: TypeError: Cannot set property 'props' of undefined`                | Had extra parentheses in "class App extends Component () {" in top app.js file |
-| `App.js:51: TypeError: Cannot read property 'push' of undefined`                | Needed to have { withRouter } imported for this.props.history.push to work     |
+| `App.js:51: TypeError: Cannot read property 'push' of undefined`               | Needed to have { withRouter } imported for this.props.history.push to work     |
 
 
 ### Link to deployed site (for quick reference while scrolling through readme file): 

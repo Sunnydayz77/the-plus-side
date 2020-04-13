@@ -8,8 +8,8 @@ import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
 import Footer from './components/Footer';
 import {
-  // readAllArticles,
-  // readAllPosts,
+  readAllArticles,
+  readAllPosts,
   signInUser,
   signUpUser,
   verifyUser,
@@ -66,18 +66,19 @@ class App extends Component {
   //Function to get all articles from API
 
   getArticles = async () => {
-
+    const news_articles = await readAllArticles();
+    this.setState({ news_articles });
   }
+
+
+// ============= Blog Posts ================
+
+  //Function to get all posts from API
 
   getPosts = async () => {
-
+    const blog_posts = await readAllPosts();
+    this.setState({ blog_posts });
   }
-  // const news_articles = await readAllArticles();
-  //   const blog_posts = await readAllPosts();
-  //   this.setState ({
-  //     news_articles,
-  //     blog_posts
-  //   })
 
 
   // =================== Auth ====================
@@ -136,13 +137,15 @@ class App extends Component {
             <div>
               <h3>Hi {this.state.currentUser && this.state.currentUser.email}
                 <button onClick={this.handleSignOut}>Sign Out</button></h3>
-              <Link to="/news_articles">View All +Articles!</Link> <br/>
+              <Link to="/news_articles">View All +Articles!</Link>
+              &nbsp;
               <Link to="/blog_posts">View All +Blogs!</Link>
               <hr />
             </div>
             :
             <>
               <button onClick={this.handleSignInButton}> Sign In </button>
+              &nbsp;
               <button onClick={this.handleSignUpButton}> Sign Up </button>
             </>
           }
