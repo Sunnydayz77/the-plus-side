@@ -60,13 +60,13 @@ export const readOneArticle = async (id) => {
   return resp.data;
 }
 
-export const createArticle = async (articleData) => {
-  const resp = await api.post(`/news_articles`, { news_article: articleData });
+export const createArticle = async (article) => {
+  const resp = await api.post(`/news_articles`, { news_article: article });
   return resp.data;
 }
 
-export const updateArticle = async (articleData, id) => {
-  const resp = await api.put(`/news_articles/${id}`, { news_article: articleData });
+export const updateArticle = async (article, id) => {
+  const resp = await api.put(`/news_articles/${id}`, { news_article: article });
   return resp.data;
 }
 

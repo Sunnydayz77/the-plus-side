@@ -57,3 +57,6 @@ class NewsArticlesController < ApplicationController
       params.require(:news_article).permit(:image_url, :title, :article_url, :content, :user_id)
     end
 end
+
+
+# params: { news_article: { article_url: @news_article.article_url, content: @news_article.content, image_url: @news_article.image_url, title: @news_article.title, user_id: @news_article.user_id } }

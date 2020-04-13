@@ -2,18 +2,24 @@ import React, { Component } from 'react';
 import { Route, Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
 import './App.css';
-import NewsArticleIndex from './components/NewsArticleIndex';
+import img from './Header.png'
+import ShowArticles from './components/ShowArticles';
+import Article from './components/Article';
 import BlogPostIndex from './components/BlogPostIndex';
 import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
 import Footer from './components/Footer';
 import {
-  readAllArticles,
-  readAllPosts,
   signInUser,
   signUpUser,
   verifyUser,
-  removeToken
+  removeToken,
+  readAllArticles,
+  readOneArticle,
+  readAllPosts,
+  createArticle,
+  updateArticle,
+  destroyArticle
 } from './services/api-helper';
 
 class App extends Component {
@@ -23,6 +29,7 @@ class App extends Component {
     this.state = {
       currentUser: null,  //logged in user is set here
       news_articles: [],
+      news_article: null,
       blog_posts: [],
       comments: [],
       articleItem: null, //value for a selected article
@@ -63,12 +70,79 @@ class App extends Component {
 
  // ============= News Articles ================
 
-  //Function to get all articles from API
+  // Function to get all articles from the API
 
   getArticles = async () => {
     const news_articles = await readAllArticles();
     this.setState({ news_articles });
   }
+
+  // Function to get a single article from the API
+  getArticle = async (id) => {
+    const news_article = await readOneArticle(id);
+    this.setState({ news_article });
+  }
+
+  // Function to create a new article in the API
+  addArticle = async () => {
+    const newArticle = await createArticle(this.state.formData)
+    this.setState(prevState => ({
+      news_articles: [...prevState.news_articles, newArticle],
+      formData: {
+        name: "",
+        title: "",
+        image_url: "",
+        article_url: "",
+        content: ""
+      }
+    }))
+  }
+
+  // Function to update an existing article in the API
+  updateArticle = async (Article) => {
+    const updatedArticle = await updateArticle(this.state.formData, Article.id);
+    this.setState(prevState => ({
+      news_articles: prevState.news_articles.map(singleArticle => {
+        return singleArticle.id === Article.id ? updatedArticle : singleArticle
+      })
+    }))
+  }
+
+  // Function to delete an article
+  deleteArticle = async (Article) => {
+    await destroyArticle(Article.id);
+    this.setState(prevState => ({
+      news_articles: prevState.news_articles.filter(singleArticle => singleArticle.id !== Article.id)
+    }))
+  }
+
+
+  // Handle change function for the create article form
+  handleChange = (e) => {
+    const { name, value } = e.target;
+    this.setState({
+      formData: {
+        [name]: value,
+        // [title]: value,
+        // [image_url]: value,
+        // [article_url]: value,
+        // [content]: value
+      }
+    });
+  }
+
+  // Function to set the form data for the update food form
+  setArticleForm = (article) => {
+    this.setState({
+      formData: {
+        title: article.title,
+        image_url: article.image_url,
+        article_url: article.article_url,
+        content: article.content
+      }
+    })
+  }
+
 
 
 // ============= Blog Posts ================
@@ -131,6 +205,7 @@ class App extends Component {
     return (
       <div className="App">
         <header>
+          <img src={img} className="headerImg" alt="header image"/>
           <Link to="/"><h1>The +Side</h1></Link>
           {this.state.currentUser
             ?
@@ -167,10 +242,26 @@ class App extends Component {
         }} />
         
         <Route path='/news_articles' render={(props) => {
-          return <NewsArticleIndex
+          return <ShowArticles
             news_articles={this.state.news_articles}
+            formData={this.state.formData}
+            getArticle={this.getArticle}
+            deleteArticle={this.deleteArticle}
+            handleSubmit={this.addArticle}
+            handleChange={this.handleChange}
+            setArticleForm={this.setArticleForm}
+            updateArticle={this.updateArticle}
           />
         }} />
+
+        <Route path="/news_articles/:id" render={(props) => (
+          <Article
+            getArticle={this.state.getArticle}
+            comments={this.state.comments}
+            selectedComment={this.state.selectedComment}
+            handleChange={this.commentForm}
+            addFlavorToFood={this.addCommentToFood} />)} />
+
 
         <Route path='/blog_posts' render={(props) => {
           return <BlogPostIndex
