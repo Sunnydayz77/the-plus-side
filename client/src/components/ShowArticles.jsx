@@ -111,7 +111,7 @@ class ShowArticles extends Component {
           <div>
             <form onSubmit={(e) => {
               e.preventDefault();
-              this.props.handleSubmit();
+              this.props.handleSubmit(this.props.id, this.props.formData);
               this.setState({ create: false })
             }}>
               <label>Title:
@@ -119,7 +119,7 @@ class ShowArticles extends Component {
                   name="title"
                   type="string"
                   value={this.props.formData.title}
-                  onChange={this.props.handleChange} />
+                  onChange={this.props.handlePostChange} />
               </label>
               
               <label>Image Url:
@@ -127,7 +127,7 @@ class ShowArticles extends Component {
                   name="image_url"
                   type="string"
                   value={this.props.formData.image_url}
-                  onChange={this.props.handleChange} />
+                  onChange={this.props.handlePostChange} />
               </label>
               
               <label>Article Url:
@@ -135,7 +135,7 @@ class ShowArticles extends Component {
                   name="article_url"
                   type="string"
                   value={this.props.formData.article_url}
-                  onChange={this.props.handleChange} />
+                  onChange={this.props.handlePostChange} />
               </label>
 
               <label>Content:
@@ -143,7 +143,7 @@ class ShowArticles extends Component {
                   name="content"
                   type="string"
                   value={this.props.formData.content}
-                  onChange={this.props.handleChange} />
+                  onChange={this.props.handlePostChange} />
                 </label>
                 
               <button>Submit</button>
