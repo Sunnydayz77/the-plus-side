@@ -60,8 +60,8 @@ export const readOneArticle = async (id) => {
   return resp.data;
 }
 
-export const createArticle = async (article) => {
-  const resp = await api.post(`/news_articles`, { news_article: article });
+export const createArticle = async (user_id, article) => {
+  const resp = await api.post(`/users/${user_id}/news_articles`, article);
   return resp.data;
 }
 

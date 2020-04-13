@@ -6,11 +6,13 @@ Rails.application.routes.draw do
 
   resources :news_articles do
     resources :news_article_comments
-    end
+  end
 
   resources :blog_posts do
     resources :blog_post_comments
-    end
+  end
+
+  post '/users/:user_id/news_articles', to: 'news_articles#create_by_user'
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
