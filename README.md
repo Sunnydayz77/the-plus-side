@@ -155,7 +155,7 @@ App.js
 
 ### List of Server-Side Routes
 
-|         Prefix       |   Verb   |          URI Pattern &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;     |&nbsp; Controller#Action &nbsp;|
+|         Prefix    <img width=500/>   |   Verb <img width=500/>  |          URI Pattern <img width=500/>    | Controller#Action <img width=500/>|
 | :-------------------:| :------: | :----------------------------------------------------------------: | :---------------------------: |
 | auth_login           | POST     | /auth/login(.:format)                                              |  authentication#login         |
 | auth_verify          | GET      | /auth/verify(.:format)                                             |  authentication#verify        |
