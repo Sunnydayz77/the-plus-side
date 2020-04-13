@@ -11,11 +11,20 @@ const SignIn = (props) => {
       <hr />
       <form onSubmit={(e) => {
         e.preventDefault();
-        props.handleSignIn();}} >
+        props.handleSignIn();
+      }} >
+        <label>Email:
         <input name="email" type="text" value={props.formData.email} onChange={props.handleChange} />
+        </label><br/>
+
+        <label>Password:
+        {/* (Must be atleast 6 characters!) */}
         <input name="password" type="password" value={props.formData.password} onChange={props.handleChange} />
-        <button>Sign In</button>
-        <Link to="/sign_up">Sign Up</Link>
+        </label><br/>
+
+        <button>Sign In</button> <br />
+        
+        <p>Don't have an account? Sign up here!&nbsp;<Link to="/sign_up">Sign Up</Link></p>
       </form>
     </div>
   );

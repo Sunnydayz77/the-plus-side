@@ -5,7 +5,7 @@ class User < ApplicationRecord
   has_many :news_articles
   has_many :news_article_comments, through: :news_articles
 
-  validates :username, presence: true, uniqueness: true
+  # validates :username, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :password, length: { minimum: 6 }

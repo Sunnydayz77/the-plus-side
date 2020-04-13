@@ -7,9 +7,17 @@ export default function SignUp(props) {
     <div>
       <h2>Sign Up</h2>
       <hr />
+
       <form onSubmit={props.handleSignUp} >
-        <input name="email" type="text" value={props.formData.email} onChange={props.handleChange} />
-        <input name="password" type="password" value={props.formData.password} onChange={props.handleChange} />
+        <label>Email:
+          <input name="email" type="text" value={props.formData.email} onChange={props.handleChange} />
+        </label><br/>
+
+        <label>Password: 
+        {/* (Must be atleast 6 characters!) */}
+          <input name="password" type="password" value={props.formData.password} onChange={props.handleChange} />
+        </label><br />
+        
         <button>Sign Up</button>
       </form>
     </div>

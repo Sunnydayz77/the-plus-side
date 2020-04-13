@@ -51,17 +51,33 @@ class App extends Component {
     this.props.history.push('/sign_in')
   }
 
-  // handleSignUpButton = () => {
-  //   this.props.history.push("/sign_up")
-  // }
+  handleSignUpButton = () => {
+    this.props.history.push("/sign_up")
+  }
   
-  componentDidMount = async () => {
+  componentDidMount = () => {
+    this.getArticles();
+    this.getPosts();
+    this.handleVerify();
+  }
+
+ // ============= News Articles ================
+
+  //Function to get all articles from API
+
+  getArticles = async () => {
     const news_articles = await readAllArticles();
+    this.setState({ news_articles });
+  }
+
+
+// ============= Blog Posts ================
+
+  //Function to get all posts from API
+
+  getPosts = async () => {
     const blog_posts = await readAllPosts();
-    this.setState ({
-      news_articles,
-      blog_posts
-    })
+    this.setState({ blog_posts });
   }
 
 
@@ -122,11 +138,16 @@ class App extends Component {
               <h3>Hi {this.state.currentUser && this.state.currentUser.email}
                 <button onClick={this.handleSignOut}>Sign Out</button></h3>
               <Link to="/news_articles">View All +Articles!</Link>
+              &nbsp;
               <Link to="/blog_posts">View All +Blogs!</Link>
               <hr />
             </div>
             :
-            <button onClick={this.handleSignInButton}> Sign In / Sign Up </button>
+            <>
+              <button onClick={this.handleSignInButton}> Sign In </button>
+              &nbsp;
+              <button onClick={this.handleSignUpButton}> Sign Up </button>
+            </>
           }
         </header>
 
@@ -159,7 +180,7 @@ class App extends Component {
         }} />
 
         <Footer>
-          // Footer component placeholder
+          {/* Footer component placeholder */}
         </Footer>
       </div>
     );
