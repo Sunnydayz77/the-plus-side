@@ -26742,3 +26742,57 @@ Processing by AuthenticationController#verify as HTML
 Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 859)
 
 
+Started GET "/news_articles" for ::1 at 2020-04-12 20:50:43 -0400
+Started GET "/auth/verify" for ::1 at 2020-04-12 20:50:43 -0400
+Started GET "/blog_posts" for ::1 at 2020-04-12 20:50:43 -0400
+  [1m[35m (2.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by BlogPostsController#index as HTML
+  [1m[35m (28.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AuthenticationController#verify as HTML
+Processing by NewsArticlesController#index as HTML
+  [1m[36mBlogPost Load (7.2ms)[0m  [1m[34mSELECT "blog_posts".* FROM "blog_posts"[0m
+  ↳ app/controllers/blog_posts_controller.rb:9:in `index'
+  [1m[36mNewsArticle Load (1.1ms)[0m  [1m[34mSELECT "news_articles".* FROM "news_articles"[0m
+  ↳ app/controllers/news_articles_controller.rb:9:in `index'
+Completed 200 OK in 35ms (Views: 17.5ms | ActiveRecord: 11.7ms | Allocations: 14209)
+
+
+Completed 200 OK in 41ms (Views: 20.2ms | ActiveRecord: 18.3ms | Allocations: 12699)
+
+
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authorize_request'
+Completed 200 OK in 75ms (Views: 0.2ms | ActiveRecord: 43.6ms | Allocations: 22940)
+
+
+Started GET "/rails/info/routes" for ::1 at 2020-04-12 20:58:13 -0400
+Processing by Rails::InfoController#routes as HTML
+  Rendering /Users/jenniferpiwonski/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/railties-6.0.2.2/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of /Users/jenniferpiwonski/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/actionpack-6.0.2.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb [49 times] (Duration: 22.5ms | Allocations: 6811)
+  Rendered /Users/jenniferpiwonski/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/actionpack-6.0.2.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (Duration: 3.8ms | Allocations: 917)
+  Rendered /Users/jenniferpiwonski/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/railties-6.0.2.2/lib/rails/templates/rails/info/routes.html.erb within layouts/application (Duration: 39.1ms | Allocations: 10842)
+Completed 200 OK in 58ms (Views: 49.5ms | ActiveRecord: 0.0ms | Allocations: 12749)
+
+
+Started GET "/news_articles" for ::1 at 2020-04-12 21:03:04 -0400
+Started GET "/blog_posts" for ::1 at 2020-04-12 21:03:04 -0400
+Started GET "/auth/verify" for ::1 at 2020-04-12 21:03:04 -0400
+Processing by NewsArticlesController#index as HTML
+  [1m[36mNewsArticle Load (1.4ms)[0m  [1m[34mSELECT "news_articles".* FROM "news_articles"[0m
+  ↳ app/controllers/news_articles_controller.rb:9:in `index'
+Completed 200 OK in 7ms (Views: 4.0ms | ActiveRecord: 1.4ms | Allocations: 1199)
+
+
+Processing by BlogPostsController#index as HTML
+  [1m[36mBlogPost Load (0.7ms)[0m  [1m[34mSELECT "blog_posts".* FROM "blog_posts"[0m
+  ↳ app/controllers/blog_posts_controller.rb:9:in `index'
+Completed 200 OK in 4ms (Views: 2.5ms | ActiveRecord: 0.7ms | Allocations: 1034)
+
+
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authorize_request'
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.7ms | Allocations: 957)
+
+

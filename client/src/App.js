@@ -135,8 +135,7 @@ class App extends Component {
           {this.state.currentUser
             ?
             <div>
-              <h3>Hi {this.state.currentUser && this.state.currentUser.email}
-                <button onClick={this.handleSignOut}>Sign Out</button></h3>
+              <h3>Hi {this.state.currentUser && this.state.currentUser.email}&nbsp;<button onClick={this.handleSignOut}>Sign Out</button></h3>
               <Link to="/news_articles">View All +Articles!</Link>
               &nbsp;
               <Link to="/blog_posts">View All +Blogs!</Link>
