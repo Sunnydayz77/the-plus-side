@@ -31935,3 +31935,255 @@ Completed 200 OK in 8ms (Views: 6.3ms | ActiveRecord: 1.0ms | Allocations: 2852)
 Completed 200 OK in 8ms (Views: 0.4ms | ActiveRecord: 1.5ms | Allocations: 3063)
 
 
+Started GET "/news_articles" for ::1 at 2020-04-13 16:11:10 -0400
+Started GET "/auth/verify" for ::1 at 2020-04-13 16:11:10 -0400
+Started GET "/blog_posts" for ::1 at 2020-04-13 16:11:10 -0400
+  [1m[35m (3.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AuthenticationController#verify as HTML
+  [1m[35m (3.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by BlogPostsController#index as HTML
+Processing by NewsArticlesController#index as HTML
+  [1m[36mNewsArticle Load (6.6ms)[0m  [1m[34mSELECT "news_articles".* FROM "news_articles"[0m
+  ↳ app/controllers/news_articles_controller.rb:9:in `index'
+  [1m[36mBlogPost Load (2.0ms)[0m  [1m[34mSELECT "blog_posts".* FROM "blog_posts"[0m
+  ↳ app/controllers/blog_posts_controller.rb:9:in `index'
+Completed 200 OK in 43ms (Views: 17.8ms | ActiveRecord: 13.3ms | Allocations: 10225)
+
+
+Completed 200 OK in 70ms (Views: 25.3ms | ActiveRecord: 21.9ms | Allocations: 14922)
+
+
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authorize_request'
+Completed 200 OK in 142ms (Views: 1.0ms | ActiveRecord: 78.3ms | Allocations: 28014)
+
+
+Started POST "/users/18/news_articles" for ::1 at 2020-04-13 16:11:23 -0400
+Processing by NewsArticlesController#create_by_user as HTML
+  Parameters: {"title"=>"banana", "image_url"=>"https://miro.medium.com/max/1200/1*mk1-6aYaf_Bes1E3Imhc0A.jpeg", "article_url"=>"https://www.goodnewsnetwork.org/13-minute-musical-prescription-for-anxiety-and-depression/", "content"=>"BABY YODA!!", "user_id"=>"18", "news_article"=>{"image_url"=>"https://miro.medium.com/max/1200/1*mk1-6aYaf_Bes1E3Imhc0A.jpeg", "title"=>"banana", "article_url"=>"https://www.goodnewsnetwork.org/13-minute-musical-prescription-for-anxiety-and-depression/", "content"=>"BABY YODA!!"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/news_articles_controller.rb:32:in `create_by_user'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/news_articles_controller.rb:34:in `create_by_user'
+  [1m[36mNewsArticle Create (2.0ms)[0m  [1m[32mINSERT INTO "news_articles" ("image_url", "title", "article_url", "content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["image_url", "https://miro.medium.com/max/1200/1*mk1-6aYaf_Bes1E3Imhc0A.jpeg"], ["title", "banana"], ["article_url", "https://www.goodnewsnetwork.org/13-minute-musical-prescription-for-anxiety-and-depression/"], ["content", "BABY YODA!!"], ["user_id", 18], ["created_at", "2020-04-13 20:11:23.850178"], ["updated_at", "2020-04-13 20:11:23.850178"]]
+  ↳ app/controllers/news_articles_controller.rb:34:in `create_by_user'
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/news_articles_controller.rb:34:in `create_by_user'
+Completed 201 Created in 23ms (Views: 0.5ms | ActiveRecord: 4.0ms | Allocations: 5564)
+
+
+Started GET "/news_articles" for ::1 at 2020-04-13 16:11:31 -0400
+Started GET "/blog_posts" for ::1 at 2020-04-13 16:11:31 -0400
+Started GET "/auth/verify" for ::1 at 2020-04-13 16:11:31 -0400
+Processing by NewsArticlesController#index as HTML
+Processing by BlogPostsController#index as HTML
+Processing by AuthenticationController#verify as HTML
+  [1m[36mNewsArticle Load (0.7ms)[0m  [1m[34mSELECT "news_articles".* FROM "news_articles"[0m
+  ↳ app/controllers/news_articles_controller.rb:9:in `index'
+  [1m[36mBlogPost Load (1.2ms)[0m  [1m[34mSELECT "blog_posts".* FROM "blog_posts"[0m
+Completed 200 OK in 4ms (Views: 2.7ms | ActiveRecord: 0.7ms | Allocations: 2197)
+
+
+  ↳ app/controllers/blog_posts_controller.rb:9:in `index'
+Completed 200 OK in 5ms (Views: 3.2ms | ActiveRecord: 1.2ms | Allocations: 2537)
+
+
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authorize_request'
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 3.8ms | Allocations: 3450)
+
+
+Started GET "/news_articles/7" for ::1 at 2020-04-13 16:11:45 -0400
+Processing by NewsArticlesController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mNewsArticle Load (0.2ms)[0m  [1m[34mSELECT "news_articles".* FROM "news_articles" WHERE "news_articles"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/news_articles_controller.rb:65:in `set_news_article'
+  [1m[36mNewsArticleComment Load (0.4ms)[0m  [1m[34mSELECT "news_article_comments".* FROM "news_article_comments" WHERE "news_article_comments"."news_article_id" = $1[0m  [["news_article_id", 7]]
+  ↳ app/controllers/news_articles_controller.rb:14:in `show'
+Completed 200 OK in 15ms (Views: 11.2ms | ActiveRecord: 1.9ms | Allocations: 4204)
+
+
+Started GET "/news_articles/3" for ::1 at 2020-04-13 16:11:49 -0400
+Processing by NewsArticlesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mNewsArticle Load (0.4ms)[0m  [1m[34mSELECT "news_articles".* FROM "news_articles" WHERE "news_articles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/news_articles_controller.rb:65:in `set_news_article'
+  [1m[36mNewsArticleComment Load (0.3ms)[0m  [1m[34mSELECT "news_article_comments".* FROM "news_article_comments" WHERE "news_article_comments"."news_article_id" = $1[0m  [["news_article_id", 3]]
+  ↳ app/controllers/news_articles_controller.rb:14:in `show'
+Completed 200 OK in 5ms (Views: 2.4ms | ActiveRecord: 0.7ms | Allocations: 1699)
+
+
+Started GET "/news_articles/3" for ::1 at 2020-04-13 16:11:52 -0400
+Processing by NewsArticlesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mNewsArticle Load (0.3ms)[0m  [1m[34mSELECT "news_articles".* FROM "news_articles" WHERE "news_articles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/news_articles_controller.rb:65:in `set_news_article'
+  [1m[36mNewsArticleComment Load (0.2ms)[0m  [1m[34mSELECT "news_article_comments".* FROM "news_article_comments" WHERE "news_article_comments"."news_article_id" = $1[0m  [["news_article_id", 3]]
+  ↳ app/controllers/news_articles_controller.rb:14:in `show'
+Completed 200 OK in 3ms (Views: 1.6ms | ActiveRecord: 0.5ms | Allocations: 1699)
+
+
+Started DELETE "/news_articles/7" for ::1 at 2020-04-13 16:11:56 -0400
+Processing by NewsArticlesController#destroy as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mNewsArticle Load (0.2ms)[0m  [1m[34mSELECT "news_articles".* FROM "news_articles" WHERE "news_articles"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/news_articles_controller.rb:65:in `set_news_article'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authorize_request'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/news_articles_controller.rb:52:in `destroy'
+  [1m[36mNewsArticleComment Load (0.2ms)[0m  [1m[34mSELECT "news_article_comments".* FROM "news_article_comments" WHERE "news_article_comments"."news_article_id" = $1[0m  [["news_article_id", 7]]
+  ↳ app/controllers/news_articles_controller.rb:52:in `destroy'
+  [1m[36mNewsArticle Destroy (1.4ms)[0m  [1m[31mDELETE FROM "news_articles" WHERE "news_articles"."id" = $1[0m  [["id", 7]]
+  ↳ app/controllers/news_articles_controller.rb:52:in `destroy'
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/news_articles_controller.rb:52:in `destroy'
+Completed 204 No Content in 8ms (ActiveRecord: 2.6ms | Allocations: 3951)
+
+
+Started GET "/rails/info/routes" for ::1 at 2020-04-13 16:29:27 -0400
+Processing by Rails::InfoController#routes as HTML
+  Rendering /Users/jenniferpiwonski/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/railties-6.0.2.2/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of /Users/jenniferpiwonski/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/actionpack-6.0.2.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb [50 times] (Duration: 21.4ms | Allocations: 6945)
+  Rendered /Users/jenniferpiwonski/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/actionpack-6.0.2.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (Duration: 5.8ms | Allocations: 917)
+  Rendered /Users/jenniferpiwonski/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/railties-6.0.2.2/lib/rails/templates/rails/info/routes.html.erb within layouts/application (Duration: 33.2ms | Allocations: 11026)
+Completed 200 OK in 46ms (Views: 39.3ms | ActiveRecord: 0.0ms | Allocations: 13163)
+
+
+Started GET "/news_articles" for ::1 at 2020-04-13 16:29:34 -0400
+Processing by NewsArticlesController#index as HTML
+  [1m[36mNewsArticle Load (0.9ms)[0m  [1m[34mSELECT "news_articles".* FROM "news_articles"[0m
+  ↳ app/controllers/news_articles_controller.rb:9:in `index'
+Completed 200 OK in 16ms (Views: 10.8ms | ActiveRecord: 0.9ms | Allocations: 7110)
+
+
+Started GET "/news_articles" for ::1 at 2020-04-13 16:29:39 -0400
+Started GET "/blog_posts" for ::1 at 2020-04-13 16:29:39 -0400
+Started GET "/auth/verify" for ::1 at 2020-04-13 16:29:39 -0400
+Processing by NewsArticlesController#index as HTML
+  [1m[36mNewsArticle Load (0.4ms)[0m  [1m[34mSELECT "news_articles".* FROM "news_articles"[0m
+  ↳ app/controllers/news_articles_controller.rb:9:in `index'
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.4ms | Allocations: 1139)
+
+
+Processing by BlogPostsController#index as HTML
+Processing by AuthenticationController#verify as HTML
+  [1m[36mBlogPost Load (2.0ms)[0m  [1m[34mSELECT "blog_posts".* FROM "blog_posts"[0m
+  ↳ app/controllers/blog_posts_controller.rb:9:in `index'
+Completed 200 OK in 24ms (Views: 17.3ms | ActiveRecord: 2.0ms | Allocations: 9825)
+
+
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authorize_request'
+Completed 200 OK in 28ms (Views: 0.2ms | ActiveRecord: 10.5ms | Allocations: 14021)
+
+
+Started POST "/users/18/news_articles" for ::1 at 2020-04-13 16:29:52 -0400
+Processing by NewsArticlesController#create_by_user as HTML
+  Parameters: {"title"=>"banana", "image_url"=>"https://miro.medium.com/max/1200/1*mk1-6aYaf_Bes1E3Imhc0A.jpeg", "article_url"=>"", "content"=>"BABY YODA!!", "user_id"=>"18", "news_article"=>{"image_url"=>"https://miro.medium.com/max/1200/1*mk1-6aYaf_Bes1E3Imhc0A.jpeg", "title"=>"banana", "article_url"=>"", "content"=>"BABY YODA!!"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/news_articles_controller.rb:31:in `create_by_user'
+Completed 500 Internal Server Error in 138ms (ActiveRecord: 0.3ms | Allocations: 71768)
+
+
+  
+NameError (undefined local variable or method `news_article' for #<NewsArticlesController:0x00007fac2025a430>
+Did you mean?  @news_article):
+  
+app/controllers/news_articles_controller.rb:33:in `create_by_user'
+Started GET "/blog_posts" for ::1 at 2020-04-13 16:30:01 -0400
+Started GET "/auth/verify" for ::1 at 2020-04-13 16:30:01 -0400
+Started GET "/news_articles" for ::1 at 2020-04-13 16:30:01 -0400
+Processing by BlogPostsController#index as HTML
+Processing by NewsArticlesController#index as HTML
+Processing by AuthenticationController#verify as HTML
+  [1m[36mBlogPost Load (1.7ms)[0m  [1m[34mSELECT "blog_posts".* FROM "blog_posts"[0m
+  [1m[36mNewsArticle Load (0.7ms)[0m  [1m[34mSELECT "news_articles".* FROM "news_articles"[0m
+  ↳ app/controllers/blog_posts_controller.rb:9:in `index'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authorize_request'
+Completed 200 OK in 5ms (Views: 3.0ms | ActiveRecord: 1.7ms | Allocations: 2173)
+
+
+  ↳ app/controllers/news_articles_controller.rb:9:in `index'
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 1.1ms | Allocations: 2434)
+
+
+Completed 200 OK in 6ms (Views: 5.1ms | ActiveRecord: 0.7ms | Allocations: 3210)
+
+
+Started GET "/blog_posts" for ::1 at 2020-04-13 16:32:46 -0400
+Started GET "/news_articles" for ::1 at 2020-04-13 16:32:46 -0400
+Started GET "/auth/verify" for ::1 at 2020-04-13 16:32:46 -0400
+Processing by NewsArticlesController#index as HTML
+Processing by BlogPostsController#index as HTML
+Processing by AuthenticationController#verify as HTML
+  [1m[36mNewsArticle Load (1.1ms)[0m  [1m[34mSELECT "news_articles".* FROM "news_articles"[0m
+  [1m[36mBlogPost Load (0.9ms)[0m  [1m[34mSELECT "blog_posts".* FROM "blog_posts"[0m
+  ↳ app/controllers/news_articles_controller.rb:9:in `index'
+  ↳ app/controllers/blog_posts_controller.rb:9:in `index'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+Completed 200 OK in 4ms (Views: 2.4ms | ActiveRecord: 1.1ms | Allocations: 2086)
+
+
+Completed 200 OK in 4ms (Views: 2.6ms | ActiveRecord: 0.9ms | Allocations: 2241)
+
+
+  ↳ app/controllers/application_controller.rb:20:in `authorize_request'
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 3278)
+
+
+Started GET "/auth/verify" for ::1 at 2020-04-13 16:33:16 -0400
+Started GET "/blog_posts" for ::1 at 2020-04-13 16:33:16 -0400
+Started GET "/news_articles" for ::1 at 2020-04-13 16:33:16 -0400
+Processing by AuthenticationController#verify as HTML
+Processing by BlogPostsController#index as HTML
+  [1m[36mBlogPost Load (0.7ms)[0m  [1m[34mSELECT "blog_posts".* FROM "blog_posts"[0m
+  ↳ app/controllers/blog_posts_controller.rb:9:in `index'
+Processing by NewsArticlesController#index as HTML
+  [1m[36mNewsArticle Load (0.8ms)[0m  [1m[34mSELECT "news_articles".* FROM "news_articles"[0m
+  ↳ app/controllers/news_articles_controller.rb:9:in `index'
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authorize_request'
+Completed 200 OK in 30ms (Views: 0.3ms | ActiveRecord: 14.5ms | Allocations: 14118)
+
+
+Completed 200 OK in 31ms (Views: 7.8ms | ActiveRecord: 20.8ms | Allocations: 15186)
+
+
+Completed 200 OK in 37ms (Views: 12.8ms | ActiveRecord: 20.7ms | Allocations: 18339)
+
+
+Started POST "/users/18/news_articles" for ::1 at 2020-04-13 16:33:28 -0400
+Processing by NewsArticlesController#create_by_user as HTML
+  Parameters: {"title"=>"banana", "image_url"=>"https://miro.medium.com/max/1200/1*mk1-6aYaf_Bes1E3Imhc0A.jpeg", "article_url"=>"", "content"=>"BABY YODA!!", "user_id"=>"18", "news_article"=>{"image_url"=>"https://miro.medium.com/max/1200/1*mk1-6aYaf_Bes1E3Imhc0A.jpeg", "title"=>"banana", "article_url"=>"", "content"=>"BABY YODA!!"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/news_articles_controller.rb:31:in `create_by_user'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/news_articles_controller.rb:33:in `create_by_user'
+  [1m[36mNewsArticle Create (1.6ms)[0m  [1m[32mINSERT INTO "news_articles" ("image_url", "title", "article_url", "content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["image_url", "https://miro.medium.com/max/1200/1*mk1-6aYaf_Bes1E3Imhc0A.jpeg"], ["title", "banana"], ["article_url", ""], ["content", "BABY YODA!!"], ["user_id", 18], ["created_at", "2020-04-13 20:33:28.580618"], ["updated_at", "2020-04-13 20:33:28.580618"]]
+  ↳ app/controllers/news_articles_controller.rb:33:in `create_by_user'
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/news_articles_controller.rb:33:in `create_by_user'
+Completed 201 Created in 9ms (Views: 0.5ms | ActiveRecord: 3.4ms | Allocations: 3627)
+
+
+Started DELETE "/news_articles/8" for ::1 at 2020-04-13 16:33:35 -0400
+Processing by NewsArticlesController#destroy as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mNewsArticle Load (0.2ms)[0m  [1m[34mSELECT "news_articles".* FROM "news_articles" WHERE "news_articles"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/news_articles_controller.rb:64:in `set_news_article'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authorize_request'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/news_articles_controller.rb:51:in `destroy'
+  [1m[36mNewsArticleComment Load (1.8ms)[0m  [1m[34mSELECT "news_article_comments".* FROM "news_article_comments" WHERE "news_article_comments"."news_article_id" = $1[0m  [["news_article_id", 8]]
+  ↳ app/controllers/news_articles_controller.rb:51:in `destroy'
+  [1m[36mNewsArticle Destroy (2.9ms)[0m  [1m[31mDELETE FROM "news_articles" WHERE "news_articles"."id" = $1[0m  [["id", 8]]
+  ↳ app/controllers/news_articles_controller.rb:51:in `destroy'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/news_articles_controller.rb:51:in `destroy'
+Completed 204 No Content in 16ms (ActiveRecord: 6.7ms | Allocations: 5465)
+
+
