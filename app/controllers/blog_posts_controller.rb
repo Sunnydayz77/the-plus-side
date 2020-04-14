@@ -15,13 +15,24 @@ class BlogPostsController < ApplicationController
   end
 
   # POST /blog_posts
-  def create
-    @blog_post = BlogPost.new(blog_post_params)
+  # def create
+  #   @blog_post = BlogPost.new(blog_post_params)
 
-    if @blog_post.save
-      render json: @blog_post, status: :created, location: @blog_post
-    else
-      render json: @blog_post.errors, status: :unprocessable_entity
+  #   if @blog_post.save
+  #     render json: @blog_post, status: :created, location: @blog_post
+  #   else
+  #     render json: @blog_post.errors, status: :unprocessable_entity
+  #   end
+  # end
+
+  # post '/users/:user_id/blog_posts'
+  def create_by_user
+    user = User.find(params[:user_id])
+    blog_post = user.blog_posts.new(blog_post_params)
+    if blog_post.save
+      render json: blog_post, include: :user, status: :created
+    else 
+      render json: blog_post.errors, status: :unprocessable_entity
     end
   end
 

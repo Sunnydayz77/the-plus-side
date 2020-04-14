@@ -101,12 +101,6 @@ export const addCommentToArticle = async (id, commentId) => {
   const resp = await api.get(`/news_articles/${id}/news_article_comments/${commentId}`)
   return resp.data
 }
-// /news_articles/:news_article_id/news_article_comments/:id
-// def add_news_article_comment
-//     @news_article_comment = NewsArticleComment.find(params[:news_article_comment_id])
-//     @news_article.news_article_commments << @news_article_comment
-//     render json: @news_article, include: :news_article_comments
-//   end
 
 export const updateArticleComment = async (articleCommentData, id) => {
   const resp = await api.put(`/news_article_comments/${id}`, { news_article_comment: articleCommentData });
@@ -137,6 +131,16 @@ export const createPost = async (postData) => {
   return resp.data;
 }
 
+export const addCommentToPost = async (id, commentId) => {
+  const resp = await api.get(`/blog_posts/${id}/blog_post_comments/${commentId}`)
+  return resp.data
+}
+
+// export const addBlogPostComment = async (commentId, postId) => {
+//   const resp = await api.get(`/blog_post_comments/${commentId}/blog_posts/${postId}`);
+//   return resp.data;
+// }
+
 export const updatePost = async (postData, id) => {
   const resp = await api.put(`/blog_posts/${id}`, { blog_post: postData });
   return resp.data;
@@ -147,10 +151,6 @@ export const destroyPost = async (id) => {
   return resp.data;
 }
 
-// export const addBlogPostComment = async (commentId, postId) => {
-//   const resp = await api.get(`/blog_post_comments/${commentId}/blog_posts/${postId}`);
-//   return resp.data;
-// }
 
 // ============= Blog Post Comments =================
 

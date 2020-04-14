@@ -1,6 +1,6 @@
 import React from 'react';
 
-// Simple functional component to show flavors
+// Functional component to show comments
 const ShowComments = (props) => {
   return (
     <div>

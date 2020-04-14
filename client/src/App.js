@@ -6,7 +6,8 @@ import img from './Header.png'
 import ShowArticles from './components/ShowArticles';
 import ArticleItem from './components/Article';
 import ShowComments from './components/ShowComments';
-import BlogPostIndex from './components/ShowPosts';
+import PostItem from './components/Post';
+import ShowPosts from './components/ShowPosts';
 import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
 import Footer from './components/Footer';
@@ -16,13 +17,19 @@ import {
   verifyUser,
   removeToken,
   readAllArticles,
-  readOneArticle,
-  readAllArticleComments,
   readAllPosts,
+  readOneArticle,
+  readOnePost,
+  readAllArticleComments,
+  readAllPostComments,
   createArticle,
+  createPost,
   addCommentToArticle,
+  addCommentToPost,
   updateArticle,
-  destroyArticle
+  updatePost,
+  destroyArticle,
+  destroyPost
 } from './services/api-helper';
 
 
@@ -76,7 +83,6 @@ class App extends Component {
  // ============= News Articles ================
 
   // Function to get all articles from the API
-
   getArticles = async () => {
     const news_articles = await readAllArticles();
     this.setState({ news_articles });
@@ -139,7 +145,7 @@ class App extends Component {
   }
 
 
-  // Function to set the form data for the update food form
+  // Function to set the form data for the update article form
   setArticleForm = (article) => {
     this.setState({
       formData: {
@@ -168,7 +174,7 @@ class App extends Component {
     })
   }
 
-  //handle change for the flavor drop down form
+  //handle change for the comment drop down form
   commentForm = (e) => {
     this.setState({
       selectedComment: e.target.value
@@ -178,11 +184,80 @@ class App extends Component {
 
 // ============= Blog Posts ================
 
-  //Function to get all posts from API
-
+  //Function to get all blog posts from API
   getPosts = async () => {
     const blog_posts = await readAllPosts();
     this.setState({ blog_posts });
+  }
+
+  // Function to get a single blog post from the API
+  getPost = async (id) => {
+    const postItem = await readOnePost(id);
+    this.setState({ postItem });
+  }
+
+  // Function to create a new blog post in the API
+  addPost = async (user_id, postData) => { 
+    const newPost = await createPost(user_id, postData)
+    this.setState(prevState => ({
+      news_posts: [newPost, ...prevState.news_posts]  
+    }))
+    this.props.history.push('/news_posts')
+  }
+
+
+  // Function to update an existing blog post in the API
+  updatePost = async (postItem) => {
+    const updatedPostItem = await updatePost(this.state.formData, postItem.id);
+    this.setState(prevState => ({
+      blog_posts: prevState.blog_posts.map(singlePost => {
+        return singlePost.id === postItem.id ? updatedPostItem : singlePost
+      })
+    }))
+  }
+
+  // Function to set the form data for the update post form
+  setPostForm = (post) => {
+    this.setState({
+      formData: {
+        title: post.title,
+        image_url: post.image_url,
+        content: post.content
+      }
+    })
+  }
+
+  // Function to delete a blog post
+  deletePost = async (postItem) => {
+    await destroyPost(postItem.id);
+    this.setState(prevState => ({
+      blog_posts: prevState.blog_posts.filter(singlePost => singlePost.id !== postItem.id)
+    }))
+  }
+
+
+// ============= Blog Post Comments ================
+
+  // Function to get all blog post comments
+  getComments = async () => {
+    const comments = await readAllArticleComments();
+    this.setState({ comments })
+  }
+
+  // Function to add a comment to a blog post
+  addCommentToArticle = async (articleItem) => {
+    const newComment = this.state.comments.find(comment => comment.content === this.state.selectedComment);
+    const newArticleItem = await addCommentToArticle(articleItem.id, newComment.id);
+    this.setState({
+      articleItem: newArticleItem
+    })
+  }
+
+  //handle change for the comment drop down form
+  commentForm = (e) => {
+    this.setState({
+      selectedComment: e.target.value
+    })
   }
 
 
@@ -304,10 +379,35 @@ class App extends Component {
           />
         }} />
 
+        {this.state.currentUser &&
+          <Route exact path='/blog_posts' render={(props) => {
+            return <ShowPosts
+              blog_posts={this.state.blog_posts}
+              formData={this.state.formData}
+              getPost={this.getPost}
+              deletePost={this.deletePost}
+              handleSubmit={this.addPost}
+              handleChange={this.handleChange}
+              setPostForm={this.setPostForm}
+              updatePost={this.updatePost}
+              handlePostChange={this.handlePostChange}
+              id={this.state.currentUser.id}
+            />
+          }} />
+        }
 
-        <Route exact path='/blog_posts' render={(props) => {
-          return <BlogPostIndex
-            blog_posts={this.state.blog_posts}
+        <Route exact path="/blog_post_comments" render={(props) => {
+          return <ShowComments comments={this.state.comments}
+          />
+        }} />
+
+        <Route exact path="/blog_posts/:id" render={(props) => {
+          return <PostItem
+            PostItem={this.state.PostItem}
+            comments={this.state.comments}
+            selectedComment={this.state.selectedComment}
+            handleChange={this.commentForm}
+            addCommentToPost={this.addCommentToPost}
           />
         }} />
 
