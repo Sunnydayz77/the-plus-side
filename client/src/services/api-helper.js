@@ -60,13 +60,13 @@ export const readOneArticle = async (id) => {
   return resp.data;
 }
 
-export const createArticle = async (articleData) => {
-  const resp = await api.post(`/news_articles`, { news_article: articleData });
+export const createArticle = async (user_id, article) => {
+  const resp = await api.post(`/users/${user_id}/news_articles`, article);
   return resp.data;
 }
 
-export const updateArticle = async (articleData, id) => {
-  const resp = await api.put(`/news_articles/${id}`, { news_article: articleData });
+export const updateArticle = async (article, id) => {
+  const resp = await api.put(`/news_articles/${id}`, { news_article: article });
   return resp.data;
 }
 
@@ -97,6 +97,11 @@ export const createArticleComment = async (articleCommentData) => {
   return resp.data;
 }
 
+export const addCommentToArticle = async (id, commentId) => {
+  const resp = await api.get(`/news_articles/${id}/news_article_comments/${commentId}`)
+  return resp.data
+}
+
 export const updateArticleComment = async (articleCommentData, id) => {
   const resp = await api.put(`/news_article_comments/${id}`, { news_article_comment: articleCommentData });
   return resp.data;
@@ -121,10 +126,20 @@ export const readOnePost = async (id) => {
   return resp.data;
 }
 
-export const createPost = async (postData) => {
-  const resp = await api.post(`/blog_posts`, { blog_post: postData });
+export const createPost = async (user_id, postData) => {
+  const resp = await api.post(`/users/${user_id}/blog_posts`, postData);
   return resp.data;
 }
+
+export const addCommentToPost = async (id, commentId) => {
+  const resp = await api.get(`/blog_posts/${id}/blog_post_comments/${commentId}`)
+  return resp.data
+}
+
+// export const addBlogPostComment = async (commentId, postId) => {
+//   const resp = await api.get(`/blog_post_comments/${commentId}/blog_posts/${postId}`);
+//   return resp.data;
+// }
 
 export const updatePost = async (postData, id) => {
   const resp = await api.put(`/blog_posts/${id}`, { blog_post: postData });
@@ -136,25 +151,21 @@ export const destroyPost = async (id) => {
   return resp.data;
 }
 
-// export const addBlogPostComment = async (commentId, postId) => {
-//   const resp = await api.get(`/blog_post_comments/${commentId}/blog_posts/${postId}`);
-//   return resp.data;
-// }
 
 // ============= Blog Post Comments =================
 
-export const readAllPostComments = async () => {
-  const resp = await api.get(`/blog_post_comments`);
+export const readAllPostComments = async (postId) => {
+  const resp = await api.get(`/blog_posts/${postId}/blog_post_comments`);
   return resp.data;
 }
 
-export const readOnePostComment = async (id) => {
-  const resp = await api.get(`/blog_post_comment/${id}`);
+export const readOnePostComment = async (postId, id) => {
+  const resp = await api.get(`/blog_posts/${postId}/blog_post_comments/${id}`);
   return resp.data;
 }
 
-export const createPostComment = async (PostCommentData) => {
-  const resp = await api.post(`/blog_post_comments`, { blog_post_comment: PostCommentData });
+export const createPostComment = async (postId, PostCommentData) => {
+  const resp = await api.post(`/blog_posts/${postId}/blog_post_comments`, { blog_post_comment: PostCommentData });
   return resp.data;
 }
 

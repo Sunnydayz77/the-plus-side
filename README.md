@@ -115,7 +115,7 @@ App.js
 | Backend Models        |    H     |     8 hrs      |    8 hrs    |
 | API routes            |    H     |     5 hrs      |    4 hrs    |
 | Frontend Auth & Links |    H     |     3 hrs      |    6 hrs    |
-| CRUD                  |    H     |     9 hrs      |    TBD      |
+| CRUD                  |    H     |     9 hrs      |    16 hrs   |
 | Header(styling)       |    M     |     3 hrs      |    TBD      |
 | Footer                |    L     |     2 hrs      |    1 hr     |
 | Main Container        |    H     |     5 hrs      |    TBD      |
@@ -250,11 +250,12 @@ function reverse(string) {
 
 ### Code Issues & Resolutions
 
-| Error                                                                          | Resolution                                                                     |
-| :----------------------------------------------------------------------------: | :----------------------------------------------------------------------------: |
-| `seeds.rb:27: ActiveRecord::RecordInvalid: Validation failed: User must exist` | Needed to create a user association in seed file (user: user1)                 |
-| `App.js:8: TypeError: Cannot set property 'props' of undefined`                | Had extra parentheses in "class App extends Component () {" in top app.js file |
-| `App.js:51: TypeError: Cannot read property 'push' of undefined`               | Needed to have { withRouter } imported for this.props.history.push to work     |
+| Error                                                                                 | Resolution                                                                                        |
+| :-----------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------: |
+| `seeds.rb:27: ActiveRecord::RecordInvalid: Validation failed: User must exist`        | Needed to create a user association in seed file (user: user1)                                    |
+| `App.js:8: TypeError: Cannot set property 'props' of undefined`                       | Had extra parentheses in "class App extends Component () {" in top app.js file                    |
+| `App.js:51: TypeError: Cannot read property 'push' of undefined`                      | Needed to have { withRouter } imported for this.props.history.push to work                        |
+| `createError.js:16: Uncaught( in promise) Error: Request failed with status code 422` | Created a custom route, re-did the addArticle function, and removed formData from this.setState |
 
 
 ### Link to deployed site (for quick reference while scrolling through readme file): 
