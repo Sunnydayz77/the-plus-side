@@ -1,23 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-// export default function BlogPostIndex(props) {
-//   return (
-//     <div>
-//       <h2> Blog Post List:</h2>
-//         {props.blog_posts.map((post) => (
-//           <div key={post.id}>
-//             <img className="postImg" src={post.image_url} alt=""/>
-//             <h3>{post.title}</h3>
-//             <p>{post.content}</p>
-//           </div>
-//       ))}
-//     </div>
-//   )
-// }
-
-
-
 class ShowPosts extends Component {
   constructor(props) {
     super(props);
@@ -30,7 +13,7 @@ class ShowPosts extends Component {
   render() {
     return (
       <div>
-        {this.props.news_posts.map(post => (
+        {this.props.blog_posts.map(post => (
           <div key={post.id}>
             <h1>{post.title}</h1>
             <img className="postImg" src={post.image_url} alt=""/>
@@ -61,14 +44,6 @@ class ShowPosts extends Component {
                       name="image_url"
                       type="string"
                       value={this.props.formData.image_url}
-                      onChange={this.props.handleChange} />
-                  </label>
-                  
-                  <label>Post Url:
-                    <input
-                      name="post_url"
-                      type="string"
-                      value={this.props.formData.post_url}
                       onChange={this.props.handleChange} />
                   </label>
 
@@ -128,14 +103,6 @@ class ShowPosts extends Component {
                   name="image_url"
                   type="string"
                   value={this.props.formData.image_url}
-                  onChange={this.props.handlePostChange} />
-              </label>
-              
-              <label>post Url:
-                <input
-                  name="post_url"
-                  type="string"
-                  value={this.props.formData.post_url}
                   onChange={this.props.handlePostChange} />
               </label>
 

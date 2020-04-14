@@ -126,8 +126,8 @@ export const readOnePost = async (id) => {
   return resp.data;
 }
 
-export const createPost = async (postData) => {
-  const resp = await api.post(`/blog_posts`, { blog_post: postData });
+export const createPost = async (user_id, postData) => {
+  const resp = await api.post(`/users/${user_id}/blog_posts`, postData);
   return resp.data;
 }
 
@@ -154,18 +154,18 @@ export const destroyPost = async (id) => {
 
 // ============= Blog Post Comments =================
 
-export const readAllPostComments = async () => {
-  const resp = await api.get(`/blog_post_comments`);
+export const readAllPostComments = async (postId) => {
+  const resp = await api.get(`/blog_posts/${postId}/blog_post_comments`);
   return resp.data;
 }
 
-export const readOnePostComment = async (id) => {
-  const resp = await api.get(`/blog_post_comment/${id}`);
+export const readOnePostComment = async (postId, id) => {
+  const resp = await api.get(`/blog_posts/${postId}/blog_post_comments/${id}`);
   return resp.data;
 }
 
-export const createPostComment = async (PostCommentData) => {
-  const resp = await api.post(`/blog_post_comments`, { blog_post_comment: PostCommentData });
+export const createPostComment = async (postId, PostCommentData) => {
+  const resp = await api.post(`/blog_posts/${postId}/blog_post_comments`, { blog_post_comment: PostCommentData });
   return resp.data;
 }
 

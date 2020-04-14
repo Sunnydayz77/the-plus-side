@@ -13,6 +13,11 @@
   color: white;
 }
 
+body {
+  background-color: #282c34;
+  color: white;
+}
+
 /* img {
   object-fit: scale-down;
   max-width: 1600px;
@@ -30,6 +35,31 @@
 
 .postImg {
   max-width: 500px;
+}
+
+/*--------- Navigation -------------*/
+
+
+a:hover {
+  color: grey;
+}
+
+a:active {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:link {
+  text-decoration: none;
+  color: cornsilk;
+  font-size: 20px;
+}
+
+.navigationBar {
+  list-style: none;
 }
 
 

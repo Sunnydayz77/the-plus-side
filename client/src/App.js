@@ -76,6 +76,7 @@ class App extends Component {
     this.getArticles();
     this.getArticle();
     this.getPosts();
+    this.getPost();
     this.getComments();
     this.handleVerify();
   }
@@ -200,9 +201,9 @@ class App extends Component {
   addPost = async (user_id, postData) => { 
     const newPost = await createPost(user_id, postData)
     this.setState(prevState => ({
-      news_posts: [newPost, ...prevState.news_posts]  
+      blog_posts: [newPost, ...prevState.blog_posts]  
     }))
-    this.props.history.push('/news_posts')
+    this.props.history.push('/blog_posts')
   }
 
 
@@ -240,23 +241,16 @@ class App extends Component {
 
   // Function to get all blog post comments
   getComments = async () => {
-    const comments = await readAllArticleComments();
+    const comments = await readAllPostComments();
     this.setState({ comments })
   }
 
   // Function to add a comment to a blog post
-  addCommentToArticle = async (articleItem) => {
+  addCommentToPost = async (postItem) => {
     const newComment = this.state.comments.find(comment => comment.content === this.state.selectedComment);
-    const newArticleItem = await addCommentToArticle(articleItem.id, newComment.id);
+    const newPostItem = await addCommentToPost(postItem.id, newComment.id);
     this.setState({
-      articleItem: newArticleItem
-    })
-  }
-
-  //handle change for the comment drop down form
-  commentForm = (e) => {
-    this.setState({
-      selectedComment: e.target.value
+      postItem: newPostItem
     })
   }
 

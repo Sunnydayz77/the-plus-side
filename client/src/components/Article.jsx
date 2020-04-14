@@ -27,7 +27,7 @@ class ArticleItem extends Component {
               ?
               <div>
                 <select value={this.props.selectedComment} onChange={this.props.handleChange}>
-                  <option>Select a comment</option>
+                  <option>Create a comment</option>
                   {this.props.comments.map(comment=>(
                     <option>{comment.content}</option>
                   ))}

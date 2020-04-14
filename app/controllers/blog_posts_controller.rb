@@ -1,6 +1,6 @@
 class BlogPostsController < ApplicationController
-  before_action :set_blog_post, only: [:show, :update, :destroy, :add_blog_post_comment]
-  before_action :authorize_request, only: [:create, :update, :destroy, :add_blog_post_comment]
+  before_action :set_blog_post, only: [:show, :create_by_user, :update, :destroy, :add_blog_post_comment]
+  before_action :authorize_request, only: [:create_by_user, :update, :destroy, :add_blog_post_comment]
 
   # GET /blog_posts
   def index
@@ -19,7 +19,7 @@ class BlogPostsController < ApplicationController
   #   @blog_post = BlogPost.new(blog_post_params)
 
   #   if @blog_post.save
-  #     render json: @blog_post, status: :created, location: @blog_post
+  #     render json: @blog_post, status: :created
   #   else
   #     render json: @blog_post.errors, status: :unprocessable_entity
   #   end
