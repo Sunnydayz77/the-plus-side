@@ -1,6 +1,6 @@
 class NewsArticlesController < ApplicationController
   before_action :set_news_article, only: [:show, :update, :destroy, :add_news_article_comment]
-  before_action :authorize_request, only: [:create, :update, :destroy, :add_news_article_comment]
+  before_action :authorize_request, only: [:create_by_user, :update, :destroy, :add_news_article_comment]
 
   # GET /news_articles
   def index
@@ -15,13 +15,25 @@ class NewsArticlesController < ApplicationController
   end
 
   # POST /news_articles
-  def create
-    @news_article = NewsArticle.new(news_article_params)
+  # def create
+  #   @news_article = NewsArticle.new(news_article_params)
 
-    if @news_article.save
-      render json: @news_article, status: :created, location: @news_article
-    else
-      render json: @news_article.errors, status: :unprocessable_entity
+  #   if @news_article.save
+  #     render json: @news_article, status: :created
+  #     # location: @news_article
+  #   else
+  #     render json: @news_article.errors, status: :unprocessable_entity
+  #   end
+  # end
+
+  # post '/users/:user_id/news_articles'
+  def create_by_user
+    user = User.find(params[:user_id])
+    news_article = user.news_articles.new(news_article_params)
+    if news_article.save
+      render json: news_article, include: :user, status: :created
+    else 
+      render json: news_article.errors, status: :unprocessable_entity
     end
   end
 
@@ -54,6 +66,9 @@ class NewsArticlesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def news_article_params
-      params.require(:news_article).permit(:image_url, :title, :article_url, :content, :user_id)
+      params.require(:news_article).permit(:title, :image_url, :article_url, :content, :user_id)
     end
 end
+
+
+# params: { news_article: { article_url: @news_article.article_url, content: @news_article.content, image_url: @news_article.image_url, title: @news_article.title, user_id: @news_article.user_id } }
