@@ -1,5 +1,5 @@
 class NewsArticlesController < ApplicationController
-  before_action :set_news_article, only: [:show, :update, :destroy, :add_news_article_comment]
+  before_action :set_news_article, only: [:show, :update, :destroy]
   before_action :authorize_request, only: [:create_by_user, :update, :destroy, :add_news_article_comment]
 
   # GET /news_articles

@@ -4,6 +4,8 @@ class User < ApplicationRecord
   has_many :blog_post_comments, through: :blog_posts
   has_many :news_articles
   has_many :news_article_comments, through: :news_articles
+  has_many :news_article_comments
+  has_many :blog_post_comments
 
   # validates :username, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true

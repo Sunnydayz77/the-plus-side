@@ -97,8 +97,8 @@ export const createArticleComment = async (articleCommentData) => {
   return resp.data;
 }
 
-export const addCommentToArticle = async (id, commentId) => {
-  const resp = await api.get(`/news_articles/${id}/news_article_comments/${commentId}`)
+export const addCommentToArticle = async (id, comment) => {
+  const resp = await api.post(`/news_articles/${id}/news_article_comments`,  { news_article_comment: comment })
   return resp.data
 }
 

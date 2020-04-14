@@ -43,6 +43,7 @@ class App extends Component {
       news_article: null,
       blog_posts: [],
       comments: [],
+      selectedComment: '',
       articleItem: null, //value for a selected article
       postItem: null,  //value for a selected blog post
       formData: { //to add a news article or blog post
@@ -168,11 +169,12 @@ class App extends Component {
 
   // Function to add a comment to an article
   addCommentToArticle = async (articleItem) => {
-    const newComment = this.state.comments.find(comment => comment.content === this.state.selectedComment);
-    const newArticleItem = await addCommentToArticle(articleItem.id, newComment.id);
-    this.setState({
-      articleItem: newArticleItem
-    })
+    const newComment = await addCommentToArticle(articleItem.id, { content: this.state.selectedComment, news_article_id: articleItem.id });
+    const news_article_comments = this.state.articleItem.news_article_comments;
+    news_article_comments.push(newComment);
+    this.setState(prevState => 
+      ({ articleItem: { ...prevState.articleItem, news_article_comments } })
+    )
   }
 
   //handle change for the comment drop down form
