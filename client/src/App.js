@@ -6,7 +6,7 @@ import img from './Header.png'
 import ShowArticles from './components/ShowArticles';
 import ArticleItem from './components/Article';
 import ShowComments from './components/ShowComments';
-import BlogPostIndex from './components/BlogPostIndex';
+import BlogPostIndex from './components/ShowPosts';
 import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
 import Footer from './components/Footer';
@@ -289,16 +289,20 @@ class App extends Component {
           }} />
         }
 
-        <Route exact path="/news_article_comments" render={(props) => (
-          <ShowComments comments={this.state.comments} />)} />
+        <Route exact path="/news_article_comments" render={(props) => {
+          return <ShowComments comments={this.state.comments}
+          />
+        }} />
 
-        <Route exact path="/news_articles/:id" render={(props) => (
-          <ArticleItem
+        <Route exact path="/news_articles/:id" render={(props) => {
+          return <ArticleItem
             articleItem={this.state.articleItem}
             comments={this.state.comments}
             selectedComment={this.state.selectedComment}
             handleChange={this.commentForm}
-            addCommentToArticle={this.addCommentToArticle} />)} />
+            addCommentToArticle={this.addCommentToArticle}
+          />
+        }} />
 
 
         <Route exact path='/blog_posts' render={(props) => {
