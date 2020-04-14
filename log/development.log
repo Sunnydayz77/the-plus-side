@@ -43342,3 +43342,338 @@ Processing by BlogPostCommentsController#index as HTML
 Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.7ms | Allocations: 3459)
 
 
+Started GET "/news_articles" for ::1 at 2020-04-14 08:58:10 -0400
+Started GET "/auth/verify" for ::1 at 2020-04-14 08:58:10 -0400
+Started GET "/blog_posts/undefined/blog_post_comments" for ::1 at 2020-04-14 08:58:10 -0400
+Started GET "/blog_posts" for ::1 at 2020-04-14 08:58:10 -0400
+Started GET "/blog_posts/undefined" for ::1 at 2020-04-14 08:58:10 -0400
+Processing by AuthenticationController#verify as HTML
+Processing by NewsArticlesController#index as HTML
+Processing by BlogPostsController#show as HTML
+Processing by BlogPostsController#index as HTML
+  Parameters: {"id"=>"undefined"}
+  [1m[36mNewsArticle Load (2.9ms)[0m  [1m[34mSELECT "news_articles".* FROM "news_articles"[0m
+  [1m[36mBlogPost Load (1.0ms)[0m  [1m[34mSELECT "blog_posts".* FROM "blog_posts"[0m
+  ↳ app/controllers/news_articles_controller.rb:9:in `index'
+  ↳ app/controllers/blog_posts_controller.rb:9:in `index'
+Completed 200 OK in 13ms (Views: 8.9ms | ActiveRecord: 2.9ms | Allocations: 3031)
+
+
+Completed 200 OK in 9ms (Views: 6.0ms | ActiveRecord: 1.0ms | Allocations: 2259)
+
+
+  [1m[36mBlogPost Load (1.0ms)[0m  [1m[34mSELECT "blog_posts".* FROM "blog_posts" WHERE "blog_posts"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+Processing by BlogPostCommentsController#index as HTML
+  ↳ app/controllers/blog_posts_controller.rb:63:in `set_blog_post'
+  Parameters: {"blog_post_id"=>"undefined"}
+Completed 404 Not Found in 44ms (ActiveRecord: 3.7ms | Allocations: 3208)
+
+
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  
+ActiveRecord::RecordNotFound (Couldn't find BlogPost with 'id'=undefined):
+  
+app/controllers/blog_posts_controller.rb:63:in `set_blog_post'
+  ↳ app/controllers/application_controller.rb:20:in `authorize_request'
+  [1m[36mBlogPostComment Load (104.2ms)[0m  [1m[34mSELECT "blog_post_comments".* FROM "blog_post_comments"[0m
+Completed 200 OK in 176ms (Views: 0.5ms | ActiveRecord: 9.1ms | Allocations: 97254)
+
+
+  ↳ app/controllers/blog_post_comments_controller.rb:9:in `index'
+Completed 200 OK in 120ms (Views: 15.4ms | ActiveRecord: 104.2ms | Allocations: 92711)
+
+
+Started GET "/news_articles/undefined" for ::1 at 2020-04-14 08:58:11 -0400
+Processing by NewsArticlesController#show as HTML
+  Parameters: {"id"=>"undefined"}
+  [1m[36mNewsArticle Load (0.4ms)[0m  [1m[34mSELECT "news_articles".* FROM "news_articles" WHERE "news_articles"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/news_articles_controller.rb:64:in `set_news_article'
+Completed 404 Not Found in 2ms (ActiveRecord: 0.5ms | Allocations: 950)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find NewsArticle with 'id'=undefined):
+  
+app/controllers/news_articles_controller.rb:64:in `set_news_article'
+Started GET "/news_articles/3" for ::1 at 2020-04-14 08:58:20 -0400
+Processing by NewsArticlesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mNewsArticle Load (3.1ms)[0m  [1m[34mSELECT "news_articles".* FROM "news_articles" WHERE "news_articles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/news_articles_controller.rb:64:in `set_news_article'
+  [1m[36mNewsArticleComment Load (4.3ms)[0m  [1m[34mSELECT "news_article_comments".* FROM "news_article_comments" WHERE "news_article_comments"."news_article_id" = $1[0m  [["news_article_id", 3]]
+  ↳ app/controllers/news_articles_controller.rb:14:in `show'
+Completed 200 OK in 286ms (Views: 277.4ms | ActiveRecord: 7.5ms | Allocations: 3944)
+
+
+Started GET "/" for ::1 at 2020-04-14 08:58:33 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/jenniferpiwonski/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/railties-6.0.2.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/jenniferpiwonski/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/railties-6.0.2.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 10.1ms | Allocations: 189)
+Completed 200 OK in 14ms (Views: 12.0ms | ActiveRecord: 0.0ms | Allocations: 788)
+
+
+Started GET "/news_articles/undefined" for ::1 at 2020-04-14 08:58:49 -0400
+Started GET "/news_articles" for ::1 at 2020-04-14 08:58:49 -0400
+Started GET "/blog_posts" for ::1 at 2020-04-14 08:58:49 -0400
+Started GET "/blog_posts/undefined/blog_post_comments" for ::1 at 2020-04-14 08:58:49 -0400
+Started GET "/blog_posts/undefined" for ::1 at 2020-04-14 08:58:49 -0400
+Processing by NewsArticlesController#show as HTML
+Processing by NewsArticlesController#index as HTML
+  Parameters: {"id"=>"undefined"}
+  [1m[36mNewsArticle Load (3.1ms)[0m  [1m[34mSELECT "news_articles".* FROM "news_articles"[0m
+Processing by BlogPostsController#show as HTML
+  Parameters: {"id"=>"undefined"}
+Processing by BlogPostCommentsController#index as HTML
+  Parameters: {"blog_post_id"=>"undefined"}
+  [1m[36mNewsArticle Load (5.1ms)[0m  [1m[34mSELECT "news_articles".* FROM "news_articles" WHERE "news_articles"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/news_articles_controller.rb:64:in `set_news_article'
+Completed 404 Not Found in 9ms (ActiveRecord: 5.1ms | Allocations: 1019)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find NewsArticle with 'id'=undefined):
+  
+app/controllers/news_articles_controller.rb:64:in `set_news_article'
+Processing by BlogPostsController#index as HTML
+  ↳ app/controllers/news_articles_controller.rb:9:in `index'
+Completed 200 OK in 169ms (Views: 165.3ms | ActiveRecord: 3.1ms | Allocations: 94268)
+
+
+  [1m[36mBlogPostComment Load (100.6ms)[0m  [1m[34mSELECT "blog_post_comments".* FROM "blog_post_comments"[0m
+  [1m[36mBlogPost Load (2.5ms)[0m  [1m[34mSELECT "blog_posts".* FROM "blog_posts"[0m
+  ↳ app/controllers/blog_post_comments_controller.rb:9:in `index'
+  ↳ app/controllers/blog_posts_controller.rb:9:in `index'
+Completed 200 OK in 21ms (Views: 18.1ms | ActiveRecord: 2.5ms | Allocations: 2855)
+
+
+  [1m[36mBlogPost Load (3.4ms)[0m  [1m[34mSELECT "blog_posts".* FROM "blog_posts" WHERE "blog_posts"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/blog_posts_controller.rb:63:in `set_blog_post'
+Completed 200 OK in 178ms (Views: 76.6ms | ActiveRecord: 100.6ms | Allocations: 94622)
+
+
+Completed 404 Not Found in 190ms (ActiveRecord: 161.0ms | Allocations: 95863)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find BlogPost with 'id'=undefined):
+  
+app/controllers/blog_posts_controller.rb:63:in `set_blog_post'
+Started GET "/auth/verify" for ::1 at 2020-04-14 08:58:49 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authorize_request'
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 883)
+
+
+Started GET "/news_articles/undefined" for ::1 at 2020-04-14 09:02:16 -0400
+Started GET "/blog_posts" for ::1 at 2020-04-14 09:02:16 -0400
+Started GET "/blog_posts/undefined" for ::1 at 2020-04-14 09:02:16 -0400
+Started GET "/news_articles" for ::1 at 2020-04-14 09:02:16 -0400
+Started GET "/blog_posts/undefined/blog_post_comments" for ::1 at 2020-04-14 09:02:16 -0400
+Processing by NewsArticlesController#show as HTML
+  Parameters: {"id"=>"undefined"}
+Processing by BlogPostsController#show as HTML
+Processing by BlogPostsController#index as HTML
+Processing by NewsArticlesController#index as HTML
+  Parameters: {"id"=>"undefined"}
+  [1m[36mNewsArticle Load (1.7ms)[0m  [1m[34mSELECT "news_articles".* FROM "news_articles" WHERE "news_articles"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  [1m[36mBlogPost Load (2.3ms)[0m  [1m[34mSELECT "blog_posts".* FROM "blog_posts"[0m
+  [1m[36mBlogPost Load (0.6ms)[0m  [1m[34mSELECT "blog_posts".* FROM "blog_posts" WHERE "blog_posts"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+Processing by BlogPostCommentsController#index as HTML
+  ↳ app/controllers/news_articles_controller.rb:64:in `set_news_article'
+  [1m[36mNewsArticle Load (2.1ms)[0m  [1m[34mSELECT "news_articles".* FROM "news_articles"[0m
+  Parameters: {"blog_post_id"=>"undefined"}
+  ↳ app/controllers/blog_posts_controller.rb:63:in `set_blog_post'
+  ↳ app/controllers/blog_posts_controller.rb:9:in `index'
+Completed 200 OK in 11ms (Views: 8.1ms | ActiveRecord: 2.3ms | Allocations: 3075)
+
+
+Completed 404 Not Found in 5ms (ActiveRecord: 0.6ms | Allocations: 2544)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find BlogPost with 'id'=undefined):
+  
+app/controllers/blog_posts_controller.rb:63:in `set_blog_post'
+  [1m[36mBlogPostComment Load (3.8ms)[0m  [1m[34mSELECT "blog_post_comments".* FROM "blog_post_comments"[0m
+Completed 404 Not Found in 11ms (ActiveRecord: 1.7ms | Allocations: 4620)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find NewsArticle with 'id'=undefined):
+  
+app/controllers/news_articles_controller.rb:64:in `set_news_article'
+  ↳ app/controllers/news_articles_controller.rb:9:in `index'
+Completed 200 OK in 18ms (Views: 15.9ms | ActiveRecord: 2.1ms | Allocations: 5188)
+
+
+  ↳ app/controllers/blog_post_comments_controller.rb:9:in `index'
+Completed 200 OK in 258ms (Views: 253.6ms | ActiveRecord: 3.8ms | Allocations: 183787)
+
+
+Started GET "/auth/verify" for ::1 at 2020-04-14 09:02:16 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authorize_request'
+Completed 200 OK in 4ms (Views: 0.5ms | ActiveRecord: 0.7ms | Allocations: 2854)
+
+
+Started GET "/news_articles" for ::1 at 2020-04-14 09:05:13 -0400
+Started GET "/news_articles/undefined" for ::1 at 2020-04-14 09:05:13 -0400
+Started GET "/blog_posts" for ::1 at 2020-04-14 09:05:13 -0400
+Started GET "/blog_posts/undefined/blog_post_comments" for ::1 at 2020-04-14 09:05:13 -0400
+Started GET "/blog_posts/undefined" for ::1 at 2020-04-14 09:05:13 -0400
+Processing by BlogPostsController#index as HTML
+Processing by BlogPostsController#show as HTML
+Processing by BlogPostCommentsController#index as HTML
+  Parameters: {"blog_post_id"=>"undefined"}
+Processing by NewsArticlesController#show as HTML
+Processing by NewsArticlesController#index as HTML
+  Parameters: {"id"=>"undefined"}
+  [1m[36mBlogPost Load (2.6ms)[0m  [1m[34mSELECT "blog_posts".* FROM "blog_posts"[0m
+  Parameters: {"id"=>"undefined"}
+  ↳ app/controllers/blog_posts_controller.rb:9:in `index'
+Completed 200 OK in 5ms (Views: 2.3ms | ActiveRecord: 2.6ms | Allocations: 2298)
+
+
+  [1m[36mBlogPostComment Load (2.3ms)[0m  [1m[34mSELECT "blog_post_comments".* FROM "blog_post_comments"[0m
+  [1m[36mNewsArticle Load (1.3ms)[0m  [1m[34mSELECT "news_articles".* FROM "news_articles" WHERE "news_articles"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/blog_post_comments_controller.rb:9:in `index'
+  [1m[36mBlogPost Load (1.6ms)[0m  [1m[34mSELECT "blog_posts".* FROM "blog_posts" WHERE "blog_posts"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  [1m[36mNewsArticle Load (4.3ms)[0m  [1m[34mSELECT "news_articles".* FROM "news_articles"[0m
+  ↳ app/controllers/news_articles_controller.rb:64:in `set_news_article'
+  ↳ app/controllers/blog_posts_controller.rb:63:in `set_blog_post'
+Completed 200 OK in 5ms (Views: 2.6ms | ActiveRecord: 2.3ms | Allocations: 2677)
+
+
+  ↳ app/controllers/news_articles_controller.rb:9:in `index'
+Completed 404 Not Found in 6ms (ActiveRecord: 1.6ms | Allocations: 3730)
+
+
+Completed 404 Not Found in 5ms (ActiveRecord: 1.3ms | Allocations: 2923)
+
+
+Completed 200 OK in 8ms (Views: 3.8ms | ActiveRecord: 4.3ms | Allocations: 4977)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find BlogPost with 'id'=undefined):
+  
+app/controllers/blog_posts_controller.rb:63:in `set_blog_post'
+  
+ActiveRecord::RecordNotFound (Couldn't find NewsArticle with 'id'=undefined):
+  
+app/controllers/news_articles_controller.rb:64:in `set_news_article'
+Started GET "/auth/verify" for ::1 at 2020-04-14 09:05:13 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authorize_request'
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 2034)
+
+
+Started GET "/news_articles/undefined" for ::1 at 2020-04-14 09:05:27 -0400
+Started GET "/blog_posts/undefined" for ::1 at 2020-04-14 09:05:27 -0400
+Started GET "/news_articles" for ::1 at 2020-04-14 09:05:27 -0400
+Started GET "/auth/verify" for ::1 at 2020-04-14 09:05:27 -0400
+Processing by NewsArticlesController#show as HTML
+  Parameters: {"id"=>"undefined"}
+Started GET "/blog_posts" for ::1 at 2020-04-14 09:05:27 -0400
+Processing by BlogPostsController#show as HTML
+Processing by NewsArticlesController#index as HTML
+  Parameters: {"id"=>"undefined"}
+Processing by AuthenticationController#verify as HTML
+  [1m[36mNewsArticle Load (3.7ms)[0m  [1m[34mSELECT "news_articles".* FROM "news_articles" WHERE "news_articles"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/news_articles_controller.rb:64:in `set_news_article'
+  [1m[36mBlogPost Load (3.2ms)[0m  [1m[34mSELECT "blog_posts".* FROM "blog_posts" WHERE "blog_posts"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+Completed 404 Not Found in 11ms (ActiveRecord: 3.7ms | Allocations: 2911)
+
+
+  [1m[36mNewsArticle Load (6.3ms)[0m  [1m[34mSELECT "news_articles".* FROM "news_articles"[0m
+Processing by BlogPostsController#index as HTML
+  
+ActiveRecord::RecordNotFound (Couldn't find NewsArticle with 'id'=undefined):
+  
+app/controllers/news_articles_controller.rb:64:in `set_news_article'
+  ↳ app/controllers/news_articles_controller.rb:9:in `index'
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mBlogPost Load (3.7ms)[0m  [1m[34mSELECT "blog_posts".* FROM "blog_posts"[0m
+Completed 200 OK in 110ms (Views: 103.8ms | ActiveRecord: 6.3ms | Allocations: 74461)
+
+
+  ↳ app/controllers/blog_posts_controller.rb:63:in `set_blog_post'
+Completed 404 Not Found in 145ms (ActiveRecord: 3.2ms | Allocations: 98618)
+
+
+  ↳ app/controllers/application_controller.rb:20:in `authorize_request'
+  ↳ app/controllers/blog_posts_controller.rb:9:in `index'
+  
+ActiveRecord::RecordNotFound (Couldn't find BlogPost with 'id'=undefined):
+  
+app/controllers/blog_posts_controller.rb:63:in `set_blog_post'
+Completed 200 OK in 248ms (Views: 107.2ms | ActiveRecord: 3.8ms | Allocations: 180082)
+
+
+Completed 200 OK in 243ms (Views: 239.5ms | ActiveRecord: 3.7ms | Allocations: 177398)
+
+
+Started GET "/blog_posts/undefined/blog_post_comments" for ::1 at 2020-04-14 09:05:27 -0400
+Processing by BlogPostCommentsController#index as HTML
+  Parameters: {"blog_post_id"=>"undefined"}
+  [1m[36mBlogPostComment Load (0.2ms)[0m  [1m[34mSELECT "blog_post_comments".* FROM "blog_post_comments"[0m
+  ↳ app/controllers/blog_post_comments_controller.rb:9:in `index'
+Completed 200 OK in 1ms (Views: 1.0ms | ActiveRecord: 0.2ms | Allocations: 811)
+
+
+Started GET "/news_articles/undefined" for ::1 at 2020-04-14 09:05:44 -0400
+Started GET "/news_articles" for ::1 at 2020-04-14 09:05:44 -0400
+Started GET "/blog_posts" for ::1 at 2020-04-14 09:05:44 -0400
+Started GET "/auth/verify" for ::1 at 2020-04-14 09:05:44 -0400
+Started GET "/blog_posts/undefined" for ::1 at 2020-04-14 09:05:44 -0400
+Processing by NewsArticlesController#show as HTML
+  Parameters: {"id"=>"undefined"}
+Processing by NewsArticlesController#index as HTML
+Processing by BlogPostsController#index as HTML
+  [1m[36mNewsArticle Load (3.2ms)[0m  [1m[34mSELECT "news_articles".* FROM "news_articles" WHERE "news_articles"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+Processing by AuthenticationController#verify as HTML
+  [1m[36mBlogPost Load (2.0ms)[0m  [1m[34mSELECT "blog_posts".* FROM "blog_posts"[0m
+Processing by BlogPostsController#show as HTML
+  Parameters: {"id"=>"undefined"}
+  [1m[36mUser Load (3.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authorize_request'
+  ↳ app/controllers/news_articles_controller.rb:64:in `set_news_article'
+Completed 200 OK in 9ms (Views: 0.4ms | ActiveRecord: 3.3ms | Allocations: 1824)
+
+
+Completed 404 Not Found in 30ms (ActiveRecord: 3.2ms | Allocations: 5014)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find NewsArticle with 'id'=undefined):
+  
+app/controllers/news_articles_controller.rb:64:in `set_news_article'
+  [1m[36mNewsArticle Load (16.2ms)[0m  [1m[34mSELECT "news_articles".* FROM "news_articles"[0m
+  [1m[36mBlogPost Load (115.0ms)[0m  [1m[34mSELECT "blog_posts".* FROM "blog_posts" WHERE "blog_posts"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/blog_posts_controller.rb:63:in `set_blog_post'
+  ↳ app/controllers/blog_posts_controller.rb:9:in `index'
+Completed 404 Not Found in 118ms (ActiveRecord: 115.0ms | Allocations: 93156)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find BlogPost with 'id'=undefined):
+  
+app/controllers/blog_posts_controller.rb:63:in `set_blog_post'
+  ↳ app/controllers/news_articles_controller.rb:9:in `index'
+Completed 200 OK in 127ms (Views: 124.6ms | ActiveRecord: 2.0ms | Allocations: 95844)
+
+
+Completed 200 OK in 265ms (Views: 248.4ms | ActiveRecord: 16.2ms | Allocations: 188308)
+
+
+Started GET "/blog_posts/undefined/blog_post_comments" for ::1 at 2020-04-14 09:05:44 -0400
+Processing by BlogPostCommentsController#index as HTML
+  Parameters: {"blog_post_id"=>"undefined"}
+  [1m[36mBlogPostComment Load (14.5ms)[0m  [1m[34mSELECT "blog_post_comments".* FROM "blog_post_comments"[0m
+  ↳ app/controllers/blog_post_comments_controller.rb:9:in `index'
+Completed 200 OK in 17ms (Views: 2.0ms | ActiveRecord: 14.5ms | Allocations: 2541)
+
+

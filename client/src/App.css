@@ -41,20 +41,21 @@ body {
 
 
 a:hover {
-  color: grey;
+  color: #FE9E96;
 }
 
 a:active {
-  text-decoration: none;
+  /* text-decoration: none; */
 }
 
 a:visited {
   text-decoration: none;
+  /* color: rgb(243, 226, 74); */
 }
 
 a:link {
-  text-decoration: none;
-  color: cornsilk;
+  /* text-decoration: none; */
+  /* color: cornsilk; */
   font-size: 20px;
 }
 
