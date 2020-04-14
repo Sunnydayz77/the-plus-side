@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Article extends Component {
+class ArticleItem extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -11,14 +11,14 @@ class Article extends Component {
   render() {
     return (
       <div>
-        {this.props.getArticle &&
+        {this.props.articleItem &&
           <div>
-            <h1>{this.props.getArticle.title}</h1>
-            <img src={this.props.getArticle.image_url} alt=""/>
-            <h4>{this.props.getArticle.article_url}</h4>
-            <p>{this.props.getArticle.content}</p>
+            <h1>{this.props.articleItem.title}</h1>
+            <img src={this.props.articleItem.image_url} alt=""/>
+            <h4>{this.props.articleItem.article_url}</h4>
+            <p>{this.props.articleItem.content}</p>
           
-            {this.props.getArticle.comments.map(comment => (
+            {this.props.articleItem.comments.map(comment => (
               <div key={comment.id}>
                 <p>{comment.content}</p>
               </div>
@@ -33,7 +33,7 @@ class Article extends Component {
                   ))}
                 </select>
                 <button onClick={() =>{
-                  this.props.addCommentToArticle(this.props.getArticle)
+                  this.props.addCommentToArticle(this.props.articleItem)
                 }}>Submit</button>
               </div>
               :
@@ -50,4 +50,4 @@ class Article extends Component {
   }
 }
 
-export default Article;
+export default ArticleItem;

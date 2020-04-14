@@ -4,7 +4,8 @@ import { withRouter } from 'react-router';
 import './App.css';
 import img from './Header.png'
 import ShowArticles from './components/ShowArticles';
-import Article from './components/Article';
+import ArticleItem from './components/Article';
+import ShowComments from './components/ShowComments';
 import BlogPostIndex from './components/BlogPostIndex';
 import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
@@ -16,11 +17,14 @@ import {
   removeToken,
   readAllArticles,
   readOneArticle,
+  readAllArticleComments,
   readAllPosts,
   createArticle,
+  addCommentToArticle,
   updateArticle,
   destroyArticle
 } from './services/api-helper';
+
 
 class App extends Component {
   constructor(props) {
@@ -63,7 +67,9 @@ class App extends Component {
   
   componentDidMount = () => {
     this.getArticles();
+    this.getArticle();
     this.getPosts();
+    this.getComments();
     this.handleVerify();
   }
 
@@ -78,8 +84,8 @@ class App extends Component {
 
   // Function to get a single article from the API
   getArticle = async (id) => {
-    const news_article = await readOneArticle(id);
-    this.setState({ news_article });
+    const articleItem = await readOneArticle(id);
+    this.setState({ articleItem });
   }
 
   // Function to create a new article in the API
@@ -94,20 +100,20 @@ class App extends Component {
 
 
   // Function to update an existing article in the API
-  updateArticle = async (Article) => {
-    const updatedArticle = await updateArticle(this.state.formData, Article.id);
+  updateArticle = async (articleItem) => {
+    const updatedArticleItem = await updateArticle(this.state.formData, articleItem.id);
     this.setState(prevState => ({
       news_articles: prevState.news_articles.map(singleArticle => {
-        return singleArticle.id === Article.id ? updatedArticle : singleArticle
+        return singleArticle.id === articleItem.id ? updatedArticleItem : singleArticle
       })
     }))
   }
 
   // Function to delete an article
-  deleteArticle = async (Article) => {
-    await destroyArticle(Article.id);
+  deleteArticle = async (articleItem) => {
+    await destroyArticle(articleItem.id);
     this.setState(prevState => ({
-      news_articles: prevState.news_articles.filter(singleArticle => singleArticle.id !== Article.id)
+      news_articles: prevState.news_articles.filter(singleArticle => singleArticle.id !== articleItem.id)
     }))
   }
 
@@ -147,29 +153,27 @@ class App extends Component {
 
 // ============= News Article Comments ================
 
-  // // Function to get all article comments
-  // getComments = async () => {
-  //   const comments = await readAllArticleComments();
-  //   this.setState({ comments })
-  // }
+  // Function to get all article comments
+  getComments = async () => {
+    const comments = await readAllArticleComments();
+    this.setState({ comments })
+  }
 
-  // // Function to add a flavor to a food
-  // // We first find the flavor using by comparing the name from the flavor form data and the name in the flavors array
-  // // Then we make our API call using that flavors id and the id of the food argument passed to this function
-  // addFlavorToFood = async (foodItem) => {
-  //   const newFlavor = this.state.flavors.find(flavor => flavor.name === this.state.selectedFlavor);
-  //   const newFoodItem = await putFoodFlavor(foodItem.id, newFlavor.id);
-  //   this.setState({
-  //     foodItem: newFoodItem
-  //   })
-  // }
+  // Function to add a comment to an article
+  addCommentToArticle = async (articleItem) => {
+    const newComment = this.state.comments.find(comment => comment.content === this.state.selectedComment);
+    const newArticleItem = await addCommentToArticle(articleItem.id, newComment.id);
+    this.setState({
+      articleItem: newArticleItem
+    })
+  }
 
-  // //handle change for the flavor drop down form
-  // flavorForm = (e) => {
-  //   this.setState({
-  //     selectedFlavor: e.target.value
-  //   })
-  // }
+  //handle change for the flavor drop down form
+  commentForm = (e) => {
+    this.setState({
+      selectedComment: e.target.value
+    })
+  }
 
 
 // ============= Blog Posts ================
@@ -252,7 +256,7 @@ class App extends Component {
           }
         </header>
 
-        <Route path="/sign_in" render={(props) => {
+        <Route exact path="/sign_in" render={(props) => {
           return <SignIn
             handleSignIn={this.handleSignIn}
             handleChange={this.authHandleChange}
@@ -260,7 +264,7 @@ class App extends Component {
           />
         }} />
         
-        <Route path="/sign_up" render={(props) => {
+        <Route exact path="/sign_up" render={(props) => {
           return <SignUp
             handleSignUp={this.handleSignUp}
             handleChange={this.authHandleChange}
@@ -269,7 +273,7 @@ class App extends Component {
         }} />
         
         {this.state.currentUser && 
-          <Route path='/news_articles' render={(props) => {
+          <Route exact path='/news_articles' render={(props) => {
             return <ShowArticles
               news_articles={this.state.news_articles}
               formData={this.state.formData}
@@ -285,16 +289,19 @@ class App extends Component {
           }} />
         }
 
-        <Route path="/news_articles/:id" render={(props) => (
-          <Article
-            getArticle={this.state.getArticle}
+        <Route exact path="/news_article_comments" render={(props) => (
+          <ShowComments comments={this.state.comments} />)} />
+
+        <Route exact path="/news_articles/:id" render={(props) => (
+          <ArticleItem
+            articleItem={this.state.articleItem}
             comments={this.state.comments}
             selectedComment={this.state.selectedComment}
             handleChange={this.commentForm}
-            addFlavorToFood={this.addCommentToFood} />)} />
+            addCommentToArticle={this.addCommentToArticle} />)} />
 
 
-        <Route path='/blog_posts' render={(props) => {
+        <Route exact path='/blog_posts' render={(props) => {
           return <BlogPostIndex
             blog_posts={this.state.blog_posts}
           />

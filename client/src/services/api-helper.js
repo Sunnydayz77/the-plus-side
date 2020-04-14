@@ -97,6 +97,17 @@ export const createArticleComment = async (articleCommentData) => {
   return resp.data;
 }
 
+export const addCommentToArticle = async (id, commentId) => {
+  const resp = await api.get(`/news_articles/${id}/news_article_comments/${commentId}`)
+  return resp.data
+}
+// /news_articles/:news_article_id/news_article_comments/:id
+// def add_news_article_comment
+//     @news_article_comment = NewsArticleComment.find(params[:news_article_comment_id])
+//     @news_article.news_article_commments << @news_article_comment
+//     render json: @news_article, include: :news_article_comments
+//   end
+
 export const updateArticleComment = async (articleCommentData, id) => {
   const resp = await api.put(`/news_article_comments/${id}`, { news_article_comment: articleCommentData });
   return resp.data;
