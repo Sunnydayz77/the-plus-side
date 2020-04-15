@@ -1,22 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-// export default function ShowArticles(props) {
-//   return (
-//     <div>
-//       <h2> News Article List:</h2>
-//       {props.news_articles.map((article) => (
-//         <div key={article.id}>
-//           <img src={article.image_url} alt=""/>
-//           <h3>{article.title}</h3>
-//           <h4>{article.article_url}</h4>
-//           <p>{article.content}</p>
-//         </div>
-//       ))}
-//     </div>
-//   )
-// }
-
 class ShowArticles extends Component {
   constructor(props) {
     super(props);
@@ -87,25 +71,25 @@ class ShowArticles extends Component {
                 <Link to={`/news_articles/${article.id}`} onClick={() => {
                   this.props.getArticle(article.id)
                 }}>{article.title}</Link>
-                
+                &nbsp;
                 <button onClick={() => {
                   this.props.setArticleForm(article);
                   this.setState({
                     edit: article.id
                   })
-                }}>Edit</button>
-
+                }}>Edit Article</button>
+                &nbsp;
                 <button onClick={() => {
                   this.props.deleteArticle(article)
-                }}>Delete</button>
+                }}>Delete Article</button>
 
               </div>
             }
           </div>
         ))}
 
-        <hr />
-
+        <br />
+        
         {this.state.create 
           ?
           <div>
@@ -152,8 +136,11 @@ class ShowArticles extends Component {
           :
           <button onClick={() => {
             this.setState({ create: true })
-          }}>Add</button>
+          }}>Add Article</button>
         }
+        <br />
+        <br />
+        <br />
       </div>
     )
   }

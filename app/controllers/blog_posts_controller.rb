@@ -1,5 +1,5 @@
 class BlogPostsController < ApplicationController
-  before_action :set_blog_post, only: [:show, :create_by_user, :update, :destroy, :add_blog_post_comment]
+  before_action :set_blog_post, only: [:show, :update, :destroy, :add_blog_post_comment]
   before_action :authorize_request, only: [:create_by_user, :update, :destroy, :add_blog_post_comment]
 
   # GET /blog_posts

@@ -14,11 +14,11 @@ class PostItem extends Component {
         {this.props.postItem &&
           <div>
             <h1>{this.props.postItem.title}</h1>
-            <img src={this.props.postItem.image_url} alt=""/>
+            <img className="postImg" src={this.props.postItem.image_url} alt=""/>
             <h4>{this.props.postItem.article_url}</h4>
             <p>{this.props.postItem.content}</p>
           
-            {this.props.postItem.comments.map(comment => (
+            {this.props.postItem.comments && this.props.postItem.comments.map(comment => (
               <div key={comment.id}>
                 <p>{comment.content}</p>
               </div>

@@ -1,5 +1,5 @@
 class NewsArticleCommentsController < ApplicationController
-  before_action :set_news_article_comment, only: [:show, :update, :destroy]
+  before_action :set_news_article_comment, only: [:show, :update]
   before_action :authorize_request, only: [:create, :update, :destroy]
 
   # GET /news_article_comments
@@ -16,10 +16,10 @@ class NewsArticleCommentsController < ApplicationController
 
   # POST /news_article_comments
   def create
-    @news_article_comment = NewsArticleComment.new(news_article_comment_params)
+    @news_article_comment = @current_user.news_article_comments.new(news_article_comment_params)
 
     if @news_article_comment.save
-      render json: @news_article_comment, status: :created, location: @news_article_comment
+      render json: @news_article_comment, status: :created
     else
       render json: @news_article_comment.errors, status: :unprocessable_entity
     end

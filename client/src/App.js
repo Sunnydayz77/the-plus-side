@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Route, Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
 import './App.css';
-import img from './Header.png'
+import img from './assets/Header.png'
 import ShowArticles from './components/ShowArticles';
 import ArticleItem from './components/Article';
 import ShowComments from './components/ShowComments';
@@ -29,7 +29,8 @@ import {
   updateArticle,
   updatePost,
   destroyArticle,
-  destroyPost
+  destroyPost,
+  destroyArticleComment
 } from './services/api-helper';
 
 
@@ -43,6 +44,7 @@ class App extends Component {
       news_article: null,
       blog_posts: [],
       comments: [],
+      selectedComment: '',
       articleItem: null, //value for a selected article
       postItem: null,  //value for a selected blog post
       formData: { //to add a news article or blog post
@@ -168,11 +170,20 @@ class App extends Component {
 
   // Function to add a comment to an article
   addCommentToArticle = async (articleItem) => {
-    const newComment = this.state.comments.find(comment => comment.content === this.state.selectedComment);
-    const newArticleItem = await addCommentToArticle(articleItem.id, newComment.id);
-    this.setState({
-      articleItem: newArticleItem
-    })
+    const newComment = await addCommentToArticle(articleItem.id, { content: this.state.selectedComment, news_article_id: articleItem.id });
+    const news_article_comments = this.state.articleItem.news_article_comments;
+    news_article_comments.push(newComment);
+    this.setState(prevState => 
+      ({ articleItem: { ...prevState.articleItem, news_article_comments } })
+    )
+  }
+
+  // Function to delete a comment
+  destroyArticleComment = async (news_article_comments) => {
+    await destroyArticleComment(news_article_comments.id);
+    this.setState(prevState => ({
+      news_article_comments: prevState.news_article_comments.filter(singleComment => singleComment.id !== news_article_comments.id)
+    }))
   }
 
   //handle change for the comment drop down form
@@ -305,24 +316,28 @@ class App extends Component {
     return (
       <div className="App">
         <header>
-          <img src={img} className="headerImg" alt="header image"/>
-          <Link to="/"><h1>The +Side</h1></Link>
+          <img src={img} className="headerImg" alt="header image" />
+          <div className="navigation">
           {this.state.currentUser
             ?
-            <div>
-              <h3>Hi {this.state.currentUser && this.state.currentUser.email}&nbsp;<button onClick={this.handleSignOut}>Sign Out</button></h3>
-              <Link to="/news_articles">View All +Articles!</Link>
-              &nbsp;
-              <Link to="/blog_posts">View All +Blogs!</Link>
-              <hr />
-            </div>
+              <>
+                <nav>
+                <Link to="/">+Home</Link>
+                <Link to="/news_articles">+Articles</Link>
+                <Link to="/blog_posts">+Blogs</Link>
+                  
+                Hi {this.state.currentUser && this.state.currentUser.email}
+                <button onClick={this.handleSignOut}>Sign Out</button>
+                </nav>
+              </>
             :
-            <>
-              <button onClick={this.handleSignInButton}> Sign In </button>
-              &nbsp;
-              <button onClick={this.handleSignUpButton}> Sign Up </button>
-            </>
-          }
+              <>
+                <button onClick={this.handleSignInButton}> Sign In </button>
+                &nbsp;&nbsp;&nbsp;
+                <button onClick={this.handleSignUpButton}> Sign Up </button>
+              </>
+            }
+            </div>
         </header>
 
         <Route exact path="/sign_in" render={(props) => {
@@ -370,6 +385,7 @@ class App extends Component {
             selectedComment={this.state.selectedComment}
             handleChange={this.commentForm}
             addCommentToArticle={this.addCommentToArticle}
+            destroyArticleComment={this.destroyArticleComment}
           />
         }} />
 
