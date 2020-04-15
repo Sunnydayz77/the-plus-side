@@ -20,10 +20,17 @@ class ArticleItem extends Component {
             <h3>Article Comments: </h3>
           
             {this.props.articleItem.news_article_comments && this.props.articleItem.news_article_comments.map(comment => (
+              <>
               <div key={comment.id}>
                 <p>{comment.content}</p>
               </div>
+              &nbsp;
+              {/* <button onClick={() => {
+              this.props.destroyArticleComment(comment)
+              }}>Delete Comment</button> */}
+              </>
             ))}
+          
             {this.state.create
               ?
               <div>
@@ -32,12 +39,15 @@ class ArticleItem extends Component {
                   this.props.addCommentToArticle(this.props.articleItem)
                 }}>Submit</button>
               </div>
-              :
+            :
+            <>
+              <br/>
               <button onClick={() => {
                 this.setState({
                   create: true
                 })
-              }}>Add Comment</button>
+            }}>Add Comment</button>
+            </>
             }
           </div>
         }

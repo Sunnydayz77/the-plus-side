@@ -15,7 +15,6 @@ export default function SignUp(props) {
         </label><br/>
 
         <label>Password: 
-        {/* (Must be atleast 6 characters!) */}
           <input name="password" type="password" value={props.formData.password} onChange={props.handleChange} />
         </label><br />
         

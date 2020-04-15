@@ -76,7 +76,6 @@ Marvel: (https://marvelapp.com/aced9gb/screen/67892523) <br>
 
 #### Component Hierarchy
 
-##### Ideal Hierarchy
 ```
 App.js      
 |__ Container/
@@ -98,21 +97,6 @@ App.js
             |__Delete_Comment.jsx    
 ```
 
-##### Actual Hierarchy
-```
-├── App.css
-├── App.js
-└── components
-    ├── SignUp.jsx
-    ├── SignIn.jsx
-    ├── ShowArticles.jsx
-    ├── Article.jsx
-    ├── ShowPosts.jsx
-    ├── Post.jsx
-    ├── ShowComments.jsx
-    └── Footer.jsx
-```
-
 <br>
 
 ### ERD (Entity Relationship Diagram)
@@ -132,12 +116,11 @@ App.js
 | API routes            |    H     |     5 hrs      |    4 hrs    |
 | Frontend Auth & Links |    H     |     3 hrs      |    6 hrs    |
 | Article & Post CRUD   |    H     |     9 hrs      |    16 hrs   |
-| Header(styling)       |    M     |     3 hrs      |    TBD      |
+| Header(styling)       |    M     |     3 hrs      |    4 hrs    |
 | Footer                |    L     |     2 hrs      |    1 hr     |
 | Comments CRUD         |    M     |     4 hrs      |    4 hrs    |
-| Overall styling       |    H     |     12 hrs     |    TBD      |
-| 404 Page              |    L     |     1 hr       |    TBD      |
-| Final Readme file     |    H     |     2 hrs      |    TBD      |
+| Overall styling       |    H     |     12 hrs     |    10 hrs   |
+| Final Readme file     |    H     |     2 hrs      |    1 hr     |
 | TOTAL                 |          |     73 hrs     |    TBD      |   
 
 <br>
@@ -204,6 +187,8 @@ App.js
 |                      | PATCH    | /blog_posts/:id(.:format)                                          |  blog_posts#update            |
 |                      | PUT      | /blog_posts/:id(.:format)                                          |  blog_posts#update            |
 |                      | DELETE   | /blog_posts/:id(.:format)                                          |  blog_posts#destroy           |
+| (custom route)       | POST	    | /users/:user_id/news_articles(.:format)	                           |  news_articles#create_by_user |
+| (custom route)       | POST	    | /users/:user_id/blog_posts(.:format)	                             |  blog_posts#create_by_user    |
 
 <br>
 
@@ -253,13 +238,18 @@ Heroku(Back-end): (https://the-plus-side.herokuapp.com/) <br>
 |  Function  | Description                                |
 | :--------: | :-----------------------------------------:|
 | Footer     | _Footer function with links._              |
-| 404 Page   | _No match page function._                  |
 
 ### Code Showcase
 
 ```
-function reverse(string) {
-	// here is the code to reverse a string of text
+// Function to add a comment to an article
+addCommentToArticle = async (articleItem) => {
+  const newComment = await addCommentToArticle(articleItem.id, { content: this.state.selectedComment, news_article_id: articleItem.id });
+  const news_article_comments = this.state.articleItem.news_article_comments;
+  news_article_comments.push(newComment);
+  this.setState(prevState => 
+    ({ articleItem: { ...prevState.articleItem, news_article_comments } })
+    )
 }
 ```
 

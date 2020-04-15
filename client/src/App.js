@@ -29,7 +29,8 @@ import {
   updateArticle,
   updatePost,
   destroyArticle,
-  destroyPost
+  destroyPost,
+  destroyArticleComment
 } from './services/api-helper';
 
 
@@ -175,6 +176,14 @@ class App extends Component {
     this.setState(prevState => 
       ({ articleItem: { ...prevState.articleItem, news_article_comments } })
     )
+  }
+
+  // Function to delete a comment
+  destroyArticleComment = async (news_article_comments) => {
+    await destroyArticleComment(news_article_comments.id);
+    this.setState(prevState => ({
+      news_article_comments: prevState.news_article_comments.filter(singleComment => singleComment.id !== news_article_comments.id)
+    }))
   }
 
   //handle change for the comment drop down form
@@ -376,6 +385,7 @@ class App extends Component {
             selectedComment={this.state.selectedComment}
             handleChange={this.commentForm}
             addCommentToArticle={this.addCommentToArticle}
+            destroyArticleComment={this.destroyArticleComment}
           />
         }} />
 

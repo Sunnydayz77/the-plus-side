@@ -107,8 +107,8 @@ export const updateArticleComment = async (articleCommentData, id) => {
   return resp.data;
 }
 
-export const destroyArticleComment = async (id) => {
-  const resp = await api.delete(`/news_article_comments/${id}`);
+export const destroyArticleComment = async (id, commentId) => {
+  const resp = await api.delete(`/news_articles/${id}/news_article_comments/${commentId}`);
   return resp.data;
 }
 
