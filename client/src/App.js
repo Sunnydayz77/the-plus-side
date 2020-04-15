@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Route, Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
 import './App.css';
-import img from './Header.png'
+import img from './assets/Header.png'
 import ShowArticles from './components/ShowArticles';
 import ArticleItem from './components/Article';
 import ShowComments from './components/ShowComments';

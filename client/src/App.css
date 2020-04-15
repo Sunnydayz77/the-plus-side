@@ -30,7 +30,13 @@ body {
   max-width: 500px;
 }
 
-h2 {
+.signUp {
+  /* max-width: 500px; */
+  align-items: center;
+  padding: 10px 0px;
+}
+
+h1, h2 {
   padding: 20px 0px;
 }
 
