@@ -6,8 +6,9 @@ export default function SignUp(props) {
   return (
     <div>
       <h2>Sign Up</h2>
-      <hr />
 
+      <br />
+      
       <form onSubmit={props.handleSignUp} >
         <label>Email:
           <input name="email" type="text" value={props.formData.email} onChange={props.handleChange} />
@@ -20,6 +21,12 @@ export default function SignUp(props) {
         
         <button>Sign Up</button>
       </form>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
     </div>
   );
 }

@@ -8,7 +8,7 @@ const SignIn = (props) => {
   return (
     <div>
       <h2>Sign In</h2>
-      <hr />
+      <br/>
       <form onSubmit={(e) => {
         e.preventDefault();
         props.handleSignIn();
@@ -26,6 +26,12 @@ const SignIn = (props) => {
         
         <p>Don't have an account? Sign up here!&nbsp;<Link to="/sign_up">Sign Up</Link></p>
       </form>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
     </div>
   );
 }

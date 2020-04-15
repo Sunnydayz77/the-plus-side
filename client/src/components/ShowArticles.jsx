@@ -88,8 +88,8 @@ class ShowArticles extends Component {
           </div>
         ))}
 
-        <hr />
-
+        <br />
+        
         {this.state.create 
           ?
           <div>
@@ -138,6 +138,9 @@ class ShowArticles extends Component {
             this.setState({ create: true })
           }}>Add Article</button>
         }
+        <br />
+        <br />
+        <br />
       </div>
     )
   }

@@ -307,24 +307,28 @@ class App extends Component {
     return (
       <div className="App">
         <header>
-          <img src={img} className="headerImg" alt="header image"/>
-          <Link to="/"><h1>The +Side</h1></Link>
+          <img src={img} className="headerImg" alt="header image" />
+          <div className="navigation">
           {this.state.currentUser
             ?
-            <div>
-              <h3>Hi {this.state.currentUser && this.state.currentUser.email}&nbsp;<button onClick={this.handleSignOut}>Sign Out</button></h3>
-              <Link to="/news_articles">View All +Articles!</Link>
-              &nbsp;
-              <Link to="/blog_posts">View All +Blogs!</Link>
-              <hr />
-            </div>
+              <>
+                <nav>
+                <Link to="/">+Home</Link>
+                <Link to="/news_articles">+Articles</Link>
+                <Link to="/blog_posts">+Blogs</Link>
+                  
+                Hi {this.state.currentUser && this.state.currentUser.email}
+                <button onClick={this.handleSignOut}>Sign Out</button>
+                </nav>
+              </>
             :
-            <>
-              <button onClick={this.handleSignInButton}> Sign In </button>
-              &nbsp;
-              <button onClick={this.handleSignUpButton}> Sign Up </button>
-            </>
-          }
+              <>
+                <button onClick={this.handleSignInButton}> Sign In </button>
+                &nbsp;&nbsp;&nbsp;
+                <button onClick={this.handleSignUpButton}> Sign Up </button>
+              </>
+            }
+            </div>
         </header>
 
         <Route exact path="/sign_in" render={(props) => {

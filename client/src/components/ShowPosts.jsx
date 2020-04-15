@@ -63,24 +63,24 @@ class ShowPosts extends Component {
                 <Link to={`/news_posts/${post.id}`} onClick={() => {
                   this.props.getPost(post.id)
                 }}>{post.title}</Link>
-                
+                &nbsp;
                 <button onClick={() => {
                   this.props.setPostForm(post);
                   this.setState({
                     edit: post.id
                   })
-                }}>Edit</button>
-
+                }}>Edit Post</button>
+                &nbsp;
                 <button onClick={() => {
                   this.props.deletePost(post)
-                }}>Delete</button>
+                }}>Delete Post</button>
 
               </div>
             }
           </div>
         ))}
 
-        <hr />
+        <br/>
 
         {this.state.create 
           ?
@@ -120,8 +120,11 @@ class ShowPosts extends Component {
           :
           <button onClick={() => {
             this.setState({ create: true })
-          }}>Add</button>
+          }}>Add Post</button>
         }
+        <br />
+        <br />
+        <br />
       </div>
     )
   }
