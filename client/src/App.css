@@ -26,7 +26,6 @@ body {
 }
 
 .signUp {
-  /* max-width: 500px; */
   align-items: center;
   padding: 10px 0px;
 }
@@ -40,7 +39,6 @@ p {
 }
 
 button {
-  /* margin: 10px 0px; */
   margin: 30px 0 30px 0;
 }
 
@@ -79,17 +77,6 @@ a:link{
   text-decoration: none !important;
   color: #6781BB;
 }
-
-/* a:link {
-  margin: 2%;
-} */
-
-/* a:link {
-  /* text-decoration: none; */
-  /* color: cornsilk; */
-  /* font-size: 20px;
-} 
-*/
 
 a:-webkit-any-link { color: #6781BB }
 
