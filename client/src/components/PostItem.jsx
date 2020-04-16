@@ -10,7 +10,7 @@ class PostItem extends Component {
 
   render() {
     return (
-      <div>
+      <div className="postItem">
         {this.props.postItem &&
           <div>
             <h1>{this.props.postItem.title}</h1>

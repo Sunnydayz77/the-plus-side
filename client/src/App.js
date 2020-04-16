@@ -4,9 +4,9 @@ import { withRouter } from 'react-router';
 import './App.css';
 import img from './assets/Header.png'
 import ShowArticles from './components/ShowArticles';
-import ArticleItem from './components/Article';
+import ArticleItem from './components/ArticleItem';
 import ShowComments from './components/ShowComments';
-import PostItem from './components/Post';
+import PostItem from './components/PostItem';
 import ShowPosts from './components/ShowPosts';
 import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
@@ -21,12 +21,14 @@ import {
   readOneArticle,
   readOnePost,
   readAllArticleComments,
+  readOneArticleComment,
   readAllPostComments,
   createArticle,
   createPost,
   addCommentToArticle,
   addCommentToPost,
   updateArticle,
+  updateArticleComment,
   updatePost,
   destroyArticle,
   destroyPost,
@@ -43,9 +45,11 @@ class App extends Component {
       news_articles: [],
       news_article: null,
       blog_posts: [],
+      // comment: null,
       comments: [],
       selectedComment: '',
       articleItem: null, //value for a selected article
+      commentItem: null,
       postItem: null,  //value for a selected blog post
       formData: { //to add a news article or blog post
         title: '',
@@ -101,7 +105,7 @@ class App extends Component {
   addArticle = async (user_id, articleData) => { 
     const newArticle = await createArticle(user_id, articleData)
     this.setState(prevState => ({
-      news_articles: [newArticle, ...prevState.news_articles]  
+      news_articles: [...prevState.news_articles, newArticle]  
     }))
     this.props.history.push('/news_articles')
   }
@@ -163,9 +167,15 @@ class App extends Component {
 // ============= News Article Comments ================
 
   // Function to get all article comments
-  getComments = async () => {
-    const comments = await readAllArticleComments();
+  getComments = async (id) => {
+    const comments = await readAllArticleComments(id);
     this.setState({ comments })
+  }
+
+   // Function to get a single article from the API
+  getArticleComment = async (id, commentId) => {
+    const commentItem = await readOneArticleComment(id, commentId);
+    this.setState({ commentItem });
   }
 
   // Function to add a comment to an article
@@ -178,7 +188,17 @@ class App extends Component {
     )
   }
 
-  // Function to delete a comment
+  // Function to update an existing article comment in the API
+  updateArticleComment = async (commentItem, comment) => {
+    const updatedArticleComment = await updateArticleComment(this.state.commentForm, comment.id);
+    this.setState(prevState => ({
+      news_article_comments: prevState.news_article_comments.map(singleComment => {
+        return singleComment.id === commentItem.id ? updatedArticleComment : singleComment
+      })
+    }))
+  }
+
+  // Function to delete an article comment
   destroyArticleComment = async (news_article_comments) => {
     await destroyArticleComment(news_article_comments.id);
     this.setState(prevState => ({
@@ -190,6 +210,16 @@ class App extends Component {
   commentForm = (e) => {
     this.setState({
       selectedComment: e.target.value
+    })
+  }
+
+  // Function to set the form data for the update comment form
+  setCommentForm = (comment) => {
+    this.setState({
+      formData: {
+        // image_url: comment.image_url,
+        content: comment.content
+      }
     })
   }
 
@@ -212,7 +242,7 @@ class App extends Component {
   addPost = async (user_id, postData) => { 
     const newPost = await createPost(user_id, postData)
     this.setState(prevState => ({
-      blog_posts: [newPost, ...prevState.blog_posts]  
+      blog_posts: [...prevState.blog_posts, newPost]  
     }))
     this.props.history.push('/blog_posts')
   }
@@ -378,16 +408,23 @@ class App extends Component {
           />
         }} />
 
-        <Route exact path="/news_articles/:id" render={(props) => {
-          return <ArticleItem
-            articleItem={this.state.articleItem}
-            comments={this.state.comments}
-            selectedComment={this.state.selectedComment}
-            handleChange={this.commentForm}
-            addCommentToArticle={this.addCommentToArticle}
-            destroyArticleComment={this.destroyArticleComment}
-          />
-        }} />
+        {this.state.currentUser &&
+          <Route exact path="/news_articles/:id" render={(props) => {
+            return <ArticleItem
+              articleItem={this.state.articleItem}
+              comments={this.state.comments}
+              formData={this.state.formData}
+              getArticleComment={this.getArticleComment}
+              selectedComment={this.state.selectedComment}
+              handleChange={this.commentForm}
+              setCommentForm={this.setCommentForm}
+              addCommentToArticle={this.addCommentToArticle}
+              updateArticleComment={this.updateArticleComment}
+              destroyArticleComment={this.destroyArticleComment}
+              id={this.state.currentUser.id}
+            />
+          }} />
+        }
 
         {this.state.currentUser &&
           <Route exact path='/blog_posts' render={(props) => {

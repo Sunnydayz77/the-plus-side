@@ -2,7 +2,6 @@
   text-align: center;
 }
 
-
 body {
   background-color: #202020;
   color: white;
@@ -25,11 +24,20 @@ body {
   max-width: 500px;
 }
 
-.signUp {
-  /* max-width: 500px; */
+div.signUp {
+  max-width: 500px;
   align-items: center;
   padding: 10px 0px;
+  margin: auto;
 }
+
+div.signIn {
+  max-width: 500px;
+  align-items: center;
+  padding: 10px 0px;
+  margin: auto;
+}
+
 
 h1, h2 {
   padding: 20px 0px;
@@ -40,8 +48,35 @@ p {
 }
 
 button {
-  /* margin: 10px 0px; */
   margin: 30px 0 30px 0;
+}
+
+.articles {
+  max-width: 900px;
+  align-items: center;
+  padding: 10px 0px;
+  margin: auto;
+}
+
+.articleItem {
+  max-width: 900px;
+  align-items: center;
+  padding: 10px 0px;
+  margin: auto;
+}
+
+.posts {
+  max-width: 900px;
+  align-items: center;
+  padding: 10px 0px;
+  margin: auto;
+}
+
+.postItem {
+  max-width: 900px;
+  align-items: center;
+  padding: 10px 0px;
+  margin: auto;
 }
 
 
@@ -68,7 +103,6 @@ nav {
 
 a:active {
   text-decoration: none;
-  /* box-shadow: none; */
 }
 
 a:visited {
@@ -79,17 +113,6 @@ a:link{
   text-decoration: none !important;
   color: #6781BB;
 }
-
-/* a:link {
-  margin: 2%;
-} */
-
-/* a:link {
-  /* text-decoration: none; */
-  /* color: cornsilk; */
-  /* font-size: 20px;
-} 
-*/
 
 a:-webkit-any-link { color: #6781BB }
 

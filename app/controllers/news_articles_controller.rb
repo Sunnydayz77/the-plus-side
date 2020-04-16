@@ -14,19 +14,7 @@ class NewsArticlesController < ApplicationController
     render json: @news_article, include: :news_article_comments
   end
 
-  # POST /news_articles
-  # def create
-  #   @news_article = NewsArticle.new(news_article_params)
-
-  #   if @news_article.save
-  #     render json: @news_article, status: :created
-  #     # location: @news_article
-  #   else
-  #     render json: @news_article.errors, status: :unprocessable_entity
-  #   end
-  # end
-
-  # post '/users/:user_id/news_articles'
+  # POST '/users/:user_id/news_articles'
   def create_by_user
     user = User.find(params[:user_id])
     news_article = user.news_articles.new(news_article_params)
@@ -70,5 +58,3 @@ class NewsArticlesController < ApplicationController
     end
 end
 
-
-# params: { news_article: { article_url: @news_article.article_url, content: @news_article.content, image_url: @news_article.image_url, title: @news_article.title, user_id: @news_article.user_id } }

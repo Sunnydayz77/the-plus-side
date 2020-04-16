@@ -6,9 +6,9 @@ import { Link } from 'react-router-dom';
 const SignIn = (props) => {
 
   return (
-    <div>
+    <div className="signIn">
       <h2>Sign In</h2>
-      <h3 className="signIn">Sign in to access your positivity blog and to see good news articles populating the internet!</h3>
+      <h3>Sign in to access your positivity blog and to see good news articles populating the internet!</h3>
       <br/>
       <br/>
       <form onSubmit={(e) => {
@@ -16,12 +16,12 @@ const SignIn = (props) => {
         props.handleSignIn();
       }} >
         <label>Email:
-        <input name="email" type="text" value={props.formData.email} onChange={props.handleChange} />
+          <input name="email" type="text" value={props.formData.email} onChange={props.handleChange} />
         </label><br/>
 
         <label>Password:
-        {/* (Must be atleast 6 characters!) */}
-        <input name="password" type="password" value={props.formData.password} onChange={props.handleChange} />
+          {/* (Must be atleast 6 characters!) */}
+          <input name="password" type="password" value={props.formData.password} onChange={props.handleChange} />
         </label><br/>
 
         <button>Sign In</button> <br />
