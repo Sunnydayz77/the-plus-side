@@ -43677,6 +43677,48 @@ Processing by BlogPostCommentsController#index as HTML
 Completed 200 OK in 17ms (Views: 2.0ms | ActiveRecord: 14.5ms | Allocations: 2541)
 
 
+<<<<<<< HEAD
+Started GET "/blog_posts/undefined" for ::1 at 2020-04-14 09:37:08 -0400
+Started GET "/news_articles" for ::1 at 2020-04-14 09:37:08 -0400
+Started GET "/blog_posts" for ::1 at 2020-04-14 09:37:08 -0400
+Started GET "/blog_posts/undefined/blog_post_comments" for ::1 at 2020-04-14 09:37:08 -0400
+Started GET "/news_articles/undefined" for ::1 at 2020-04-14 09:37:08 -0400
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (10.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (8.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by BlogPostCommentsController#index as HTML
+Processing by BlogPostsController#index as HTML
+  Parameters: {"blog_post_id"=>"undefined"}
+Processing by BlogPostsController#show as HTML
+Processing by NewsArticlesController#index as HTML
+Processing by NewsArticlesController#show as HTML
+  Parameters: {"id"=>"undefined"}
+  [1m[36mBlogPostComment Load (6.4ms)[0m  [1m[34mSELECT "blog_post_comments".* FROM "blog_post_comments"[0m
+  ↳ app/controllers/blog_post_comments_controller.rb:9:in `index'
+  [1m[36mNewsArticle Load (4.1ms)[0m  [1m[34mSELECT "news_articles".* FROM "news_articles"[0m
+  ↳ app/controllers/news_articles_controller.rb:9:in `index'
+  [1m[36mBlogPost Load (12.9ms)[0m  [1m[34mSELECT "blog_posts".* FROM "blog_posts"[0m
+  Parameters: {"id"=>"undefined"}
+  ↳ app/controllers/blog_posts_controller.rb:9:in `index'
+Completed 200 OK in 23ms (Views: 5.9ms | ActiveRecord: 13.0ms | Allocations: 4985)
+
+
+Completed 200 OK in 42ms (Views: 22.3ms | ActiveRecord: 14.7ms | Allocations: 10509)
+
+
+Completed 200 OK in 76ms (Views: 30.1ms | ActiveRecord: 38.6ms | Allocations: 18668)
+
+
+  [1m[36mNewsArticle Load (1.0ms)[0m  [1m[34mSELECT "news_articles".* FROM "news_articles" WHERE "news_articles"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/news_articles_controller.rb:64:in `set_news_article'
+  [1m[36mBlogPost Load (1.3ms)[0m  [1m[34mSELECT "blog_posts".* FROM "blog_posts" WHERE "blog_posts"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+Completed 404 Not Found in 60ms (ActiveRecord: 34.0ms | Allocations: 14986)
+
+
+  ↳ app/controllers/blog_posts_controller.rb:63:in `set_blog_post'
+=======
 Started GET "/blog_posts" for ::1 at 2020-04-14 09:41:24 -0400
 Started GET "/blog_posts/undefined" for ::1 at 2020-04-14 09:41:24 -0400
 Started GET "/news_articles" for ::1 at 2020-04-14 09:41:24 -0400
@@ -43976,10 +44018,14 @@ Completed 404 Not Found in 11ms (ActiveRecord: 1.3ms | Allocations: 6401)
 
 
   ↳ app/controllers/application_controller.rb:20:in `authorize_request'
+>>>>>>> development2
   
 ActiveRecord::RecordNotFound (Couldn't find NewsArticle with 'id'=undefined):
   
 app/controllers/news_articles_controller.rb:64:in `set_news_article'
+<<<<<<< HEAD
+Completed 404 Not Found in 52ms (ActiveRecord: 12.8ms | Allocations: 13836)
+=======
 Completed 200 OK in 9ms (Views: 0.3ms | ActiveRecord: 1.4ms | Allocations: 4405)
 
 
@@ -44028,12 +44074,20 @@ Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 1.1ms | Allocations: 2774)
   [1m[36mBlogPost Load (0.8ms)[0m  [1m[34mSELECT "blog_posts".* FROM "blog_posts" WHERE "blog_posts"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
   ↳ app/controllers/blog_posts_controller.rb:63:in `set_blog_post'
 Completed 404 Not Found in 6ms (ActiveRecord: 0.8ms | Allocations: 1788)
+>>>>>>> development2
 
 
   
 ActiveRecord::RecordNotFound (Couldn't find BlogPost with 'id'=undefined):
   
 app/controllers/blog_posts_controller.rb:63:in `set_blog_post'
+<<<<<<< HEAD
+Started GET "/auth/verify" for ::1 at 2020-04-14 09:37:08 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authorize_request'
+Completed 200 OK in 17ms (Views: 0.3ms | ActiveRecord: 4.8ms | Allocations: 15965)
+=======
   [1m[36mBlogPost Load (0.9ms)[0m  [1m[34mSELECT "blog_posts".* FROM "blog_posts"[0m
   
 ActiveRecord::RecordNotFound (Couldn't find NewsArticle with 'id'=undefined):
@@ -59525,6 +59579,7 @@ Processing by Rails::InfoController#routes as HTML
   Rendered /Users/jenniferpiwonski/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/actionpack-6.0.2.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (Duration: 1.4ms | Allocations: 690)
   Rendered /Users/jenniferpiwonski/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/railties-6.0.2.2/lib/rails/templates/rails/info/routes.html.erb within layouts/application (Duration: 24.8ms | Allocations: 10810)
 Completed 200 OK in 30ms (Views: 28.1ms | ActiveRecord: 0.0ms | Allocations: 11940)
+>>>>>>> development2
 
 
 Started GET "/auth/verify" for ::1 at 2020-04-15 09:11:12 -0400
@@ -63545,5 +63600,85 @@ Processing by NewsArticlesController#show as HTML
   [1m[36mNewsArticleComment Load (0.3ms)[0m  [1m[34mSELECT "news_article_comments".* FROM "news_article_comments" WHERE "news_article_comments"."news_article_id" = $1[0m  [["news_article_id", 3]]
   ↳ app/controllers/news_articles_controller.rb:14:in `show'
 Completed 200 OK in 6ms (Views: 3.5ms | ActiveRecord: 0.6ms | Allocations: 2534)
+
+
+Started GET "/blog_posts" for ::1 at 2020-04-16 20:21:11 -0400
+Started GET "/auth/verify" for ::1 at 2020-04-16 20:21:11 -0400
+Started GET "/news_articles" for ::1 at 2020-04-16 20:21:11 -0400
+Started GET "/news_articles/undefined" for ::1 at 2020-04-16 20:21:11 -0400
+Started GET "/blog_posts/undefined" for ::1 at 2020-04-16 20:21:11 -0400
+  [1m[35m (4.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (11.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (12.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (12.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (4.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AuthenticationController#verify as HTML
+  
+SyntaxError (/Users/jenniferpiwonski/Mandalorians/Unit_4/Week_4/the-plus-side/app/controllers/news_articles_controller.rb:17: syntax error, unexpected <<, expecting end
+<<<<<<< HEAD
+^~):
+  
+app/controllers/news_articles_controller.rb:17: syntax error, unexpected <<, expecting end
+app/controllers/news_articles_controller.rb:17: syntax error, unexpected <<, expecting end
+  
+SyntaxError (/Users/jenniferpiwonski/Mandalorians/Unit_4/Week_4/the-plus-side/app/controllers/blog_posts_controller.rb:17: syntax error, unexpected <<, expecting end
+<<<<<<< HEAD
+^~):
+  
+app/controllers/blog_posts_controller.rb:17: syntax error, unexpected <<, expecting end
+app/controllers/blog_posts_controller.rb:17: syntax error, unexpected <<, expecting end
+  
+SyntaxError (/Users/jenniferpiwonski/Mandalorians/Unit_4/Week_4/the-plus-side/app/controllers/blog_posts_controller.rb:17: syntax error, unexpected <<, expecting end
+<<<<<<< HEAD
+^~):
+  
+app/controllers/blog_posts_controller.rb:17: syntax error, unexpected <<, expecting end
+app/controllers/blog_posts_controller.rb:17: syntax error, unexpected <<, expecting end
+  
+SyntaxError (/Users/jenniferpiwonski/Mandalorians/Unit_4/Week_4/the-plus-side/app/controllers/news_articles_controller.rb:17: syntax error, unexpected <<, expecting end
+<<<<<<< HEAD
+^~):
+  
+app/controllers/news_articles_controller.rb:17: syntax error, unexpected <<, expecting end
+app/controllers/news_articles_controller.rb:17: syntax error, unexpected <<, expecting end
+  [1m[36mUser Load (87.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authorize_request'
+Completed 200 OK in 419ms (Views: 0.3ms | ActiveRecord: 377.4ms | Allocations: 349351)
+
+
+Started GET "/blog_posts/undefined/blog_post_comments" for ::1 at 2020-04-16 20:21:12 -0400
+Processing by BlogPostCommentsController#index as HTML
+  Parameters: {"blog_post_id"=>"undefined"}
+  [1m[36mBlogPostComment Load (1.7ms)[0m  [1m[34mSELECT "blog_post_comments".* FROM "blog_post_comments"[0m
+  ↳ app/controllers/blog_post_comments_controller.rb:9:in `index'
+Completed 200 OK in 10ms (Views: 2.1ms | ActiveRecord: 3.8ms | Allocations: 2349)
+
+
+Started POST "/auth/login" for ::1 at 2020-04-16 20:22:01 -0400
+Processing by AuthenticationController#login as HTML
+  Parameters: {"auth"=>{"image_url"=>"", "username"=>"", "email"=>"jap2@gmail.com", "password"=>"[FILTERED]", "location"=>"", "description"=>""}, "authentication"=>{"auth"=>{"image_url"=>"", "username"=>"", "email"=>"jap2@gmail.com", "password"=>"[FILTERED]", "location"=>"", "description"=>""}}}
+[31mUnpermitted parameters: :image_url, :username, :location, :description[0m
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jap2@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:6:in `login'
+[31mUnpermitted parameters: :image_url, :username, :location, :description[0m
+Completed 200 OK in 244ms (Views: 0.3ms | ActiveRecord: 1.6ms | Allocations: 1302)
+
+
+Started POST "/users/19/news_articles" for ::1 at 2020-04-16 20:22:33 -0400
+  
+SyntaxError (/Users/jenniferpiwonski/Mandalorians/Unit_4/Week_4/the-plus-side/app/controllers/news_articles_controller.rb:17: syntax error, unexpected <<, expecting end
+<<<<<<< HEAD
+^~):
+  
+app/controllers/news_articles_controller.rb:17: syntax error, unexpected <<, expecting end
+app/controllers/news_articles_controller.rb:17: syntax error, unexpected <<, expecting end
+Started POST "/auth/login" for ::1 at 2020-04-16 20:28:14 -0400
+Processing by AuthenticationController#login as HTML
+  Parameters: {"auth"=>{"image_url"=>"", "username"=>"", "email"=>"jap@gmail.com", "password"=>"[FILTERED]", "location"=>"", "description"=>""}, "authentication"=>{"auth"=>{"image_url"=>"", "username"=>"", "email"=>"jap@gmail.com", "password"=>"[FILTERED]", "location"=>"", "description"=>""}}}
+[31mUnpermitted parameters: :image_url, :username, :location, :description[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jap@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:6:in `login'
+[31mUnpermitted parameters: :image_url, :username, :location, :description[0m
+Completed 200 OK in 265ms (Views: 0.2ms | ActiveRecord: 0.6ms | Allocations: 9933)
 
 
