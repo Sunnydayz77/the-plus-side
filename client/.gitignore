@@ -24,3 +24,8 @@ yarn-error.log*
 
 #log files
 log/*.*
+
+
+#cache files
+tmp/cache/*.*
+/tmp/
