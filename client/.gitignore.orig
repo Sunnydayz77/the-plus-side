@@ -24,7 +24,6 @@ yarn-error.log*
 
 #log files
 log/*.*
-<<<<<<< HEAD
-=======
 
->>>>>>> 73bf8d0268c00c4a544154cdd23948b668c158c0
+#cache files
+tmp/cache/*.*
