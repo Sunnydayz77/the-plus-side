@@ -47819,7 +47819,7 @@ SyntaxError (/Users/jenniferpiwonski/Mandalorians/Unit_4/Week_4/the-plus-side/ap
 ^~):
   
 app/controllers/news_articles_controller.rb:17: syntax error, unexpected <<, expecting end
-app/controllers/news_articles_controller.rb:17: syntax error, unexpected <<, expecting end
+app/controllers/news_articles_controller.rb:17: syntax error, unexpected , expecting end
 Started POST "/auth/login" for ::1 at 2020-04-16 20:28:14 -0400
 Processing by AuthenticationController#login as HTML
   Parameters: {"auth"=>{"image_url"=>"", "username"=>"", "email"=>"jap@gmail.com", "password"=>"[FILTERED]", "location"=>"", "description"=>""}, "authentication"=>{"auth"=>{"image_url"=>"", "username"=>"", "email"=>"jap@gmail.com", "password"=>"[FILTERED]", "location"=>"", "description"=>""}}}
