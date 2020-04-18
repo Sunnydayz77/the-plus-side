@@ -28,3 +28,4 @@ log/*.*
 
 #cache files
 tmp/cache/*.*
+/tmp/
