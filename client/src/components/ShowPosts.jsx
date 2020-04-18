@@ -12,7 +12,7 @@ class ShowPosts extends Component {
   }
   render() {
     return (
-      <div>
+      <div className="posts">
         {this.props.blog_posts.map(post => (
           <div key={post.id}>
             <h1>{post.title}</h1>
@@ -63,14 +63,18 @@ class ShowPosts extends Component {
                 <Link to={`/news_posts/${post.id}`} onClick={() => {
                   this.props.getPost(post.id)
                 }}>{post.title}</Link>
+
                 &nbsp;
+
                 <button onClick={() => {
                   this.props.setPostForm(post);
                   this.setState({
                     edit: post.id
                   })
                 }}>Edit Post</button>
+
                 &nbsp;
+
                 <button onClick={() => {
                   this.props.deletePost(post)
                 }}>Delete Post</button>

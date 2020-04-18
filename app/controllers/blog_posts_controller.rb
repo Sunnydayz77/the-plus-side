@@ -14,7 +14,7 @@ class BlogPostsController < ApplicationController
     render json: @blog_post, include: :blog_post_comments
   end
 
-  # post '/users/:user_id/blog_posts'
+  # POST '/users/:user_id/blog_posts'
   def create_by_user
     user = User.find(params[:user_id])
     blog_post = user.blog_posts.new(blog_post_params)

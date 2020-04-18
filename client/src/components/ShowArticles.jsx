@@ -12,7 +12,7 @@ class ShowArticles extends Component {
   }
   render() {
     return (
-      <div>
+      <div className="articles">
         {this.props.news_articles.map(article => (
           <div key={article.id}>
             <h1>{article.title}</h1>
@@ -71,14 +71,18 @@ class ShowArticles extends Component {
                 <Link to={`/news_articles/${article.id}`} onClick={() => {
                   this.props.getArticle(article.id)
                 }}>{article.title}</Link>
+
                 &nbsp;
+
                 <button onClick={() => {
                   this.props.setArticleForm(article);
                   this.setState({
                     edit: article.id
                   })
                 }}>Edit Article</button>
+
                 &nbsp;
+
                 <button onClick={() => {
                   this.props.deleteArticle(article)
                 }}>Delete Article</button>

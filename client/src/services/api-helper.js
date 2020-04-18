@@ -82,28 +82,28 @@ export const destroyArticle = async (id) => {
 
 // ============= News Article Comments =================
 
-export const readAllArticleComments = async () => {
-  const resp = await api.get(`/news_article_comments`);
+export const readAllArticleComments = async (id) => {
+  const resp = await api.get(`/news_articles/${id}/news_article_comments`);
   return resp.data;
 }
 
-export const readOneArticleComment = async (id) => {
-  const resp = await api.get(`/news_article_comment/${id}`);
+export const readOneArticleComment = async (id, commentId) => {
+  const resp = await api.get(`/news_articles/${id}/news_article_comment/${commentId}`);
   return resp.data;
 }
 
-export const createArticleComment = async (articleCommentData) => {
-  const resp = await api.post(`/news_article_comments`, { news_article_comment: articleCommentData });
-  return resp.data;
-}
+// export const createArticleComment = async (articleCommentData) => {
+//   const resp = await api.post(`/news_article_comments`, { news_article_comment: articleCommentData });
+//   return resp.data;
+// }
 
 export const addCommentToArticle = async (id, comment) => {
   const resp = await api.post(`/news_articles/${id}/news_article_comments`,  { news_article_comment: comment })
   return resp.data
 }
 
-export const updateArticleComment = async (articleCommentData, id) => {
-  const resp = await api.put(`/news_article_comments/${id}`, { news_article_comment: articleCommentData });
+export const updateArticleComment = async (id, commentId, articleCommentData) => {
+  const resp = await api.put(`/news_articles/${id}/news_article_comments/${commentId}`, { news_article_comment: articleCommentData });
   return resp.data;
 }
 
